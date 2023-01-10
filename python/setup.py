@@ -35,7 +35,7 @@ setup(
     description="Splitit.OnBoarding.Api.V2",
     author="Konfig",
     author_email="engineering@konfigthis.com",
-    url="https:////",
+    url="https://github.com/konfig-dev/splitit-onboarding-sdks/tree/main/python",
     keywords=["Konfig", "Splitit.OnBoarding.Api.V2"],
     python_requires=">=3.6",
     install_requires=REQUIRES,

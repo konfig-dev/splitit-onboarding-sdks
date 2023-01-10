@@ -17,7 +17,7 @@
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Splitit.Onboarding.Net.xml</DocumentationFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <RepositoryUrl>https:////</RepositoryUrl>
+    <RepositoryUrl>https://github.com/konfig-dev/splitit-onboarding-sdks/tree/main/csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
   </PropertyGroup>

@@ -17,9 +17,9 @@ Python >=3.6
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install git+https:////.git
+pip install git+https://github.com/konfig-dev/splitit-onboarding-sdks/tree/main/python.git
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https:////.git`)
+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/konfig-dev/splitit-onboarding-sdks/tree/main/python.git`)
 
 Then import the package:
 ```python
