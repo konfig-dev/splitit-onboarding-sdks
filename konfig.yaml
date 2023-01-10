@@ -6,7 +6,8 @@ requiredEnvironmentVariables:
 generators:
   java:
     version: 1.0.0
-    groupId: com.splitit
+    groupId: com.konfigthis
+    packageName: splitit
     artifactId: splitit-onboarding-java-sdk
     outputDirectory: java
     git:
