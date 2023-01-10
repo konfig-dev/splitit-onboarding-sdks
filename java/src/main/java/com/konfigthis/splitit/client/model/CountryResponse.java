@@ -294,7 +294,7 @@ public class CountryResponse {
       if (!jsonObj.get("isoA3").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `isoA3` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isoA3").toString()));
       }
-      if (!jsonObj.get("isoNumber").isJsonPrimitive()) {
+      if (!jsonObj.get("isoNumber").isJsonNull() && !jsonObj.get("isoNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `isoNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isoNumber").toString()));
       }
   }
