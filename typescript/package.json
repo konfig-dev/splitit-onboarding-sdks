@@ -5,7 +5,7 @@
   "author": "Konfig",
   "repository": {
     "type": "git",
-    "url": "https:////"
+    "url": "https://github.com/konfig-dev/splitit-onboarding-sdks/tree/main/typescript"
   },
   "keywords": [
     "axios",
@@ -20,7 +20,7 @@
     "build": "npm run clean && tsc",
     "clean": "rm -rf dist/",
     "prepare": "npm run build",
-    "test": "jest -c tsconfig.test.json"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.26.1"
