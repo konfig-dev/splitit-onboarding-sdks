@@ -1,0 +1,36 @@
+{
+  "name": "splitit-onboarding-typescript-sdk",
+  "version": "1.0.0",
+  "description": "Client for Splitit.OnBoarding.Api.V2",
+  "author": "Konfig",
+  "repository": {
+    "type": "git",
+    "url": "https:////"
+  },
+  "keywords": [
+    "axios",
+    "typescript",
+    "konfig",
+    "splitit-onboarding-typescript-sdk"
+  ],
+  "license": "Unlicense",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf dist/",
+    "prepare": "npm run build",
+    "test": "jest -c tsconfig.test.json"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/node": "^12.11.5",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.0"
+  }
+}

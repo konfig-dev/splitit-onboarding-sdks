@@ -1,0 +1,627 @@
+openapi: 3.0.0
+info:
+  description: Splitit's Onboarding API
+  title: Splitit.OnBoarding.Api.V2
+  version: 1.0.0
+servers:
+- url: https://onboarding-v2.sandbox.splitit.com
+security:
+- oauth2: []
+tags:
+- name: Data
+- name: Merchants
+paths:
+  /api/data/get-countries:
+    get:
+      operationId: GetCountries
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountriesResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Data
+  /api/data/get-currencies:
+    get:
+      operationId: GetCurrencies
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrenciesResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Data
+  /api/data/get-processors:
+    get:
+      operationId: GetProcessors
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProcessorsResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Data
+  /api/data/get-verticals:
+    get:
+      operationId: GetVerticals
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MerchantVerticalsResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Data
+  /api/data/status-legend:
+    get:
+      operationId: StatusLegend
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EnumDTO'
+                type: array
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Data
+  /api/merchants/get:
+    get:
+      operationId: GetMerchants
+      parameters:
+      - explode: true
+        in: query
+        name: NumberOfRowsInPage
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+        x-nullable: false
+      - explode: true
+        in: query
+        name: PageNumber
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+        x-nullable: false
+      - explode: true
+        in: query
+        name: Name
+        required: false
+        schema:
+          type: string
+        style: form
+        x-nullable: true
+      - explode: true
+        in: query
+        name: LegalName
+        required: false
+        schema:
+          type: string
+        style: form
+        x-nullable: true
+      - explode: true
+        in: query
+        name: Status
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+        x-nullable: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMerchantsResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Merchants
+  /api/merchants/get-details:
+    get:
+      operationId: GetMerchantDetails
+      parameters:
+      - explode: true
+        in: query
+        name: merchantTempId
+        required: true
+        schema:
+          type: string
+        style: form
+        x-nullable: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMerchantDetailsResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Merchants
+  /api/merchants/create:
+    post:
+      operationId: CreateMerchant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMerchantRequest'
+        required: true
+        x-nullable: false
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMerchantResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Merchants
+components:
+  schemas:
+    CountriesResponse:
+      example:
+        countries:
+        - isoNumber: isoNumber
+          name: name
+          isoA3: isoA3
+          id: id
+          isoA2: isoA2
+        - isoNumber: isoNumber
+          name: name
+          isoA3: isoA3
+          id: id
+          isoA2: isoA2
+      properties:
+        countries:
+          items:
+            $ref: '#/components/schemas/CountryResponse'
+          type: array
+      required:
+      - countries
+      type: object
+    CountryResponse:
+      example:
+        isoNumber: isoNumber
+        name: name
+        isoA3: isoA3
+        id: id
+        isoA2: isoA2
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isoA2:
+          type: string
+        isoA3:
+          type: string
+        isoNumber:
+          type: string
+      required:
+      - id
+      - isoA2
+      - isoA3
+      - isoNumber
+      - name
+      type: object
+    SelfOnBoardingErrorResponse:
+      properties:
+        message:
+          type: string
+        errorCode:
+          format: int32
+          type: integer
+        paramName:
+          type: string
+        traceId:
+          type: string
+      type: object
+    CurrenciesResponse:
+      example:
+        currencies:
+        - symbol: symbol
+          code: code
+          isoNumber: isoNumber
+          name: name
+        - symbol: symbol
+          code: code
+          isoNumber: isoNumber
+          name: name
+      properties:
+        currencies:
+          items:
+            $ref: '#/components/schemas/CurrencyResponse'
+          type: array
+      required:
+      - currencies
+      type: object
+    CurrencyResponse:
+      example:
+        symbol: symbol
+        code: code
+        isoNumber: isoNumber
+        name: name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+        symbol:
+          type: string
+        isoNumber:
+          type: string
+      type: object
+    ProcessorsResponse:
+      example:
+        processors:
+        - processorAuthenticationParametersRequest:
+          - key: key
+          - key: key
+          name: name
+          id: 0
+        - processorAuthenticationParametersRequest:
+          - key: key
+          - key: key
+          name: name
+          id: 0
+      properties:
+        processors:
+          items:
+            $ref: '#/components/schemas/ProcessorResponse'
+          type: array
+      required:
+      - processors
+      type: object
+    ProcessorResponse:
+      example:
+        processorAuthenticationParametersRequest:
+        - key: key
+        - key: key
+        name: name
+        id: 0
+      properties:
+        id:
+          format: int64
+          type: integer
+        name:
+          type: string
+        processorAuthenticationParametersRequest:
+          items:
+            $ref: '#/components/schemas/ProcessorAuthenticationParametersRequest'
+          type: array
+      required:
+      - id
+      - name
+      - processorAuthenticationParametersRequest
+      type: object
+    ProcessorAuthenticationParametersRequest:
+      example:
+        key: key
+      properties:
+        key:
+          type: string
+      required:
+      - key
+      type: object
+    MerchantVerticalsResponse:
+      example:
+        merchantVerticals:
+        - verticalSplititName: verticalSplititName
+          verticalDisplayName: verticalDisplayName
+          subCategories:
+          - subCategories
+          - subCategories
+        - verticalSplititName: verticalSplititName
+          verticalDisplayName: verticalDisplayName
+          subCategories:
+          - subCategories
+          - subCategories
+      properties:
+        merchantVerticals:
+          items:
+            $ref: '#/components/schemas/MerchantVerticalResponse'
+          type: array
+      required:
+      - merchantVerticals
+      type: object
+    MerchantVerticalResponse:
+      example:
+        verticalSplititName: verticalSplititName
+        verticalDisplayName: verticalDisplayName
+        subCategories:
+        - subCategories
+        - subCategories
+      properties:
+        verticalDisplayName:
+          type: string
+        verticalSplititName:
+          type: string
+        subCategories:
+          items:
+            type: string
+          type: array
+      required:
+      - subCategories
+      - verticalDisplayName
+      - verticalSplititName
+      type: object
+    EnumDTO:
+      example:
+        name: name
+        key: 0
+      properties:
+        key:
+          format: int32
+          type: integer
+        name:
+          type: string
+      required:
+      - key
+      - name
+      type: object
+    GetMerchantsResponse:
+      example:
+        merchants:
+        - legalName: legalName
+          country: country
+          annualSales: annualSales
+          phone: phone
+          name: name
+          merchantTempId: merchantTempId
+          status: status
+        - legalName: legalName
+          country: country
+          annualSales: annualSales
+          phone: phone
+          name: name
+          merchantTempId: merchantTempId
+          status: status
+      properties:
+        merchants:
+          items:
+            $ref: '#/components/schemas/GetMerchantResponse'
+          type: array
+      required:
+      - merchants
+      type: object
+    GetMerchantResponse:
+      example:
+        legalName: legalName
+        country: country
+        annualSales: annualSales
+        phone: phone
+        name: name
+        merchantTempId: merchantTempId
+        status: status
+      properties:
+        name:
+          type: string
+        legalName:
+          type: string
+        phone:
+          type: string
+        country:
+          type: string
+        annualSales:
+          type: string
+        status:
+          type: string
+        merchantTempId:
+          type: string
+      required:
+      - annualSales
+      - country
+      - legalName
+      - merchantTempId
+      - name
+      - phone
+      - status
+      type: object
+    GetMerchantDetailsResponse:
+      example:
+        legalName: legalName
+        merchantStatus: merchantStatus
+        phoneNumber: phoneNumber
+        publicName: publicName
+        merchantTempId: merchantTempId
+        email: email
+      properties:
+        publicName:
+          type: string
+        legalName:
+          type: string
+        phoneNumber:
+          type: string
+        merchantTempId:
+          type: string
+        email:
+          type: string
+        merchantStatus:
+          type: string
+      required:
+      - email
+      - legalName
+      - merchantStatus
+      - merchantTempId
+      - phoneNumber
+      - publicName
+      type: object
+    CreateMerchantResponse:
+      example:
+        merchantStatus: merchantStatus
+        merchantTempId: merchantTempId
+      properties:
+        merchantTempId:
+          type: string
+        merchantStatus:
+          type: string
+      required:
+      - merchantStatus
+      - merchantTempId
+      type: object
+    CreateMerchantRequest:
+      example:
+        subVertical: subVertical
+        businessPostalCode: businessPostalCode
+        totalAnnualSales: totalAnnualSales
+        taxIdNumber: taxIdNumber
+        nameOnBankAccount: nameOnBankAccount
+        vertical: vertical
+        accountNumber: accountNumber
+        legalName: legalName
+        businessCountry: businessCountry
+        routingNumber: routingNumber
+        phoneNumber: phoneNumber
+        tier: tier
+        publicName: publicName
+        businessStreetAddress: businessStreetAddress
+        businessCity: businessCity
+        businessState: businessState
+        countryIso2: countryIso2
+        platformName: platformName
+        currencyCode: currencyCode
+        email: email
+        incorporationCountry: incorporationCountry
+      properties:
+        publicName:
+          minLength: 1
+          type: string
+        email:
+          minLength: 1
+          type: string
+        phoneNumber:
+          minLength: 1
+          type: string
+        countryIso2:
+          minLength: 1
+          type: string
+        legalName:
+          minLength: 1
+          type: string
+        currencyCode:
+          minLength: 1
+          type: string
+        tier:
+          type: string
+        businessStreetAddress:
+          type: string
+        businessCity:
+          type: string
+        businessPostalCode:
+          type: string
+        businessCountry:
+          type: string
+        businessState:
+          type: string
+        vertical:
+          type: string
+        subVertical:
+          type: string
+        nameOnBankAccount:
+          type: string
+        incorporationCountry:
+          type: string
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+        taxIdNumber:
+          type: string
+        totalAnnualSales:
+          type: string
+        platformName:
+          type: string
+      required:
+      - countryIso2
+      - currencyCode
+      - email
+      - legalName
+      - phoneNumber
+      - publicName
+      type: object
+  securitySchemes:
+    oauth2:
+      flows:
+        clientCredentials:
+          scopes:
+            onboarding.api.v2: onboarding.api.v2
+          tokenUrl: https://auth.sandbox.splitit.com/connect/token
+      type: oauth2
+x-generator: NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))
