@@ -6,6 +6,9 @@ requiredEnvironmentVariables:
 generators:
   java:
     version: 1.0.0
+    test:
+      script:
+        - mvn test
     groupId: com.konfigthis
     packageName: splitit
     artifactId: splitit-onboarding-java-sdk
