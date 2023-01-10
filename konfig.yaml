@@ -1,5 +1,8 @@
 outputDirectory: /tmp/splitit-onboarding-sdks-out
 specPath: swagger.json
+requiredEnvironmentVariables:
+  - ONBOARDING_SPLITIT_CLIENT_ID
+  - ONBOARDING_SPLITIT_CLIENT_SECRET
 generators:
   java:
     version: 1.0.0
@@ -11,6 +14,9 @@ generators:
       repoId: splitit-onboarding-sdks/tree/main/java
   python:
     version: 1.0.0
+    test:
+      script:
+        - tox
     packageName: splitit_client
     projectName: splitit-onboarding-python-sdk
     outputDirectory: python
