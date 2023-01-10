@@ -474,7 +474,7 @@ class OAuth:
         self.access_token = self.retrieve_access_token()
     
     def retrieve_access_token(self) -> typing.AnyStr:
-        request = urllib.request.Request("https://id.sandbox.splitit.com/connect/token")
+        request = urllib.request.Request("https://auth.sandbox.splitit.com/connect/token")
         request.add_header("Content-Type", "application/x-www-form-urlencoded")
         params = {
                 "grant_type": "client_credentials",
