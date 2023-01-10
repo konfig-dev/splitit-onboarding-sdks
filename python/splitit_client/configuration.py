@@ -382,7 +382,7 @@ class Configuration(object):
             # Initialize
             if self.oauth.access_token is None:
                 self.oauth.refresh_access_token()
-            auth['bearer'] = {
+            auth['oauth2'] = {
                 'type': 'oauth2-clientcredentials',
                 'in': 'header',
                 'key': 'Authorization',
