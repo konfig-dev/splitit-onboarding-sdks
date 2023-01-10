@@ -1,7 +1,7 @@
 import { Configuration, DataApi } from "./";
 it("simple operation started", async () => {
-  const oauthClientId = process.env.SPLITIT_CLIENT_ID;
-  const oauthClientSecret = process.env.SPLITIT_CLIENT_SECRET;
+  const oauthClientId = process.env.ONBOARDING_SPLITIT_CLIENT_ID;
+  const oauthClientSecret = process.env.ONBOARDING_SPLITIT_CLIENT_SECRET;
 
   const config = new Configuration({ oauthClientId, oauthClientSecret });
   const api = new DataApi(config);
