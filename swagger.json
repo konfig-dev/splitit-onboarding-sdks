@@ -3,21 +3,17 @@
   "swagger": "2.0",
   "info": {
     "title": "Splitit.OnBoarding.Api.V2",
+    "description": "Splitit's Onboarding API",
     "version": "1.0.0"
   },
   "host": "onboarding-v2.sandbox.splitit.com",
-  "schemes": [
-    "https"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["https"],
+  "produces": ["application/json"],
+  "tags": [{ "name": "Data" }, { "name": "Merchants" }],
   "paths": {
     "/api/data/get-countries": {
       "get": {
-        "tags": [
-          "Data"
-        ],
+        "tags": ["Data"],
         "operationId": "GetCountries",
         "responses": {
           "200": {
@@ -34,19 +30,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/data/get-currencies": {
       "get": {
-        "tags": [
-          "Data"
-        ],
+        "tags": ["Data"],
         "operationId": "GetCurrencies",
         "responses": {
           "200": {
@@ -63,19 +52,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/data/get-processors": {
       "get": {
-        "tags": [
-          "Data"
-        ],
+        "tags": ["Data"],
         "operationId": "GetProcessors",
         "responses": {
           "200": {
@@ -92,19 +74,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/data/get-verticals": {
       "get": {
-        "tags": [
-          "Data"
-        ],
+        "tags": ["Data"],
         "operationId": "GetVerticals",
         "responses": {
           "200": {
@@ -121,19 +96,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/data/status-legend": {
       "get": {
-        "tags": [
-          "Data"
-        ],
+        "tags": ["Data"],
         "operationId": "StatusLegend",
         "responses": {
           "200": {
@@ -153,19 +121,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/merchants/get": {
       "get": {
-        "tags": [
-          "Merchants"
-        ],
+        "tags": ["Merchants"],
         "operationId": "GetMerchants",
         "parameters": [
           {
@@ -219,19 +180,12 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/merchants/get-details": {
       "get": {
-        "tags": [
-          "Merchants"
-        ],
+        "tags": ["Merchants"],
         "operationId": "GetMerchantDetails",
         "parameters": [
           {
@@ -257,23 +211,14 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     },
     "/api/merchants/create": {
       "post": {
-        "tags": [
-          "Merchants"
-        ],
+        "tags": ["Merchants"],
         "operationId": "CreateMerchant",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": ["application/json"],
         "parameters": [
           {
             "name": "CreateMerchantRequest",
@@ -301,21 +246,14 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        },
-        "security": [
-          {
-            "oauth2": []
-          }
-        ]
+        }
       }
     }
   },
   "definitions": {
     "CountriesResponse": {
       "type": "object",
-      "required": [
-        "countries"
-      ],
+      "required": ["countries"],
       "properties": {
         "countries": {
           "type": "array",
@@ -327,13 +265,7 @@
     },
     "CountryResponse": {
       "type": "object",
-      "required": [
-        "id",
-        "name",
-        "isoA2",
-        "isoA3",
-        "isoNumber"
-      ],
+      "required": ["id", "name", "isoA2", "isoA3", "isoNumber"],
       "properties": {
         "id": {
           "type": "string"
@@ -372,9 +304,7 @@
     },
     "CurrenciesResponse": {
       "type": "object",
-      "required": [
-        "currencies"
-      ],
+      "required": ["currencies"],
       "properties": {
         "currencies": {
           "type": "array",
@@ -403,9 +333,7 @@
     },
     "ProcessorsResponse": {
       "type": "object",
-      "required": [
-        "processors"
-      ],
+      "required": ["processors"],
       "properties": {
         "processors": {
           "type": "array",
@@ -417,11 +345,7 @@
     },
     "ProcessorResponse": {
       "type": "object",
-      "required": [
-        "id",
-        "name",
-        "processorAuthenticationParametersRequest"
-      ],
+      "required": ["id", "name", "processorAuthenticationParametersRequest"],
       "properties": {
         "id": {
           "type": "integer",
@@ -440,9 +364,7 @@
     },
     "ProcessorAuthenticationParametersRequest": {
       "type": "object",
-      "required": [
-        "key"
-      ],
+      "required": ["key"],
       "properties": {
         "key": {
           "type": "string"
@@ -451,9 +373,7 @@
     },
     "MerchantVerticalsResponse": {
       "type": "object",
-      "required": [
-        "merchantVerticals"
-      ],
+      "required": ["merchantVerticals"],
       "properties": {
         "merchantVerticals": {
           "type": "array",
@@ -487,10 +407,7 @@
     },
     "EnumDTO": {
       "type": "object",
-      "required": [
-        "key",
-        "name"
-      ],
+      "required": ["key", "name"],
       "properties": {
         "key": {
           "type": "integer",
@@ -503,9 +420,7 @@
     },
     "GetMerchantsResponse": {
       "type": "object",
-      "required": [
-        "merchants"
-      ],
+      "required": ["merchants"],
       "properties": {
         "merchants": {
           "type": "array",
@@ -583,10 +498,7 @@
     },
     "CreateMerchantResponse": {
       "type": "object",
-      "required": [
-        "merchantTempId",
-        "merchantStatus"
-      ],
+      "required": ["merchantTempId", "merchantStatus"],
       "properties": {
         "merchantTempId": {
           "type": "string"
