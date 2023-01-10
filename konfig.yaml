@@ -39,6 +39,9 @@ generators:
       repoId: splitit-onboarding-sdks/tree/main/typescript
   csharp:
     version: 1.0.0
+    test:
+      script:
+        - dotnet test
     packageName: Splitit.Onboarding.Net
     outputDirectory: csharp
     logoPath: logo.png
