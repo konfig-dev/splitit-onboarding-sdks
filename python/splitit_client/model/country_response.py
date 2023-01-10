@@ -79,7 +79,7 @@ class CountryResponse(ModelNormal):
             'name': (str,),  # noqa: E501
             'iso_a2': (str,),  # noqa: E501
             'iso_a3': (str,),  # noqa: E501
-            'iso_number': (str,),  # noqa: E501
+            'iso_number': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -110,7 +110,7 @@ class CountryResponse(ModelNormal):
             name (str):
             iso_a2 (str):
             iso_a3 (str):
-            iso_number (str):
+            iso_number (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -207,7 +207,7 @@ class CountryResponse(ModelNormal):
             name (str):
             iso_a2 (str):
             iso_a3 (str):
-            iso_number (str):
+            iso_number (str, none_type):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

@@ -174,7 +174,7 @@ public class CountryResponse {
    * Get isoNumber
    * @return isoNumber
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
 
   public String getIsoNumber() {
