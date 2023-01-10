@@ -1,0 +1,29 @@
+outputDirectory: /tmp/splitit-sdks-out
+specPath: swagger.json
+generators:
+  java:
+    version: 1.0.0
+    groupId: com.splitit
+    artifactId: splitit-java-sdk
+    outputDirectory: java
+  python:
+    version: 1.0.0
+    packageName: splitit_client
+    projectName: splitit-python-sdk
+    outputDirectory: python
+  typescript:
+    version: 1.0.0
+    npmName: splitit-typescript-sdk
+    outputDirectory: typescript
+  csharp:
+    version: 1.0.0
+    packageName: Splitit.Net
+    outputDirectory: csharp
+    logoPath: logo.png
+  go:
+    version: 1.0.0
+    packageName: splitit
+    outputDirectory: go
+    git:
+      userId: konfig-dev
+      repoId: splitit-onboarding-sdks/go
