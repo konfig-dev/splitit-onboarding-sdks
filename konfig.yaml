@@ -14,7 +14,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/java
   python:
-    version: 1.0.0
+    version: 1.0.1
     packageName: splitit_client
     projectName: splitit-onboarding-python-sdk
     outputDirectory: python
