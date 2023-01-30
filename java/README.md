@@ -39,7 +39,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.konfigthis</groupId>
   <artifactId>splitit-onboarding-java-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,7 +55,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.konfigthis:splitit-onboarding-java-sdk:1.0.0"
+     implementation "com.konfigthis:splitit-onboarding-java-sdk:1.1.0"
   }
 ```
 
@@ -69,7 +69,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/splitit-onboarding-java-sdk-1.0.0.jar`
+* `target/splitit-onboarding-java-sdk-1.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -83,7 +83,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {

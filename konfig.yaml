@@ -5,7 +5,7 @@ requiredEnvironmentVariables:
   - ONBOARDING_SPLITIT_CLIENT_SECRET
 generators:
   java:
-    version: 1.0.0
+    version: 1.1.0
     groupId: com.konfigthis
     packageName: splitit
     artifactId: splitit-onboarding-java-sdk
@@ -14,7 +14,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/java
   python:
-    version: 1.0.1
+    version: 1.1.0
     packageName: splitit_client
     projectName: splitit-onboarding-python-sdk
     outputDirectory: python
@@ -22,14 +22,14 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/python
   typescript:
-    version: 1.0.0
+    version: 1.1.0
     npmName: splitit-onboarding-typescript-sdk
     outputDirectory: typescript
     git:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/typescript
   csharp:
-    version: 1.0.0
+    version: 1.1.0
     packageName: Splitit.Onboarding.Net
     outputDirectory: csharp
     logoPath: logo.png
@@ -37,7 +37,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/csharp
   go:
-    version: 1.0.0
+    version: 1.1.0
     packageName: splitit
     outputDirectory: go
     git:

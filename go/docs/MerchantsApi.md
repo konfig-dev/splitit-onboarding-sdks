@@ -25,14 +25,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
-    createMerchantRequest := *openapiclient.NewCreateMerchantRequest("PublicName_example", "Email_example", "PhoneNumber_example", "CountryIso2_example", "LegalName_example", "CurrencyCode_example") // CreateMerchantRequest | 
+    createMerchantRequest := *splitit.NewCreateMerchantRequest("PublicName_example", "Email_example", "PhoneNumber_example", "CountryIso2_example", "LegalName_example", "CurrencyCode_example") // CreateMerchantRequest | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.MerchantsApi.CreateMerchant(context.Background()).CreateMerchantRequest(createMerchantRequest).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.CreateMerchant``: %v\n", err)
@@ -89,14 +89,14 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
     merchantTempId := "merchantTempId_example" // string | 
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.MerchantsApi.GetMerchantDetails(context.Background()).MerchantTempId(merchantTempId).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.GetMerchantDetails``: %v\n", err)
@@ -153,7 +153,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
@@ -163,8 +163,8 @@ func main() {
     legalName := "legalName_example" // string |  (optional)
     status := int32(56) // int32 |  (optional)
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.MerchantsApi.GetMerchants(context.Background()).NumberOfRowsInPage(numberOfRowsInPage).PageNumber(pageNumber).Name(name).LegalName(legalName).Status(status).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.GetMerchants``: %v\n", err)

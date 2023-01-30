@@ -27,13 +27,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.DataApi.GetCountries(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataApi.GetCountries``: %v\n", err)
@@ -86,13 +86,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.DataApi.GetCurrencies(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataApi.GetCurrencies``: %v\n", err)
@@ -145,13 +145,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.DataApi.GetProcessors(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataApi.GetProcessors``: %v\n", err)
@@ -204,13 +204,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.DataApi.GetVerticals(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataApi.GetVerticals``: %v\n", err)
@@ -263,13 +263,13 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func main() {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
     resp, r, err := apiClient.DataApi.StatusLegend(context.Background()).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DataApi.StatusLegend``: %v\n", err)

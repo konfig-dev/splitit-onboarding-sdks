@@ -24,7 +24,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
@@ -86,7 +86,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
@@ -148,7 +148,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
@@ -210,7 +210,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
@@ -272,7 +272,7 @@ import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.auth.*;
-import com.konfigthis.splitit.client.models.*;
+import com.konfigthis.splitit.client.model.*;
 import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {

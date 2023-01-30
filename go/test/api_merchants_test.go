@@ -13,13 +13,13 @@ import (
     "github.com/stretchr/testify/assert"
     "github.com/stretchr/testify/require"
     "testing"
-    openapiclient "github.com/konfig-dev/splitit-onboarding-sdks/go"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
 )
 
 func Test_splitit_MerchantsApiService(t *testing.T) {
 
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
 
     t.Run("Test MerchantsApiService CreateMerchant", func(t *testing.T) {
 

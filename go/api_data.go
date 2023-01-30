@@ -22,12 +22,12 @@ import (
 // DataApiService DataApi service
 type DataApiService service
 
-type ApiGetCountriesRequest struct {
+type DataApiGetCountriesRequest struct {
 	ctx context.Context
 	ApiService *DataApiService
 }
 
-func (r ApiGetCountriesRequest) Execute() (*CountriesResponse, *http.Response, error) {
+func (r DataApiGetCountriesRequest) Execute() (*CountriesResponse, *http.Response, error) {
 	return r.ApiService.GetCountriesExecute(r)
 }
 
@@ -35,10 +35,10 @@ func (r ApiGetCountriesRequest) Execute() (*CountriesResponse, *http.Response, e
 GetCountries Method for GetCountries
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCountriesRequest
+ @return DataApiGetCountriesRequest
 */
-func (a *DataApiService) GetCountries() ApiGetCountriesRequest {
-	return ApiGetCountriesRequest{
+func (a *DataApiService) GetCountries() DataApiGetCountriesRequest {
+	return DataApiGetCountriesRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -46,7 +46,7 @@ func (a *DataApiService) GetCountries() ApiGetCountriesRequest {
 
 // Execute executes the request
 //  @return CountriesResponse
-func (a *DataApiService) GetCountriesExecute(r ApiGetCountriesRequest) (*CountriesResponse, *http.Response, error) {
+func (a *DataApiService) GetCountriesExecute(r DataApiGetCountriesRequest) (*CountriesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -129,12 +129,12 @@ func (a *DataApiService) GetCountriesExecute(r ApiGetCountriesRequest) (*Countri
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetCurrenciesRequest struct {
+type DataApiGetCurrenciesRequest struct {
 	ctx context.Context
 	ApiService *DataApiService
 }
 
-func (r ApiGetCurrenciesRequest) Execute() (*CurrenciesResponse, *http.Response, error) {
+func (r DataApiGetCurrenciesRequest) Execute() (*CurrenciesResponse, *http.Response, error) {
 	return r.ApiService.GetCurrenciesExecute(r)
 }
 
@@ -142,10 +142,10 @@ func (r ApiGetCurrenciesRequest) Execute() (*CurrenciesResponse, *http.Response,
 GetCurrencies Method for GetCurrencies
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrenciesRequest
+ @return DataApiGetCurrenciesRequest
 */
-func (a *DataApiService) GetCurrencies() ApiGetCurrenciesRequest {
-	return ApiGetCurrenciesRequest{
+func (a *DataApiService) GetCurrencies() DataApiGetCurrenciesRequest {
+	return DataApiGetCurrenciesRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -153,7 +153,7 @@ func (a *DataApiService) GetCurrencies() ApiGetCurrenciesRequest {
 
 // Execute executes the request
 //  @return CurrenciesResponse
-func (a *DataApiService) GetCurrenciesExecute(r ApiGetCurrenciesRequest) (*CurrenciesResponse, *http.Response, error) {
+func (a *DataApiService) GetCurrenciesExecute(r DataApiGetCurrenciesRequest) (*CurrenciesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -236,12 +236,12 @@ func (a *DataApiService) GetCurrenciesExecute(r ApiGetCurrenciesRequest) (*Curre
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetProcessorsRequest struct {
+type DataApiGetProcessorsRequest struct {
 	ctx context.Context
 	ApiService *DataApiService
 }
 
-func (r ApiGetProcessorsRequest) Execute() (*ProcessorsResponse, *http.Response, error) {
+func (r DataApiGetProcessorsRequest) Execute() (*ProcessorsResponse, *http.Response, error) {
 	return r.ApiService.GetProcessorsExecute(r)
 }
 
@@ -249,10 +249,10 @@ func (r ApiGetProcessorsRequest) Execute() (*ProcessorsResponse, *http.Response,
 GetProcessors Method for GetProcessors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProcessorsRequest
+ @return DataApiGetProcessorsRequest
 */
-func (a *DataApiService) GetProcessors() ApiGetProcessorsRequest {
-	return ApiGetProcessorsRequest{
+func (a *DataApiService) GetProcessors() DataApiGetProcessorsRequest {
+	return DataApiGetProcessorsRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -260,7 +260,7 @@ func (a *DataApiService) GetProcessors() ApiGetProcessorsRequest {
 
 // Execute executes the request
 //  @return ProcessorsResponse
-func (a *DataApiService) GetProcessorsExecute(r ApiGetProcessorsRequest) (*ProcessorsResponse, *http.Response, error) {
+func (a *DataApiService) GetProcessorsExecute(r DataApiGetProcessorsRequest) (*ProcessorsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -343,12 +343,12 @@ func (a *DataApiService) GetProcessorsExecute(r ApiGetProcessorsRequest) (*Proce
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetVerticalsRequest struct {
+type DataApiGetVerticalsRequest struct {
 	ctx context.Context
 	ApiService *DataApiService
 }
 
-func (r ApiGetVerticalsRequest) Execute() (*MerchantVerticalsResponse, *http.Response, error) {
+func (r DataApiGetVerticalsRequest) Execute() (*MerchantVerticalsResponse, *http.Response, error) {
 	return r.ApiService.GetVerticalsExecute(r)
 }
 
@@ -356,10 +356,10 @@ func (r ApiGetVerticalsRequest) Execute() (*MerchantVerticalsResponse, *http.Res
 GetVerticals Method for GetVerticals
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetVerticalsRequest
+ @return DataApiGetVerticalsRequest
 */
-func (a *DataApiService) GetVerticals() ApiGetVerticalsRequest {
-	return ApiGetVerticalsRequest{
+func (a *DataApiService) GetVerticals() DataApiGetVerticalsRequest {
+	return DataApiGetVerticalsRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -367,7 +367,7 @@ func (a *DataApiService) GetVerticals() ApiGetVerticalsRequest {
 
 // Execute executes the request
 //  @return MerchantVerticalsResponse
-func (a *DataApiService) GetVerticalsExecute(r ApiGetVerticalsRequest) (*MerchantVerticalsResponse, *http.Response, error) {
+func (a *DataApiService) GetVerticalsExecute(r DataApiGetVerticalsRequest) (*MerchantVerticalsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -450,12 +450,12 @@ func (a *DataApiService) GetVerticalsExecute(r ApiGetVerticalsRequest) (*Merchan
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiStatusLegendRequest struct {
+type DataApiStatusLegendRequest struct {
 	ctx context.Context
 	ApiService *DataApiService
 }
 
-func (r ApiStatusLegendRequest) Execute() ([]EnumDTO, *http.Response, error) {
+func (r DataApiStatusLegendRequest) Execute() ([]EnumDTO, *http.Response, error) {
 	return r.ApiService.StatusLegendExecute(r)
 }
 
@@ -463,10 +463,10 @@ func (r ApiStatusLegendRequest) Execute() ([]EnumDTO, *http.Response, error) {
 StatusLegend Method for StatusLegend
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStatusLegendRequest
+ @return DataApiStatusLegendRequest
 */
-func (a *DataApiService) StatusLegend() ApiStatusLegendRequest {
-	return ApiStatusLegendRequest{
+func (a *DataApiService) StatusLegend() DataApiStatusLegendRequest {
+	return DataApiStatusLegendRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -474,7 +474,7 @@ func (a *DataApiService) StatusLegend() ApiStatusLegendRequest {
 
 // Execute executes the request
 //  @return []EnumDTO
-func (a *DataApiService) StatusLegendExecute(r ApiStatusLegendRequest) ([]EnumDTO, *http.Response, error) {
+func (a *DataApiService) StatusLegendExecute(r DataApiStatusLegendRequest) ([]EnumDTO, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

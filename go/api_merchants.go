@@ -22,18 +22,18 @@ import (
 // MerchantsApiService MerchantsApi service
 type MerchantsApiService service
 
-type ApiCreateMerchantRequest struct {
+type MerchantsApiCreateMerchantRequest struct {
 	ctx context.Context
 	ApiService *MerchantsApiService
 	createMerchantRequest *CreateMerchantRequest
 }
 
-func (r ApiCreateMerchantRequest) CreateMerchantRequest(createMerchantRequest CreateMerchantRequest) ApiCreateMerchantRequest {
+func (r MerchantsApiCreateMerchantRequest) CreateMerchantRequest(createMerchantRequest CreateMerchantRequest) MerchantsApiCreateMerchantRequest {
 	r.createMerchantRequest = &createMerchantRequest
 	return r
 }
 
-func (r ApiCreateMerchantRequest) Execute() (*CreateMerchantResponse, *http.Response, error) {
+func (r MerchantsApiCreateMerchantRequest) Execute() (*CreateMerchantResponse, *http.Response, error) {
 	return r.ApiService.CreateMerchantExecute(r)
 }
 
@@ -41,10 +41,10 @@ func (r ApiCreateMerchantRequest) Execute() (*CreateMerchantResponse, *http.Resp
 CreateMerchant Method for CreateMerchant
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateMerchantRequest
+ @return MerchantsApiCreateMerchantRequest
 */
-func (a *MerchantsApiService) CreateMerchant() ApiCreateMerchantRequest {
-	return ApiCreateMerchantRequest{
+func (a *MerchantsApiService) CreateMerchant() MerchantsApiCreateMerchantRequest {
+	return MerchantsApiCreateMerchantRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -52,7 +52,7 @@ func (a *MerchantsApiService) CreateMerchant() ApiCreateMerchantRequest {
 
 // Execute executes the request
 //  @return CreateMerchantResponse
-func (a *MerchantsApiService) CreateMerchantExecute(r ApiCreateMerchantRequest) (*CreateMerchantResponse, *http.Response, error) {
+func (a *MerchantsApiService) CreateMerchantExecute(r MerchantsApiCreateMerchantRequest) (*CreateMerchantResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -140,18 +140,18 @@ func (a *MerchantsApiService) CreateMerchantExecute(r ApiCreateMerchantRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMerchantDetailsRequest struct {
+type MerchantsApiGetMerchantDetailsRequest struct {
 	ctx context.Context
 	ApiService *MerchantsApiService
 	merchantTempId *string
 }
 
-func (r ApiGetMerchantDetailsRequest) MerchantTempId(merchantTempId string) ApiGetMerchantDetailsRequest {
+func (r MerchantsApiGetMerchantDetailsRequest) MerchantTempId(merchantTempId string) MerchantsApiGetMerchantDetailsRequest {
 	r.merchantTempId = &merchantTempId
 	return r
 }
 
-func (r ApiGetMerchantDetailsRequest) Execute() (*GetMerchantDetailsResponse, *http.Response, error) {
+func (r MerchantsApiGetMerchantDetailsRequest) Execute() (*GetMerchantDetailsResponse, *http.Response, error) {
 	return r.ApiService.GetMerchantDetailsExecute(r)
 }
 
@@ -159,10 +159,10 @@ func (r ApiGetMerchantDetailsRequest) Execute() (*GetMerchantDetailsResponse, *h
 GetMerchantDetails Method for GetMerchantDetails
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetMerchantDetailsRequest
+ @return MerchantsApiGetMerchantDetailsRequest
 */
-func (a *MerchantsApiService) GetMerchantDetails() ApiGetMerchantDetailsRequest {
-	return ApiGetMerchantDetailsRequest{
+func (a *MerchantsApiService) GetMerchantDetails() MerchantsApiGetMerchantDetailsRequest {
+	return MerchantsApiGetMerchantDetailsRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -170,7 +170,7 @@ func (a *MerchantsApiService) GetMerchantDetails() ApiGetMerchantDetailsRequest 
 
 // Execute executes the request
 //  @return GetMerchantDetailsResponse
-func (a *MerchantsApiService) GetMerchantDetailsExecute(r ApiGetMerchantDetailsRequest) (*GetMerchantDetailsResponse, *http.Response, error) {
+func (a *MerchantsApiService) GetMerchantDetailsExecute(r MerchantsApiGetMerchantDetailsRequest) (*GetMerchantDetailsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -257,7 +257,7 @@ func (a *MerchantsApiService) GetMerchantDetailsExecute(r ApiGetMerchantDetailsR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetMerchantsRequest struct {
+type MerchantsApiGetMerchantsRequest struct {
 	ctx context.Context
 	ApiService *MerchantsApiService
 	numberOfRowsInPage *int32
@@ -267,32 +267,32 @@ type ApiGetMerchantsRequest struct {
 	status *int32
 }
 
-func (r ApiGetMerchantsRequest) NumberOfRowsInPage(numberOfRowsInPage int32) ApiGetMerchantsRequest {
+func (r MerchantsApiGetMerchantsRequest) NumberOfRowsInPage(numberOfRowsInPage int32) MerchantsApiGetMerchantsRequest {
 	r.numberOfRowsInPage = &numberOfRowsInPage
 	return r
 }
 
-func (r ApiGetMerchantsRequest) PageNumber(pageNumber int32) ApiGetMerchantsRequest {
+func (r MerchantsApiGetMerchantsRequest) PageNumber(pageNumber int32) MerchantsApiGetMerchantsRequest {
 	r.pageNumber = &pageNumber
 	return r
 }
 
-func (r ApiGetMerchantsRequest) Name(name string) ApiGetMerchantsRequest {
+func (r MerchantsApiGetMerchantsRequest) Name(name string) MerchantsApiGetMerchantsRequest {
 	r.name = &name
 	return r
 }
 
-func (r ApiGetMerchantsRequest) LegalName(legalName string) ApiGetMerchantsRequest {
+func (r MerchantsApiGetMerchantsRequest) LegalName(legalName string) MerchantsApiGetMerchantsRequest {
 	r.legalName = &legalName
 	return r
 }
 
-func (r ApiGetMerchantsRequest) Status(status int32) ApiGetMerchantsRequest {
+func (r MerchantsApiGetMerchantsRequest) Status(status int32) MerchantsApiGetMerchantsRequest {
 	r.status = &status
 	return r
 }
 
-func (r ApiGetMerchantsRequest) Execute() (*GetMerchantsResponse, *http.Response, error) {
+func (r MerchantsApiGetMerchantsRequest) Execute() (*GetMerchantsResponse, *http.Response, error) {
 	return r.ApiService.GetMerchantsExecute(r)
 }
 
@@ -300,10 +300,10 @@ func (r ApiGetMerchantsRequest) Execute() (*GetMerchantsResponse, *http.Response
 GetMerchants Method for GetMerchants
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetMerchantsRequest
+ @return MerchantsApiGetMerchantsRequest
 */
-func (a *MerchantsApiService) GetMerchants() ApiGetMerchantsRequest {
-	return ApiGetMerchantsRequest{
+func (a *MerchantsApiService) GetMerchants() MerchantsApiGetMerchantsRequest {
+	return MerchantsApiGetMerchantsRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
@@ -311,7 +311,7 @@ func (a *MerchantsApiService) GetMerchants() ApiGetMerchantsRequest {
 
 // Execute executes the request
 //  @return GetMerchantsResponse
-func (a *MerchantsApiService) GetMerchantsExecute(r ApiGetMerchantsRequest) (*GetMerchantsResponse, *http.Response, error) {
+func (a *MerchantsApiService) GetMerchantsExecute(r MerchantsApiGetMerchantsRequest) (*GetMerchantsResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
