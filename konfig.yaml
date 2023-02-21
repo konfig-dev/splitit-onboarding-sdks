@@ -18,6 +18,7 @@ generators:
     packageName: splitit_client
     projectName: splitit-onboarding-python-sdk
     outputDirectory: python
+    clientName: Splitit
     git:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/python
@@ -25,6 +26,7 @@ generators:
     version: 1.1.0
     npmName: splitit-onboarding-typescript-sdk
     outputDirectory: typescript
+    clientName: Splitit
     git:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/typescript
