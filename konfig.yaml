@@ -1,5 +1,6 @@
 outputDirectory: /tmp/splitit-onboarding-sdks-out
-specPath: swagger.json
+specInputPath: swagger.json
+specPath: api.json
 requiredEnvironmentVariables:
   - ONBOARDING_SPLITIT_CLIENT_ID
   - ONBOARDING_SPLITIT_CLIENT_SECRET
