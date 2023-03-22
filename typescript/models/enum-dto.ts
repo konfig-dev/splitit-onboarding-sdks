@@ -13,6 +13,23 @@
  */
 
 
-export * from './api/data-api';
-export * from './api/merchants-api';
+/**
+ * 
+ * @export
+ * @interface EnumDTO
+ */
+export interface EnumDTO {
+    /**
+     * 
+     * @type {number}
+     * @memberof EnumDTO
+     */
+    'key': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EnumDTO
+     */
+    'name': string;
+}
 

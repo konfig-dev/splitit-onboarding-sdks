@@ -1,6 +1,6 @@
-## splitit-onboarding-typescript-sdk@1.1.0
+## splitit-onboarding-typescript-sdk@2.0.0
 
-This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
+This library that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
 Environment
 * Node.js
@@ -15,8 +15,6 @@ Module system
 * CommonJS
 * ES6 module system
 
-It can be used in both TypeScript and JavaScript. In TypeScript, the definition should be automatically resolved via `package.json`. ([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
-
 ### Building
 
 To build and compile the typescript sources to javascript use:
@@ -30,25 +28,40 @@ npm run build
 navigate to the folder of your consuming project and run the following command.
 
 ```
-npm install splitit-onboarding-typescript-sdk@1.1.0 --save
+npm install splitit-onboarding-typescript-sdk@2.0.0 --save
 ```
 
 ### Getting Started
 
 ```typescript
+import { Splitit } from "splitit-onboarding-typescript-sdk"
 
-import { Configuration, DataApi, SelfOnBoardingErrorResponse, CountriesResponse } from "splitit-onboarding-typescript-sdk";
-
-const oauthClientId = process.env.CLIENT_ID;
-const oauthClientSecret = process.env.CLIENT_SECRET;
-const config = new Configuration({ oauthClientId, oauthClientSecret });
-
-const api = new DataApi(config);
-
-
-const request = api.getCountries();
-request.then(result => {
-    console.log(result)
+const splitit = new Splitit({
+    // Defining the base path is optional and defaults to https://onboarding-v2.sandbox.splitit.com
+    // basePath: "https://onboarding-v2.sandbox.splitit.com",
+    oauthClientId: 'CLIENT_ID',
+    oauthClientSecret: 'CLIENT_SECRET',
 })
 
+const getCountriesResponse = await splitit.data.getCountries()
+
+console.log(getCountriesResponse)
+
 ```
+
+## Documentation for API Endpoints
+
+All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+*DataApi* | [**getCountries**](docs/DataApi.md#getCountries) | **GET** /api/data/get-countries | 
+*DataApi* | [**getCurrencies**](docs/DataApi.md#getCurrencies) | **GET** /api/data/get-currencies | 
+*DataApi* | [**getProcessors**](docs/DataApi.md#getProcessors) | **GET** /api/data/get-processors | 
+*DataApi* | [**getVerticals**](docs/DataApi.md#getVerticals) | **GET** /api/data/get-verticals | 
+*DataApi* | [**statusLegend**](docs/DataApi.md#statusLegend) | **GET** /api/data/status-legend | 
+*MerchantsApi* | [**create**](docs/MerchantsApi.md#create) | **POST** /api/merchants/create | 
+*MerchantsApi* | [**get**](docs/MerchantsApi.md#get) | **GET** /api/merchants/get | 
+*MerchantsApi* | [**getDetails**](docs/MerchantsApi.md#getDetails) | **GET** /api/merchants/get-details | 
+
+

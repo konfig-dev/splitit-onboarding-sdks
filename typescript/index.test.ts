@@ -1,10 +1,9 @@
-import { Configuration, DataApi } from "./";
+import { Splitit } from "./index";
 it("simple operation started", async () => {
   const oauthClientId = process.env.ONBOARDING_SPLITIT_CLIENT_ID;
   const oauthClientSecret = process.env.ONBOARDING_SPLITIT_CLIENT_SECRET;
 
-  const config = new Configuration({ oauthClientId, oauthClientSecret });
-  const api = new DataApi(config);
-  const result = await api.getCountries();
+  const splitit = new Splitit({ oauthClientId, oauthClientSecret });
+  const result = await splitit.data.getCountries();
   expect(result).not.toBeNull();
 });

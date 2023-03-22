@@ -13,6 +13,17 @@
  */
 
 
-export * from './api/data-api';
-export * from './api/merchants-api';
+/**
+ * 
+ * @export
+ * @interface ProcessorAuthenticationParametersRequest
+ */
+export interface ProcessorAuthenticationParametersRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ProcessorAuthenticationParametersRequest
+     */
+    'key': string;
+}
 
