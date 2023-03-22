@@ -13,7 +13,7 @@ tags:
 paths:
   /api/data/get-countries:
     get:
-      operationId: GetCountries
+      operationId: Data_getCountries
       responses:
         "200":
           content:
@@ -31,9 +31,11 @@ paths:
           x-nullable: false
       tags:
       - Data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-data-get-countries
   /api/data/get-currencies:
     get:
-      operationId: GetCurrencies
+      operationId: Data_getCurrencies
       responses:
         "200":
           content:
@@ -51,9 +53,11 @@ paths:
           x-nullable: false
       tags:
       - Data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-data-get-currencies
   /api/data/get-processors:
     get:
-      operationId: GetProcessors
+      operationId: Data_getProcessors
       responses:
         "200":
           content:
@@ -71,9 +75,11 @@ paths:
           x-nullable: false
       tags:
       - Data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-data-get-processors
   /api/data/get-verticals:
     get:
-      operationId: GetVerticals
+      operationId: Data_getVerticals
       responses:
         "200":
           content:
@@ -91,17 +97,17 @@ paths:
           x-nullable: false
       tags:
       - Data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-data-get-verticals
   /api/data/status-legend:
     get:
-      operationId: StatusLegend
+      operationId: Data_statusLegend
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/EnumDTO'
-                type: array
+                $ref: '#/components/schemas/StatusLegendResponse'
           description: ""
           x-nullable: false
         "400":
@@ -113,9 +119,11 @@ paths:
           x-nullable: false
       tags:
       - Data
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-data-status-legend
   /api/merchants/get:
     get:
-      operationId: GetMerchants
+      operationId: Merchants_get
       parameters:
       - explode: true
         in: query
@@ -177,9 +185,11 @@ paths:
           x-nullable: false
       tags:
       - Merchants
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-merchants-get
   /api/merchants/get-details:
     get:
-      operationId: GetMerchantDetails
+      operationId: Merchants_getDetails
       parameters:
       - explode: true
         in: query
@@ -206,9 +216,11 @@ paths:
           x-nullable: false
       tags:
       - Merchants
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-get--api-merchants-get-details
   /api/merchants/create:
     post:
-      operationId: CreateMerchant
+      operationId: Merchants_create
       requestBody:
         content:
           application/json:
@@ -233,6 +245,8 @@ paths:
           x-nullable: false
       tags:
       - Merchants
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--api-merchants-create
 components:
   schemas:
     CountriesResponse:
@@ -617,6 +631,131 @@ components:
       - phoneNumber
       - publicName
       type: object
+    StatusLegendResponse:
+      items:
+        $ref: '#/components/schemas/EnumDTO'
+      type: array
+    konfig-generated-schema-single-parameter-schema-get--api-data-get-countries:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--api-data-get-currencies:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--api-data-get-processors:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--api-data-get-verticals:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--api-data-status-legend:
+      properties: {}
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-get--api-merchants-get:
+      properties:
+        NumberOfRowsInPage:
+          format: int32
+          type: integer
+        PageNumber:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        LegalName:
+          type: string
+        Status:
+          format: int32
+          type: integer
+      required:
+      - NumberOfRowsInPage
+      - PageNumber
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - NumberOfRowsInPage
+      - PageNumber
+      - Name
+      - LegalName
+      - Status
+    konfig-generated-schema-single-parameter-schema-get--api-merchants-get-details:
+      properties:
+        merchantTempId:
+          type: string
+      required:
+      - merchantTempId
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter:
+      - merchantTempId
+    konfig-generated-schema-single-parameter-schema-post--api-merchants-create:
+      properties:
+        publicName:
+          minLength: 1
+          type: string
+        email:
+          minLength: 1
+          type: string
+        phoneNumber:
+          minLength: 1
+          type: string
+        countryIso2:
+          minLength: 1
+          type: string
+        legalName:
+          minLength: 1
+          type: string
+        currencyCode:
+          minLength: 1
+          type: string
+        tier:
+          type: string
+        businessStreetAddress:
+          type: string
+        businessCity:
+          type: string
+        businessPostalCode:
+          type: string
+        businessCountry:
+          type: string
+        businessState:
+          type: string
+        vertical:
+          type: string
+        subVertical:
+          type: string
+        nameOnBankAccount:
+          type: string
+        incorporationCountry:
+          type: string
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+        taxIdNumber:
+          type: string
+        totalAnnualSales:
+          type: string
+        platformName:
+          type: string
+      required:
+      - countryIso2
+      - currencyCode
+      - email
+      - legalName
+      - phoneNumber
+      - publicName
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
   securitySchemes:
     oauth2:
       flows:
@@ -625,4 +764,5 @@ components:
             onboarding.api.v2: onboarding.api.v2
           tokenUrl: https://auth.sandbox.splitit.com/connect/token
       type: oauth2
+      x-konfig-globally-required-security: true
 x-generator: NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))

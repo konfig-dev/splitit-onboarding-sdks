@@ -19,13 +19,15 @@ import (
 func Test_splitit_MerchantsApiService(t *testing.T) {
 
     configuration := splitit.NewConfiguration()
+    
+    
     apiClient := splitit.NewAPIClient(configuration)
 
-    t.Run("Test MerchantsApiService CreateMerchant", func(t *testing.T) {
+    t.Run("Test MerchantsApiService Create", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.MerchantsApi.CreateMerchant().Execute()
+        resp, httpRes, err := apiClient.MerchantsApi.Create().Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -33,11 +35,11 @@ func Test_splitit_MerchantsApiService(t *testing.T) {
 
     })
 
-    t.Run("Test MerchantsApiService GetMerchantDetails", func(t *testing.T) {
+    t.Run("Test MerchantsApiService Get", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.MerchantsApi.GetMerchantDetails().Execute()
+        resp, httpRes, err := apiClient.MerchantsApi.Get().Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)
@@ -45,11 +47,11 @@ func Test_splitit_MerchantsApiService(t *testing.T) {
 
     })
 
-    t.Run("Test MerchantsApiService GetMerchants", func(t *testing.T) {
+    t.Run("Test MerchantsApiService GetDetails", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test
 
-        resp, httpRes, err := apiClient.MerchantsApi.GetMerchants().Execute()
+        resp, httpRes, err := apiClient.MerchantsApi.GetDetails().Execute()
 
         require.Nil(t, err)
         require.NotNil(t, resp)

@@ -19,6 +19,8 @@ import (
 func Test_splitit_DataApiService(t *testing.T) {
 
     configuration := splitit.NewConfiguration()
+    
+    
     apiClient := splitit.NewAPIClient(configuration)
 
     t.Run("Test DataApiService GetCountries", func(t *testing.T) {

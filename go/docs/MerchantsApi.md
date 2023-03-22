@@ -4,15 +4,15 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateMerchant**](MerchantsApi.md#CreateMerchant) | **Post** /api/merchants/create | 
-[**GetMerchantDetails**](MerchantsApi.md#GetMerchantDetails) | **Get** /api/merchants/get-details | 
-[**GetMerchants**](MerchantsApi.md#GetMerchants) | **Get** /api/merchants/get | 
+[**Create**](MerchantsApi.md#Create) | **Post** /api/merchants/create | 
+[**Get**](MerchantsApi.md#Get) | **Get** /api/merchants/get | 
+[**GetDetails**](MerchantsApi.md#GetDetails) | **Get** /api/merchants/get-details | 
 
 
 
-## CreateMerchant
+## Create
 
-> CreateMerchantResponse CreateMerchant(ctx).CreateMerchantRequest(createMerchantRequest).Execute()
+> CreateMerchantResponse Create(ctx).CreateMerchantRequest(createMerchantRequest).Execute()
 
 
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := splitit.NewConfiguration()
     apiClient := splitit.NewAPIClient(configuration)
-    resp, r, err := apiClient.MerchantsApi.CreateMerchant(context.Background()).CreateMerchantRequest(createMerchantRequest).Execute()
+    resp, r, err := apiClient.MerchantsApi.Create(context.Background()).CreateMerchantRequest(createMerchantRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.CreateMerchant``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.Create``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateMerchant`: CreateMerchantResponse
-    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.CreateMerchant`: %v\n", resp)
+    // response from `Create`: CreateMerchantResponse
+    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.Create`: %v\n", resp)
 }
 ```
 
@@ -49,7 +49,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateMerchantRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -74,73 +74,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetMerchantDetails
+## Get
 
-> GetMerchantDetailsResponse GetMerchantDetails(ctx).MerchantTempId(merchantTempId).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
-)
-
-func main() {
-    merchantTempId := "merchantTempId_example" // string | 
-
-    configuration := splitit.NewConfiguration()
-    apiClient := splitit.NewAPIClient(configuration)
-    resp, r, err := apiClient.MerchantsApi.GetMerchantDetails(context.Background()).MerchantTempId(merchantTempId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.GetMerchantDetails``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `GetMerchantDetails`: GetMerchantDetailsResponse
-    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.GetMerchantDetails`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetMerchantDetailsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchantTempId** | **string** |  | 
-
-### Return type
-
-[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetMerchants
-
-> GetMerchantsResponse GetMerchants(ctx).NumberOfRowsInPage(numberOfRowsInPage).PageNumber(pageNumber).Name(name).LegalName(legalName).Status(status).Execute()
+> GetMerchantsResponse Get(ctx).NumberOfRowsInPage(numberOfRowsInPage).PageNumber(pageNumber).Name(name).LegalName(legalName).Status(status).Execute()
 
 
 
@@ -165,13 +101,13 @@ func main() {
 
     configuration := splitit.NewConfiguration()
     apiClient := splitit.NewAPIClient(configuration)
-    resp, r, err := apiClient.MerchantsApi.GetMerchants(context.Background()).NumberOfRowsInPage(numberOfRowsInPage).PageNumber(pageNumber).Name(name).LegalName(legalName).Status(status).Execute()
+    resp, r, err := apiClient.MerchantsApi.Get(context.Background()).NumberOfRowsInPage(numberOfRowsInPage).PageNumber(pageNumber).Name(name).LegalName(legalName).Status(status).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.GetMerchants``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetMerchants`: GetMerchantsResponse
-    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.GetMerchants`: %v\n", resp)
+    // response from `Get`: GetMerchantsResponse
+    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.Get`: %v\n", resp)
 }
 ```
 
@@ -181,7 +117,7 @@ func main() {
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetMerchantsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -195,6 +131,70 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetMerchantsResponse**](GetMerchantsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetDetails
+
+> GetMerchantDetailsResponse GetDetails(ctx).MerchantTempId(merchantTempId).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
+)
+
+func main() {
+    merchantTempId := "merchantTempId_example" // string | 
+
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
+    resp, r, err := apiClient.MerchantsApi.GetDetails(context.Background()).MerchantTempId(merchantTempId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.GetDetails``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDetails`: GetMerchantDetailsResponse
+    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.GetDetails`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetDetailsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **merchantTempId** | **string** |  | 
+
+### Return type
+
+[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
 
 ### Authorization
 
