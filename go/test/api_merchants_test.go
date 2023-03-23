@@ -35,6 +35,18 @@ func Test_splitit_MerchantsApiService(t *testing.T) {
 
     })
 
+    t.Run("Test MerchantsApiService CreateDeveloper", func(t *testing.T) {
+
+        t.Skip("skip test")  // remove to run test
+
+        resp, httpRes, err := apiClient.MerchantsApi.CreateDeveloper().Execute()
+
+        require.Nil(t, err)
+        require.NotNil(t, resp)
+        assert.Equal(t, 200, httpRes.StatusCode)
+
+    })
+
     t.Run("Test MerchantsApiService Get", func(t *testing.T) {
 
         t.Skip("skip test")  // remove to run test

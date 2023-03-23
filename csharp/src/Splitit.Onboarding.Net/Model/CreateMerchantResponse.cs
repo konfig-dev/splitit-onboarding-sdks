@@ -41,7 +41,8 @@ namespace Splitit.Onboarding.Net.Model
         /// </summary>
         /// <param name="merchantTempId">merchantTempId (required).</param>
         /// <param name="merchantStatus">merchantStatus (required).</param>
-        public CreateMerchantResponse(string merchantTempId = default(string), string merchantStatus = default(string))
+        /// <param name="responseHeader">responseHeader (required).</param>
+        public CreateMerchantResponse(string merchantTempId = default(string), string merchantStatus = default(string), ResponseHeader responseHeader = default(ResponseHeader))
         {
             // to ensure "merchantTempId" is required (not null)
             if (merchantTempId == null)
@@ -55,6 +56,12 @@ namespace Splitit.Onboarding.Net.Model
                 throw new ArgumentNullException("merchantStatus is a required property for CreateMerchantResponse and cannot be null");
             }
             this.MerchantStatus = merchantStatus;
+            // to ensure "responseHeader" is required (not null)
+            if (responseHeader == null)
+            {
+                throw new ArgumentNullException("responseHeader is a required property for CreateMerchantResponse and cannot be null");
+            }
+            this.ResponseHeader = responseHeader;
         }
 
         /// <summary>
@@ -70,6 +77,12 @@ namespace Splitit.Onboarding.Net.Model
         public string MerchantStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets ResponseHeader
+        /// </summary>
+        [DataMember(Name = "responseHeader", IsRequired = true, EmitDefaultValue = true)]
+        public ResponseHeader ResponseHeader { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +92,7 @@ namespace Splitit.Onboarding.Net.Model
             sb.Append("class CreateMerchantResponse {\n");
             sb.Append("  MerchantTempId: ").Append(MerchantTempId).Append("\n");
             sb.Append("  MerchantStatus: ").Append(MerchantStatus).Append("\n");
+            sb.Append("  ResponseHeader: ").Append(ResponseHeader).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +137,11 @@ namespace Splitit.Onboarding.Net.Model
                     this.MerchantStatus == input.MerchantStatus ||
                     (this.MerchantStatus != null &&
                     this.MerchantStatus.Equals(input.MerchantStatus))
+                ) && 
+                (
+                    this.ResponseHeader == input.ResponseHeader ||
+                    (this.ResponseHeader != null &&
+                    this.ResponseHeader.Equals(input.ResponseHeader))
                 );
         }
 
@@ -142,6 +161,10 @@ namespace Splitit.Onboarding.Net.Model
                 if (this.MerchantStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.MerchantStatus.GetHashCode();
+                }
+                if (this.ResponseHeader != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResponseHeader.GetHashCode();
                 }
                 return hashCode;
             }

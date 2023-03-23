@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **IsoA2** | **string** |  | 
 **IsoA3** | **string** |  | 
-**IsoNumber** | **NullableString** |  | 
+**IsoNumber** | **string** |  | 
 
 ## Methods
 
 ### NewCountryResponse
 
-`func NewCountryResponse(id string, name string, isoA2 string, isoA3 string, isoNumber NullableString, ) *CountryResponse`
+`func NewCountryResponse(id string, name string, isoA2 string, isoA3 string, isoNumber string, ) *CountryResponse`
 
 NewCountryResponse instantiates a new CountryResponse object
 This constructor will assign default values to properties that have it defined,
@@ -129,16 +129,6 @@ and a boolean to check if the value has been set.
 SetIsoNumber sets IsoNumber field to given value.
 
 
-### SetIsoNumberNil
-
-`func (o *CountryResponse) SetIsoNumberNil(b bool)`
-
- SetIsoNumberNil sets the value for IsoNumber to be an explicit nil
-
-### UnsetIsoNumber
-`func (o *CountryResponse) UnsetIsoNumber()`
-
-UnsetIsoNumber ensures that no value is present for IsoNumber, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

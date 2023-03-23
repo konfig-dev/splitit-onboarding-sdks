@@ -48,7 +48,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/csharp
   go:
-    version: 1.2.0
+    version: 2.0.0
     packageName: splitit
     outputDirectory: go
     git:

@@ -105,6 +105,14 @@ namespace Splitit.Onboarding.Net.Test.Model
             // TODO unit test for the property 'CurrencyCode'
         }
         /// <summary>
+        /// Test the property 'Vertical'
+        /// </summary>
+        [Fact]
+        public void VerticalTest()
+        {
+            // TODO unit test for the property 'Vertical'
+        }
+        /// <summary>
         /// Test the property 'Tier'
         /// </summary>
         [Fact]
@@ -151,14 +159,6 @@ namespace Splitit.Onboarding.Net.Test.Model
         public void BusinessStateTest()
         {
             // TODO unit test for the property 'BusinessState'
-        }
-        /// <summary>
-        /// Test the property 'Vertical'
-        /// </summary>
-        [Fact]
-        public void VerticalTest()
-        {
-            // TODO unit test for the property 'Vertical'
         }
         /// <summary>
         /// Test the property 'SubVertical'

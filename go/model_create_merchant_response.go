@@ -18,16 +18,18 @@ import (
 type CreateMerchantResponse struct {
 	MerchantTempId string `json:"merchantTempId"`
 	MerchantStatus string `json:"merchantStatus"`
+	ResponseHeader ResponseHeader `json:"responseHeader"`
 }
 
 // NewCreateMerchantResponse instantiates a new CreateMerchantResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateMerchantResponse(merchantTempId string, merchantStatus string) *CreateMerchantResponse {
+func NewCreateMerchantResponse(merchantTempId string, merchantStatus string, responseHeader ResponseHeader) *CreateMerchantResponse {
 	this := CreateMerchantResponse{}
 	this.MerchantTempId = merchantTempId
 	this.MerchantStatus = merchantStatus
+	this.ResponseHeader = responseHeader
 	return &this
 }
 
@@ -87,6 +89,30 @@ func (o *CreateMerchantResponse) SetMerchantStatus(v string) {
 	o.MerchantStatus = v
 }
 
+// GetResponseHeader returns the ResponseHeader field value
+func (o *CreateMerchantResponse) GetResponseHeader() ResponseHeader {
+	if o == nil {
+		var ret ResponseHeader
+		return ret
+	}
+
+	return o.ResponseHeader
+}
+
+// GetResponseHeaderOk returns a tuple with the ResponseHeader field value
+// and a boolean to check if the value has been set.
+func (o *CreateMerchantResponse) GetResponseHeaderOk() (*ResponseHeader, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return &o.ResponseHeader, true
+}
+
+// SetResponseHeader sets field value
+func (o *CreateMerchantResponse) SetResponseHeader(v ResponseHeader) {
+	o.ResponseHeader = v
+}
+
 func (o CreateMerchantResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -94,6 +120,9 @@ func (o CreateMerchantResponse) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["merchantStatus"] = o.MerchantStatus
+	}
+	if true {
+		toSerialize["responseHeader"] = o.ResponseHeader
 	}
 	return json.Marshal(toSerialize)
 }

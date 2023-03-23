@@ -6,12 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MerchantTempId** | **string** |  | 
 **MerchantStatus** | **string** |  | 
+**ResponseHeader** | [**ResponseHeader**](ResponseHeader.md) |  | 
 
 ## Methods
 
 ### NewCreateMerchantResponse
 
-`func NewCreateMerchantResponse(merchantTempId string, merchantStatus string, ) *CreateMerchantResponse`
+`func NewCreateMerchantResponse(merchantTempId string, merchantStatus string, responseHeader ResponseHeader, ) *CreateMerchantResponse`
 
 NewCreateMerchantResponse instantiates a new CreateMerchantResponse object
 This constructor will assign default values to properties that have it defined,
@@ -64,6 +65,26 @@ and a boolean to check if the value has been set.
 `func (o *CreateMerchantResponse) SetMerchantStatus(v string)`
 
 SetMerchantStatus sets MerchantStatus field to given value.
+
+
+### GetResponseHeader
+
+`func (o *CreateMerchantResponse) GetResponseHeader() ResponseHeader`
+
+GetResponseHeader returns the ResponseHeader field if non-nil, zero value otherwise.
+
+### GetResponseHeaderOk
+
+`func (o *CreateMerchantResponse) GetResponseHeaderOk() (*ResponseHeader, bool)`
+
+GetResponseHeaderOk returns a tuple with the ResponseHeader field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetResponseHeader
+
+`func (o *CreateMerchantResponse) SetResponseHeader(v ResponseHeader)`
+
+SetResponseHeader sets ResponseHeader field to given value.
 
 
 

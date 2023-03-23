@@ -22,13 +22,13 @@ type CreateMerchantRequest struct {
 	CountryIso2 string `json:"countryIso2"`
 	LegalName string `json:"legalName"`
 	CurrencyCode string `json:"currencyCode"`
+	Vertical string `json:"vertical"`
 	Tier *string `json:"tier,omitempty"`
 	BusinessStreetAddress *string `json:"businessStreetAddress,omitempty"`
 	BusinessCity *string `json:"businessCity,omitempty"`
 	BusinessPostalCode *string `json:"businessPostalCode,omitempty"`
 	BusinessCountry *string `json:"businessCountry,omitempty"`
 	BusinessState *string `json:"businessState,omitempty"`
-	Vertical *string `json:"vertical,omitempty"`
 	SubVertical *string `json:"subVertical,omitempty"`
 	NameOnBankAccount *string `json:"nameOnBankAccount,omitempty"`
 	IncorporationCountry *string `json:"incorporationCountry,omitempty"`
@@ -43,7 +43,7 @@ type CreateMerchantRequest struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateMerchantRequest(publicName string, email string, phoneNumber string, countryIso2 string, legalName string, currencyCode string) *CreateMerchantRequest {
+func NewCreateMerchantRequest(publicName string, email string, phoneNumber string, countryIso2 string, legalName string, currencyCode string, vertical string) *CreateMerchantRequest {
 	this := CreateMerchantRequest{}
 	this.PublicName = publicName
 	this.Email = email
@@ -51,6 +51,7 @@ func NewCreateMerchantRequest(publicName string, email string, phoneNumber strin
 	this.CountryIso2 = countryIso2
 	this.LegalName = legalName
 	this.CurrencyCode = currencyCode
+	this.Vertical = vertical
 	return &this
 }
 
@@ -204,6 +205,30 @@ func (o *CreateMerchantRequest) GetCurrencyCodeOk() (*string, bool) {
 // SetCurrencyCode sets field value
 func (o *CreateMerchantRequest) SetCurrencyCode(v string) {
 	o.CurrencyCode = v
+}
+
+// GetVertical returns the Vertical field value
+func (o *CreateMerchantRequest) GetVertical() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Vertical
+}
+
+// GetVerticalOk returns a tuple with the Vertical field value
+// and a boolean to check if the value has been set.
+func (o *CreateMerchantRequest) GetVerticalOk() (*string, bool) {
+	if o == nil {
+    return nil, false
+	}
+	return &o.Vertical, true
+}
+
+// SetVertical sets field value
+func (o *CreateMerchantRequest) SetVertical(v string) {
+	o.Vertical = v
 }
 
 // GetTier returns the Tier field value if set, zero value otherwise.
@@ -396,38 +421,6 @@ func (o *CreateMerchantRequest) HasBusinessState() bool {
 // SetBusinessState gets a reference to the given string and assigns it to the BusinessState field.
 func (o *CreateMerchantRequest) SetBusinessState(v string) {
 	o.BusinessState = &v
-}
-
-// GetVertical returns the Vertical field value if set, zero value otherwise.
-func (o *CreateMerchantRequest) GetVertical() string {
-	if o == nil || isNil(o.Vertical) {
-		var ret string
-		return ret
-	}
-	return *o.Vertical
-}
-
-// GetVerticalOk returns a tuple with the Vertical field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *CreateMerchantRequest) GetVerticalOk() (*string, bool) {
-	if o == nil || isNil(o.Vertical) {
-    return nil, false
-	}
-	return o.Vertical, true
-}
-
-// HasVertical returns a boolean if a field has been set.
-func (o *CreateMerchantRequest) HasVertical() bool {
-	if o != nil && !isNil(o.Vertical) {
-		return true
-	}
-
-	return false
-}
-
-// SetVertical gets a reference to the given string and assigns it to the Vertical field.
-func (o *CreateMerchantRequest) SetVertical(v string) {
-	o.Vertical = &v
 }
 
 // GetSubVertical returns the SubVertical field value if set, zero value otherwise.
@@ -706,6 +699,9 @@ func (o CreateMerchantRequest) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["currencyCode"] = o.CurrencyCode
 	}
+	if true {
+		toSerialize["vertical"] = o.Vertical
+	}
 	if !isNil(o.Tier) {
 		toSerialize["tier"] = o.Tier
 	}
@@ -723,9 +719,6 @@ func (o CreateMerchantRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.BusinessState) {
 		toSerialize["businessState"] = o.BusinessState
-	}
-	if !isNil(o.Vertical) {
-		toSerialize["vertical"] = o.Vertical
 	}
 	if !isNil(o.SubVertical) {
 		toSerialize["subVertical"] = o.SubVertical

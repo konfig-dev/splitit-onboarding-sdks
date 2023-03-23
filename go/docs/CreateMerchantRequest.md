@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **CountryIso2** | **string** |  | 
 **LegalName** | **string** |  | 
 **CurrencyCode** | **string** |  | 
+**Vertical** | **string** |  | 
 **Tier** | Pointer to **string** |  | [optional] 
 **BusinessStreetAddress** | Pointer to **string** |  | [optional] 
 **BusinessCity** | Pointer to **string** |  | [optional] 
 **BusinessPostalCode** | Pointer to **string** |  | [optional] 
 **BusinessCountry** | Pointer to **string** |  | [optional] 
 **BusinessState** | Pointer to **string** |  | [optional] 
-**Vertical** | Pointer to **string** |  | [optional] 
 **SubVertical** | Pointer to **string** |  | [optional] 
 **NameOnBankAccount** | Pointer to **string** |  | [optional] 
 **IncorporationCountry** | Pointer to **string** |  | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewCreateMerchantRequest
 
-`func NewCreateMerchantRequest(publicName string, email string, phoneNumber string, countryIso2 string, legalName string, currencyCode string, ) *CreateMerchantRequest`
+`func NewCreateMerchantRequest(publicName string, email string, phoneNumber string, countryIso2 string, legalName string, currencyCode string, vertical string, ) *CreateMerchantRequest`
 
 NewCreateMerchantRequest instantiates a new CreateMerchantRequest object
 This constructor will assign default values to properties that have it defined,
@@ -163,6 +163,26 @@ and a boolean to check if the value has been set.
 `func (o *CreateMerchantRequest) SetCurrencyCode(v string)`
 
 SetCurrencyCode sets CurrencyCode field to given value.
+
+
+### GetVertical
+
+`func (o *CreateMerchantRequest) GetVertical() string`
+
+GetVertical returns the Vertical field if non-nil, zero value otherwise.
+
+### GetVerticalOk
+
+`func (o *CreateMerchantRequest) GetVerticalOk() (*string, bool)`
+
+GetVerticalOk returns a tuple with the Vertical field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVertical
+
+`func (o *CreateMerchantRequest) SetVertical(v string)`
+
+SetVertical sets Vertical field to given value.
 
 
 ### GetTier
@@ -314,31 +334,6 @@ SetBusinessState sets BusinessState field to given value.
 `func (o *CreateMerchantRequest) HasBusinessState() bool`
 
 HasBusinessState returns a boolean if a field has been set.
-
-### GetVertical
-
-`func (o *CreateMerchantRequest) GetVertical() string`
-
-GetVertical returns the Vertical field if non-nil, zero value otherwise.
-
-### GetVerticalOk
-
-`func (o *CreateMerchantRequest) GetVerticalOk() (*string, bool)`
-
-GetVerticalOk returns a tuple with the Vertical field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVertical
-
-`func (o *CreateMerchantRequest) SetVertical(v string)`
-
-SetVertical sets Vertical field to given value.
-
-### HasVertical
-
-`func (o *CreateMerchantRequest) HasVertical() bool`
-
-HasVertical returns a boolean if a field has been set.
 
 ### GetSubVertical
 

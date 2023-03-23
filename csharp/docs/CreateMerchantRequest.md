@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 **CountryIso2** | **string** |  | 
 **LegalName** | **string** |  | 
 **CurrencyCode** | **string** |  | 
+**Vertical** | **string** |  | 
 **Tier** | **string** |  | [optional] 
 **BusinessStreetAddress** | **string** |  | [optional] 
 **BusinessCity** | **string** |  | [optional] 
 **BusinessPostalCode** | **string** |  | [optional] 
 **BusinessCountry** | **string** |  | [optional] 
 **BusinessState** | **string** |  | [optional] 
-**Vertical** | **string** |  | [optional] 
 **SubVertical** | **string** |  | [optional] 
 **NameOnBankAccount** | **string** |  | [optional] 
 **IncorporationCountry** | **string** |  | [optional] 

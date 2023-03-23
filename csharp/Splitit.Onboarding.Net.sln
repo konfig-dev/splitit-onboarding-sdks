@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splitit.Onboarding.Net", "src\Splitit.Onboarding.Net\Splitit.Onboarding.Net.csproj", "{09C136E3-8E78-4BD7-BBB7-693350E2CEEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splitit.Onboarding.Net", "src\Splitit.Onboarding.Net\Splitit.Onboarding.Net.csproj", "{9D8EE607-CDA4-4D2D-A32A-F507CFC449EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Splitit.Onboarding.Net.Test", "src\Splitit.Onboarding.Net.Test\Splitit.Onboarding.Net.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09C136E3-8E78-4BD7-BBB7-693350E2CEEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09C136E3-8E78-4BD7-BBB7-693350E2CEEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09C136E3-8E78-4BD7-BBB7-693350E2CEEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09C136E3-8E78-4BD7-BBB7-693350E2CEEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8EE607-CDA4-4D2D-A32A-F507CFC449EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8EE607-CDA4-4D2D-A32A-F507CFC449EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D8EE607-CDA4-4D2D-A32A-F507CFC449EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D8EE607-CDA4-4D2D-A32A-F507CFC449EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -67,6 +67,18 @@ namespace Splitit.Onboarding.Net.Test.Api
         }
 
         /// <summary>
+        /// Test CreateDeveloper
+        /// </summary>
+        [Fact]
+        public void CreateDeveloperTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateDeveloperRequest createDeveloperRequest = null;
+            //var response = instance.CreateDeveloper(createDeveloperRequest);
+            //Assert.IsType<CreateMerchantResponse>(response);
+        }
+
+        /// <summary>
         /// Test Get
         /// </summary>
         [Fact]

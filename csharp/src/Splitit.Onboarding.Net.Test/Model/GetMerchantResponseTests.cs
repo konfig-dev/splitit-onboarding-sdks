@@ -57,12 +57,12 @@ namespace Splitit.Onboarding.Net.Test.Model
 
 
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'PublicName'
         /// </summary>
         [Fact]
-        public void NameTest()
+        public void PublicNameTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'PublicName'
         }
         /// <summary>
         /// Test the property 'LegalName'

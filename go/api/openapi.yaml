@@ -247,6 +247,35 @@ paths:
       - Merchants
       x-konfig-operation-can-have-single-parameter: true
       x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--api-merchants-create
+  /api/merchants/create/developer:
+    post:
+      operationId: Merchants_createDeveloper
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeveloperRequest'
+        required: true
+        x-nullable: false
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMerchantResponse'
+          description: ""
+          x-nullable: false
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SelfOnBoardingErrorResponse'
+          description: ""
+          x-nullable: false
+      tags:
+      - Merchants
+      x-konfig-operation-can-have-single-parameter: true
+      x-konfig-single-parameter-schema: konfig-generated-schema-single-parameter-schema-post--api-merchants-create-developer
 components:
   schemas:
     CountriesResponse:
@@ -287,7 +316,6 @@ components:
         isoA3:
           type: string
         isoNumber:
-          nullable: true
           type: string
       required:
       - id
@@ -457,15 +485,15 @@ components:
         - legalName: legalName
           country: country
           annualSales: annualSales
+          publicName: publicName
           phone: phone
-          name: name
           merchantTempId: merchantTempId
           status: status
         - legalName: legalName
           country: country
           annualSales: annualSales
+          publicName: publicName
           phone: phone
-          name: name
           merchantTempId: merchantTempId
           status: status
       properties:
@@ -481,12 +509,12 @@ components:
         legalName: legalName
         country: country
         annualSales: annualSales
+        publicName: publicName
         phone: phone
-        name: name
         merchantTempId: merchantTempId
         status: status
       properties:
-        name:
+        publicName:
           type: string
         legalName:
           type: string
@@ -505,8 +533,8 @@ components:
       - country
       - legalName
       - merchantTempId
-      - name
       - phone
+      - publicName
       - status
       type: object
     GetMerchantDetailsResponse:
@@ -541,15 +569,64 @@ components:
     CreateMerchantResponse:
       example:
         merchantStatus: merchantStatus
+        responseHeader:
+          traceId: traceId
+          errors:
+          - additionalInfo: additionalInfo
+            errorCode: errorCode
+            message: message
+          - additionalInfo: additionalInfo
+            errorCode: errorCode
+            message: message
+          succeeded: true
         merchantTempId: merchantTempId
       properties:
         merchantTempId:
           type: string
         merchantStatus:
           type: string
+        responseHeader:
+          $ref: '#/components/schemas/ResponseHeader'
       required:
       - merchantStatus
       - merchantTempId
+      - responseHeader
+      type: object
+    ResponseHeader:
+      example:
+        traceId: traceId
+        errors:
+        - additionalInfo: additionalInfo
+          errorCode: errorCode
+          message: message
+        - additionalInfo: additionalInfo
+          errorCode: errorCode
+          message: message
+        succeeded: true
+      properties:
+        succeeded:
+          type: boolean
+        errors:
+          items:
+            $ref: '#/components/schemas/Error'
+          type: array
+        traceId:
+          type: string
+      required:
+      - succeeded
+      type: object
+    Error:
+      example:
+        additionalInfo: additionalInfo
+        errorCode: errorCode
+        message: message
+      properties:
+        errorCode:
+          type: string
+        message:
+          type: string
+        additionalInfo:
+          type: string
       type: object
     CreateMerchantRequest:
       example:
@@ -593,6 +670,9 @@ components:
         currencyCode:
           minLength: 1
           type: string
+        vertical:
+          minLength: 1
+          type: string
         tier:
           type: string
         businessStreetAddress:
@@ -604,8 +684,6 @@ components:
         businessCountry:
           type: string
         businessState:
-          type: string
-        vertical:
           type: string
         subVertical:
           type: string
@@ -630,6 +708,50 @@ components:
       - legalName
       - phoneNumber
       - publicName
+      - vertical
+      type: object
+    CreateDeveloperRequest:
+      example:
+        fullCountryName: fullCountryName
+        countryCode: countryCode
+        companyName: companyName
+        fullName: fullName
+        requestHeader:
+          sessionId: sessionId
+        email: email
+        termsAndConditions: true
+      properties:
+        fullName:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        termsAndConditions:
+          type: boolean
+        countryCode:
+          type: string
+        fullCountryName:
+          type: string
+        requestHeader:
+          $ref: '#/components/schemas/RequestHeaderSlim'
+      required:
+      - companyName
+      - countryCode
+      - email
+      - fullCountryName
+      - fullName
+      - requestHeader
+      - termsAndConditions
+      type: object
+    RequestHeaderSlim:
+      example:
+        sessionId: sessionId
+      properties:
+        sessionId:
+          type: string
+      required:
+      - sessionId
       type: object
     StatusLegendResponse:
       items:
@@ -716,6 +838,9 @@ components:
         currencyCode:
           minLength: 1
           type: string
+        vertical:
+          minLength: 1
+          type: string
         tier:
           type: string
         businessStreetAddress:
@@ -727,8 +852,6 @@ components:
         businessCountry:
           type: string
         businessState:
-          type: string
-        vertical:
           type: string
         subVertical:
           type: string
@@ -753,6 +876,34 @@ components:
       - legalName
       - phoneNumber
       - publicName
+      - vertical
+      type: object
+      x-do-not-generate: true
+      x-konfig-is-parameter: []
+    konfig-generated-schema-single-parameter-schema-post--api-merchants-create-developer:
+      properties:
+        fullName:
+          type: string
+        email:
+          type: string
+        companyName:
+          type: string
+        termsAndConditions:
+          type: boolean
+        countryCode:
+          type: string
+        fullCountryName:
+          type: string
+        requestHeader:
+          $ref: '#/components/schemas/RequestHeaderSlim'
+      required:
+      - companyName
+      - countryCode
+      - email
+      - fullCountryName
+      - fullName
+      - requestHeader
+      - termsAndConditions
       type: object
       x-do-not-generate: true
       x-konfig-is-parameter: []

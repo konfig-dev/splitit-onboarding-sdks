@@ -51,6 +51,26 @@ namespace Splitit.Onboarding.Net.Api
         /// 
         /// </summary>
         /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CreateMerchantResponse</returns>
+        CreateMerchantResponse CreateDeveloper(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CreateMerchantResponse</returns>
+        ApiResponse<CreateMerchantResponse> CreateDeveloperWithHttpInfo(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="numberOfRowsInPage"></param>
         /// <param name="pageNumber"></param>
         /// <param name="name"> (optional)</param>
@@ -129,6 +149,31 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateMerchantResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CreateMerchantResponse>> CreateWithHttpInfoAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateMerchantResponse</returns>
+        System.Threading.Tasks.Task<CreateMerchantResponse> CreateDeveloperAsync(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateMerchantResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateMerchantResponse>> CreateDeveloperWithHttpInfoAsync(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -476,6 +521,184 @@ namespace Splitit.Onboarding.Net.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("Create", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>CreateMerchantResponse</returns>
+        public CreateMerchantResponse CreateDeveloper(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0)
+        {
+            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = CreateDeveloperWithHttpInfo(createDeveloperRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of CreateMerchantResponse</returns>
+        public Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> CreateDeveloperWithHttpInfo(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'createDeveloperRequest' is set
+            if (createDeveloperRequest == null)
+            {
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createDeveloperRequest' when calling MerchantsApi->CreateDeveloper");
+            }
+
+            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = createDeveloperRequest;
+
+            localVarRequestOptions.Operation = "MerchantsApi.CreateDeveloper";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<CreateMerchantResponse>("/api/merchants/create/developer", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateDeveloper", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateMerchantResponse</returns>
+        public async System.Threading.Tasks.Task<CreateMerchantResponse> CreateDeveloperAsync(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = await CreateDeveloperWithHttpInfoAsync(createDeveloperRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createDeveloperRequest"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateMerchantResponse)</returns>
+        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse>> CreateDeveloperWithHttpInfoAsync(CreateDeveloperRequest createDeveloperRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'createDeveloperRequest' is set
+            if (createDeveloperRequest == null)
+            {
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createDeveloperRequest' when calling MerchantsApi->CreateDeveloper");
+            }
+
+
+            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = createDeveloperRequest;
+
+            localVarRequestOptions.Operation = "MerchantsApi.CreateDeveloper";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<CreateMerchantResponse>("/api/merchants/create/developer", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateDeveloper", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

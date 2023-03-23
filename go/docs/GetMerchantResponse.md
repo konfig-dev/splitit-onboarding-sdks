@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**PublicName** | **string** |  | 
 **LegalName** | **string** |  | 
 **Phone** | **string** |  | 
 **Country** | **string** |  | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewGetMerchantResponse
 
-`func NewGetMerchantResponse(name string, legalName string, phone string, country string, annualSales string, status string, merchantTempId string, ) *GetMerchantResponse`
+`func NewGetMerchantResponse(publicName string, legalName string, phone string, country string, annualSales string, status string, merchantTempId string, ) *GetMerchantResponse`
 
 NewGetMerchantResponse instantiates a new GetMerchantResponse object
 This constructor will assign default values to properties that have it defined,
@@ -31,24 +31,24 @@ NewGetMerchantResponseWithDefaults instantiates a new GetMerchantResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetName
+### GetPublicName
 
-`func (o *GetMerchantResponse) GetName() string`
+`func (o *GetMerchantResponse) GetPublicName() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetPublicName returns the PublicName field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetPublicNameOk
 
-`func (o *GetMerchantResponse) GetNameOk() (*string, bool)`
+`func (o *GetMerchantResponse) GetPublicNameOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetPublicNameOk returns a tuple with the PublicName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetPublicName
 
-`func (o *GetMerchantResponse) SetName(v string)`
+`func (o *GetMerchantResponse) SetPublicName(v string)`
 
-SetName sets Name field to given value.
+SetPublicName sets PublicName field to given value.
 
 
 ### GetLegalName

@@ -39,21 +39,21 @@ namespace Splitit.Onboarding.Net.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetMerchantResponse" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
+        /// <param name="publicName">publicName (required).</param>
         /// <param name="legalName">legalName (required).</param>
         /// <param name="phone">phone (required).</param>
         /// <param name="country">country (required).</param>
         /// <param name="annualSales">annualSales (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="merchantTempId">merchantTempId (required).</param>
-        public GetMerchantResponse(string name = default(string), string legalName = default(string), string phone = default(string), string country = default(string), string annualSales = default(string), string status = default(string), string merchantTempId = default(string))
+        public GetMerchantResponse(string publicName = default(string), string legalName = default(string), string phone = default(string), string country = default(string), string annualSales = default(string), string status = default(string), string merchantTempId = default(string))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
+            // to ensure "publicName" is required (not null)
+            if (publicName == null)
             {
-                throw new ArgumentNullException("name is a required property for GetMerchantResponse and cannot be null");
+                throw new ArgumentNullException("publicName is a required property for GetMerchantResponse and cannot be null");
             }
-            this.Name = name;
+            this.PublicName = publicName;
             // to ensure "legalName" is required (not null)
             if (legalName == null)
             {
@@ -93,10 +93,10 @@ namespace Splitit.Onboarding.Net.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets PublicName
         /// </summary>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "publicName", IsRequired = true, EmitDefaultValue = true)]
+        public string PublicName { get; set; }
 
         /// <summary>
         /// Gets or Sets LegalName
@@ -142,7 +142,7 @@ namespace Splitit.Onboarding.Net.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetMerchantResponse {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  PublicName: ").Append(PublicName).Append("\n");
             sb.Append("  LegalName: ").Append(LegalName).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
@@ -185,9 +185,9 @@ namespace Splitit.Onboarding.Net.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.PublicName == input.PublicName ||
+                    (this.PublicName != null &&
+                    this.PublicName.Equals(input.PublicName))
                 ) && 
                 (
                     this.LegalName == input.LegalName ||
@@ -230,9 +230,9 @@ namespace Splitit.Onboarding.Net.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.PublicName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PublicName.GetHashCode();
                 }
                 if (this.LegalName != null)
                 {

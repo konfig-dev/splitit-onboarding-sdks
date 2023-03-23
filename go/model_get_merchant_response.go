@@ -16,7 +16,7 @@ import (
 
 // GetMerchantResponse struct for GetMerchantResponse
 type GetMerchantResponse struct {
-	Name string `json:"name"`
+	PublicName string `json:"publicName"`
 	LegalName string `json:"legalName"`
 	Phone string `json:"phone"`
 	Country string `json:"country"`
@@ -29,9 +29,9 @@ type GetMerchantResponse struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetMerchantResponse(name string, legalName string, phone string, country string, annualSales string, status string, merchantTempId string) *GetMerchantResponse {
+func NewGetMerchantResponse(publicName string, legalName string, phone string, country string, annualSales string, status string, merchantTempId string) *GetMerchantResponse {
 	this := GetMerchantResponse{}
-	this.Name = name
+	this.PublicName = publicName
 	this.LegalName = legalName
 	this.Phone = phone
 	this.Country = country
@@ -49,28 +49,28 @@ func NewGetMerchantResponseWithDefaults() *GetMerchantResponse {
 	return &this
 }
 
-// GetName returns the Name field value
-func (o *GetMerchantResponse) GetName() string {
+// GetPublicName returns the PublicName field value
+func (o *GetMerchantResponse) GetPublicName() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Name
+	return o.PublicName
 }
 
-// GetNameOk returns a tuple with the Name field value
+// GetPublicNameOk returns a tuple with the PublicName field value
 // and a boolean to check if the value has been set.
-func (o *GetMerchantResponse) GetNameOk() (*string, bool) {
+func (o *GetMerchantResponse) GetPublicNameOk() (*string, bool) {
 	if o == nil {
     return nil, false
 	}
-	return &o.Name, true
+	return &o.PublicName, true
 }
 
-// SetName sets field value
-func (o *GetMerchantResponse) SetName(v string) {
-	o.Name = v
+// SetPublicName sets field value
+func (o *GetMerchantResponse) SetPublicName(v string) {
+	o.PublicName = v
 }
 
 // GetLegalName returns the LegalName field value
@@ -220,7 +220,7 @@ func (o *GetMerchantResponse) SetMerchantTempId(v string) {
 func (o GetMerchantResponse) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["name"] = o.Name
+		toSerialize["publicName"] = o.PublicName
 	}
 	if true {
 		toSerialize["legalName"] = o.LegalName

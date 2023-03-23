@@ -5,6 +5,7 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Create**](MerchantsApi.md#Create) | **Post** /api/merchants/create | 
+[**CreateDeveloper**](MerchantsApi.md#CreateDeveloper) | **Post** /api/merchants/create/developer | 
 [**Get**](MerchantsApi.md#Get) | **Get** /api/merchants/get | 
 [**GetDetails**](MerchantsApi.md#GetDetails) | **Get** /api/merchants/get-details | 
 
@@ -29,7 +30,7 @@ import (
 )
 
 func main() {
-    createMerchantRequest := *splitit.NewCreateMerchantRequest("PublicName_example", "Email_example", "PhoneNumber_example", "CountryIso2_example", "LegalName_example", "CurrencyCode_example") // CreateMerchantRequest | 
+    createMerchantRequest := *splitit.NewCreateMerchantRequest("PublicName_example", "Email_example", "PhoneNumber_example", "CountryIso2_example", "LegalName_example", "CurrencyCode_example", "Vertical_example") // CreateMerchantRequest | 
 
     configuration := splitit.NewConfiguration()
     apiClient := splitit.NewAPIClient(configuration)
@@ -55,6 +56,70 @@ Other parameters are passed through a pointer to a apiCreateRequest struct via t
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **createMerchantRequest** | [**CreateMerchantRequest**](CreateMerchantRequest.md) |  | 
+
+### Return type
+
+[**CreateMerchantResponse**](CreateMerchantResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateDeveloper
+
+> CreateMerchantResponse CreateDeveloper(ctx).CreateDeveloperRequest(createDeveloperRequest).Execute()
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    splitit "github.com/konfig-dev/splitit-onboarding-sdks/go"
+)
+
+func main() {
+    createDeveloperRequest := *splitit.NewCreateDeveloperRequest("FullName_example", "Email_example", "CompanyName_example", false, "CountryCode_example", "FullCountryName_example", *splitit.NewRequestHeaderSlim("SessionId_example")) // CreateDeveloperRequest | 
+
+    configuration := splitit.NewConfiguration()
+    apiClient := splitit.NewAPIClient(configuration)
+    resp, r, err := apiClient.MerchantsApi.CreateDeveloper(context.Background()).CreateDeveloperRequest(createDeveloperRequest).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MerchantsApi.CreateDeveloper``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateDeveloper`: CreateMerchantResponse
+    fmt.Fprintf(os.Stdout, "Response from `MerchantsApi.CreateDeveloper`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateDeveloperRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createDeveloperRequest** | [**CreateDeveloperRequest**](CreateDeveloperRequest.md) |  | 
 
 ### Return type
 

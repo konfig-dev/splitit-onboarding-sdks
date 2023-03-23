@@ -45,13 +45,13 @@ namespace Splitit.Onboarding.Net.Model
         /// <param name="countryIso2">countryIso2 (required).</param>
         /// <param name="legalName">legalName (required).</param>
         /// <param name="currencyCode">currencyCode (required).</param>
+        /// <param name="vertical">vertical (required).</param>
         /// <param name="tier">tier.</param>
         /// <param name="businessStreetAddress">businessStreetAddress.</param>
         /// <param name="businessCity">businessCity.</param>
         /// <param name="businessPostalCode">businessPostalCode.</param>
         /// <param name="businessCountry">businessCountry.</param>
         /// <param name="businessState">businessState.</param>
-        /// <param name="vertical">vertical.</param>
         /// <param name="subVertical">subVertical.</param>
         /// <param name="nameOnBankAccount">nameOnBankAccount.</param>
         /// <param name="incorporationCountry">incorporationCountry.</param>
@@ -60,7 +60,7 @@ namespace Splitit.Onboarding.Net.Model
         /// <param name="taxIdNumber">taxIdNumber.</param>
         /// <param name="totalAnnualSales">totalAnnualSales.</param>
         /// <param name="platformName">platformName.</param>
-        public CreateMerchantRequest(string publicName = default(string), string email = default(string), string phoneNumber = default(string), string countryIso2 = default(string), string legalName = default(string), string currencyCode = default(string), string tier = default(string), string businessStreetAddress = default(string), string businessCity = default(string), string businessPostalCode = default(string), string businessCountry = default(string), string businessState = default(string), string vertical = default(string), string subVertical = default(string), string nameOnBankAccount = default(string), string incorporationCountry = default(string), string accountNumber = default(string), string routingNumber = default(string), string taxIdNumber = default(string), string totalAnnualSales = default(string), string platformName = default(string))
+        public CreateMerchantRequest(string publicName = default(string), string email = default(string), string phoneNumber = default(string), string countryIso2 = default(string), string legalName = default(string), string currencyCode = default(string), string vertical = default(string), string tier = default(string), string businessStreetAddress = default(string), string businessCity = default(string), string businessPostalCode = default(string), string businessCountry = default(string), string businessState = default(string), string subVertical = default(string), string nameOnBankAccount = default(string), string incorporationCountry = default(string), string accountNumber = default(string), string routingNumber = default(string), string taxIdNumber = default(string), string totalAnnualSales = default(string), string platformName = default(string))
         {
             // to ensure "publicName" is required (not null)
             if (publicName == null)
@@ -98,13 +98,18 @@ namespace Splitit.Onboarding.Net.Model
                 throw new ArgumentNullException("currencyCode is a required property for CreateMerchantRequest and cannot be null");
             }
             this.CurrencyCode = currencyCode;
+            // to ensure "vertical" is required (not null)
+            if (vertical == null)
+            {
+                throw new ArgumentNullException("vertical is a required property for CreateMerchantRequest and cannot be null");
+            }
+            this.Vertical = vertical;
             this.Tier = tier;
             this.BusinessStreetAddress = businessStreetAddress;
             this.BusinessCity = businessCity;
             this.BusinessPostalCode = businessPostalCode;
             this.BusinessCountry = businessCountry;
             this.BusinessState = businessState;
-            this.Vertical = vertical;
             this.SubVertical = subVertical;
             this.NameOnBankAccount = nameOnBankAccount;
             this.IncorporationCountry = incorporationCountry;
@@ -152,6 +157,12 @@ namespace Splitit.Onboarding.Net.Model
         public string CurrencyCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets Vertical
+        /// </summary>
+        [DataMember(Name = "vertical", IsRequired = true, EmitDefaultValue = true)]
+        public string Vertical { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tier
         /// </summary>
         [DataMember(Name = "tier", EmitDefaultValue = false)]
@@ -186,12 +197,6 @@ namespace Splitit.Onboarding.Net.Model
         /// </summary>
         [DataMember(Name = "businessState", EmitDefaultValue = false)]
         public string BusinessState { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Vertical
-        /// </summary>
-        [DataMember(Name = "vertical", EmitDefaultValue = false)]
-        public string Vertical { get; set; }
 
         /// <summary>
         /// Gets or Sets SubVertical
@@ -255,13 +260,13 @@ namespace Splitit.Onboarding.Net.Model
             sb.Append("  CountryIso2: ").Append(CountryIso2).Append("\n");
             sb.Append("  LegalName: ").Append(LegalName).Append("\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
+            sb.Append("  Vertical: ").Append(Vertical).Append("\n");
             sb.Append("  Tier: ").Append(Tier).Append("\n");
             sb.Append("  BusinessStreetAddress: ").Append(BusinessStreetAddress).Append("\n");
             sb.Append("  BusinessCity: ").Append(BusinessCity).Append("\n");
             sb.Append("  BusinessPostalCode: ").Append(BusinessPostalCode).Append("\n");
             sb.Append("  BusinessCountry: ").Append(BusinessCountry).Append("\n");
             sb.Append("  BusinessState: ").Append(BusinessState).Append("\n");
-            sb.Append("  Vertical: ").Append(Vertical).Append("\n");
             sb.Append("  SubVertical: ").Append(SubVertical).Append("\n");
             sb.Append("  NameOnBankAccount: ").Append(NameOnBankAccount).Append("\n");
             sb.Append("  IncorporationCountry: ").Append(IncorporationCountry).Append("\n");
@@ -336,6 +341,11 @@ namespace Splitit.Onboarding.Net.Model
                     this.CurrencyCode.Equals(input.CurrencyCode))
                 ) && 
                 (
+                    this.Vertical == input.Vertical ||
+                    (this.Vertical != null &&
+                    this.Vertical.Equals(input.Vertical))
+                ) && 
+                (
                     this.Tier == input.Tier ||
                     (this.Tier != null &&
                     this.Tier.Equals(input.Tier))
@@ -364,11 +374,6 @@ namespace Splitit.Onboarding.Net.Model
                     this.BusinessState == input.BusinessState ||
                     (this.BusinessState != null &&
                     this.BusinessState.Equals(input.BusinessState))
-                ) && 
-                (
-                    this.Vertical == input.Vertical ||
-                    (this.Vertical != null &&
-                    this.Vertical.Equals(input.Vertical))
                 ) && 
                 (
                     this.SubVertical == input.SubVertical ||
@@ -445,6 +450,10 @@ namespace Splitit.Onboarding.Net.Model
                 {
                     hashCode = (hashCode * 59) + this.CurrencyCode.GetHashCode();
                 }
+                if (this.Vertical != null)
+                {
+                    hashCode = (hashCode * 59) + this.Vertical.GetHashCode();
+                }
                 if (this.Tier != null)
                 {
                     hashCode = (hashCode * 59) + this.Tier.GetHashCode();
@@ -468,10 +477,6 @@ namespace Splitit.Onboarding.Net.Model
                 if (this.BusinessState != null)
                 {
                     hashCode = (hashCode * 59) + this.BusinessState.GetHashCode();
-                }
-                if (this.Vertical != null)
-                {
-                    hashCode = (hashCode * 59) + this.Vertical.GetHashCode();
                 }
                 if (this.SubVertical != null)
                 {
@@ -550,6 +555,12 @@ namespace Splitit.Onboarding.Net.Model
             if (this.CurrencyCode != null && this.CurrencyCode.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CurrencyCode, length must be greater than 1.", new [] { "CurrencyCode" });
+            }
+
+            // Vertical (string) minLength
+            if (this.Vertical != null && this.Vertical.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Vertical, length must be greater than 1.", new [] { "Vertical" });
             }
 
             yield break;

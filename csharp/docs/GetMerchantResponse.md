@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
+**PublicName** | **string** |  | 
 **LegalName** | **string** |  | 
 **Phone** | **string** |  | 
 **Country** | **string** |  | 

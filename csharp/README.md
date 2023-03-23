@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *DataApi* | [**GetVerticals**](docs/DataApi.md#getverticals) | **GET** /api/data/get-verticals | 
 *DataApi* | [**StatusLegend**](docs/DataApi.md#statuslegend) | **GET** /api/data/status-legend | 
 *MerchantsApi* | [**Create**](docs/MerchantsApi.md#create) | **POST** /api/merchants/create | 
+*MerchantsApi* | [**CreateDeveloper**](docs/MerchantsApi.md#createdeveloper) | **POST** /api/merchants/create/developer | 
 *MerchantsApi* | [**Get**](docs/MerchantsApi.md#get) | **GET** /api/merchants/get | 
 *MerchantsApi* | [**GetDetails**](docs/MerchantsApi.md#getdetails) | **GET** /api/merchants/get-details | 
 
@@ -122,11 +123,13 @@ Class | Method | HTTP request | Description
 
  - [Model.CountriesResponse](docs/CountriesResponse.md)
  - [Model.CountryResponse](docs/CountryResponse.md)
+ - [Model.CreateDeveloperRequest](docs/CreateDeveloperRequest.md)
  - [Model.CreateMerchantRequest](docs/CreateMerchantRequest.md)
  - [Model.CreateMerchantResponse](docs/CreateMerchantResponse.md)
  - [Model.CurrenciesResponse](docs/CurrenciesResponse.md)
  - [Model.CurrencyResponse](docs/CurrencyResponse.md)
  - [Model.EnumDTO](docs/EnumDTO.md)
+ - [Model.Error](docs/Error.md)
  - [Model.GetMerchantDetailsResponse](docs/GetMerchantDetailsResponse.md)
  - [Model.GetMerchantResponse](docs/GetMerchantResponse.md)
  - [Model.GetMerchantsResponse](docs/GetMerchantsResponse.md)
@@ -135,6 +138,8 @@ Class | Method | HTTP request | Description
  - [Model.ProcessorAuthenticationParametersRequest](docs/ProcessorAuthenticationParametersRequest.md)
  - [Model.ProcessorResponse](docs/ProcessorResponse.md)
  - [Model.ProcessorsResponse](docs/ProcessorsResponse.md)
+ - [Model.RequestHeaderSlim](docs/RequestHeaderSlim.md)
+ - [Model.ResponseHeader](docs/ResponseHeader.md)
  - [Model.SelfOnBoardingErrorResponse](docs/SelfOnBoardingErrorResponse.md)
 
 

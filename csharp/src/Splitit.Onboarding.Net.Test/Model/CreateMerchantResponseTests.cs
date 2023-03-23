@@ -72,6 +72,14 @@ namespace Splitit.Onboarding.Net.Test.Model
         {
             // TODO unit test for the property 'MerchantStatus'
         }
+        /// <summary>
+        /// Test the property 'ResponseHeader'
+        /// </summary>
+        [Fact]
+        public void ResponseHeaderTest()
+        {
+            // TODO unit test for the property 'ResponseHeader'
+        }
 
     }
 

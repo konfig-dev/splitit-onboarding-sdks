@@ -1,12 +1,12 @@
-# Splitit.Onboarding.Net.Model.CreateMerchantResponse
+# Splitit.Onboarding.Net.Model.Error
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MerchantTempId** | **string** |  | 
-**MerchantStatus** | **string** |  | 
-**ResponseHeader** | [**ResponseHeader**](ResponseHeader.md) |  | 
+**ErrorCode** | **string** |  | [optional] 
+**Message** | **string** |  | [optional] 
+**AdditionalInfo** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
