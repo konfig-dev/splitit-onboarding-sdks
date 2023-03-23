@@ -14,6 +14,14 @@ generators:
     git:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/java
+  php:
+    version: 1.0.0
+    packageName: splitit-onboarding-php-sdk
+    invokerPackage: Splitit
+    outputDirectory: php
+    git:
+      userId: konfig-dev
+      repoId: splitit-onboarding-php-sdk
   python:
     version: 2.0.0
     packageName: splitit_client
