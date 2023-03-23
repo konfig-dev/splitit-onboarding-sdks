@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**merchantTempId** | **String** |  |  |
 |**merchantStatus** | **String** |  |  |
+|**responseHeader** | [**ResponseHeader**](ResponseHeader.md) |  |  |
 
 
 

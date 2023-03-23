@@ -17,7 +17,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.konfigthis.splitit.client.model.ResponseHeader;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -26,41 +25,41 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for CreateMerchantResponse
+ * Model tests for Error
  */
-public class CreateMerchantResponseTest {
-    private final CreateMerchantResponse model = new CreateMerchantResponse();
+public class ErrorTest {
+    private final Error model = new Error();
 
     /**
-     * Model tests for CreateMerchantResponse
+     * Model tests for Error
      */
     @Test
-    public void testCreateMerchantResponse() {
-        // TODO: test CreateMerchantResponse
+    public void testError() {
+        // TODO: test Error
     }
 
     /**
-     * Test the property 'merchantTempId'
+     * Test the property 'errorCode'
      */
     @Test
-    public void merchantTempIdTest() {
-        // TODO: test merchantTempId
+    public void errorCodeTest() {
+        // TODO: test errorCode
     }
 
     /**
-     * Test the property 'merchantStatus'
+     * Test the property 'message'
      */
     @Test
-    public void merchantStatusTest() {
-        // TODO: test merchantStatus
+    public void messageTest() {
+        // TODO: test message
     }
 
     /**
-     * Test the property 'responseHeader'
+     * Test the property 'additionalInfo'
      */
     @Test
-    public void responseHeaderTest() {
-        // TODO: test responseHeader
+    public void additionalInfoTest() {
+        // TODO: test additionalInfo
     }
 
 }

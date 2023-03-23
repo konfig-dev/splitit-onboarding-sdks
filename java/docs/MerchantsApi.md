@@ -4,20 +4,20 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createMerchant**](MerchantsApi.md#createMerchant) | **POST** /api/merchants/create |  |
-| [**getMerchantDetails**](MerchantsApi.md#getMerchantDetails) | **GET** /api/merchants/get-details |  |
-| [**getMerchants**](MerchantsApi.md#getMerchants) | **GET** /api/merchants/get |  |
+| [**create**](MerchantsApi.md#create) | **POST** /api/merchants/create |  |
+| [**createDeveloper**](MerchantsApi.md#createDeveloper) | **POST** /api/merchants/create/developer |  |
+| [**get**](MerchantsApi.md#get) | **GET** /api/merchants/get |  |
+| [**getDetails**](MerchantsApi.md#getDetails) | **GET** /api/merchants/get-details |  |
 
 
-<a name="createMerchant"></a>
-# **createMerchant**
-> CreateMerchantResponse createMerchant(createMerchantRequest)
+<a name="create"></a>
+# **create**
+> CreateMerchantResponse create(createMerchantRequest).execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -27,20 +27,22 @@ import com.konfigthis.splitit.client.api.MerchantsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    MerchantsApi apiInstance = new MerchantsApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    MerchantsApi apiInstance = new MerchantsApi(apiClient);
     CreateMerchantRequest createMerchantRequest = new CreateMerchantRequest(); // CreateMerchantRequest | 
     try {
-      CreateMerchantResponse result = apiInstance.createMerchant(createMerchantRequest);
+      CreateMerchantResponse result = apiInstance.create(createMerchantRequest)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MerchantsApi#createMerchant");
+      System.err.println("Exception when calling MerchantsApi#create");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -75,15 +77,14 @@ public class Example {
 | **201** |  |  -  |
 | **400** |  |  -  |
 
-<a name="getMerchantDetails"></a>
-# **getMerchantDetails**
-> GetMerchantDetailsResponse getMerchantDetails(merchantTempId)
+<a name="createDeveloper"></a>
+# **createDeveloper**
+> CreateMerchantResponse createDeveloper(createDeveloperRequest).execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -93,20 +94,22 @@ import com.konfigthis.splitit.client.api.MerchantsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    MerchantsApi apiInstance = new MerchantsApi(defaultClient);
-    String merchantTempId = "merchantTempId_example"; // String | 
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    MerchantsApi apiInstance = new MerchantsApi(apiClient);
+    CreateDeveloperRequest createDeveloperRequest = new CreateDeveloperRequest(); // CreateDeveloperRequest | 
     try {
-      GetMerchantDetailsResponse result = apiInstance.getMerchantDetails(merchantTempId);
+      CreateMerchantResponse result = apiInstance.createDeveloper(createDeveloperRequest)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MerchantsApi#getMerchantDetails");
+      System.err.println("Exception when calling MerchantsApi#createDeveloper");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -120,11 +123,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **merchantTempId** | **String**|  | |
+| **createDeveloperRequest** | [**CreateDeveloperRequest**](CreateDeveloperRequest.md)|  | |
 
 ### Return type
 
-[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
+[**CreateMerchantResponse**](CreateMerchantResponse.md)
 
 ### Authorization
 
@@ -132,24 +135,23 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** |  |  -  |
+| **201** |  |  -  |
 | **400** |  |  -  |
 
-<a name="getMerchants"></a>
-# **getMerchants**
-> GetMerchantsResponse getMerchants(numberOfRowsInPage, pageNumber, name, legalName, status)
+<a name="get"></a>
+# **get**
+> GetMerchantsResponse get(numberOfRowsInPage, pageNumber).name(name).legalName(legalName).status(status).execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -159,24 +161,29 @@ import com.konfigthis.splitit.client.api.MerchantsApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    MerchantsApi apiInstance = new MerchantsApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    MerchantsApi apiInstance = new MerchantsApi(apiClient);
     Integer numberOfRowsInPage = 56; // Integer | 
     Integer pageNumber = 56; // Integer | 
     String name = "name_example"; // String | 
     String legalName = "legalName_example"; // String | 
     Integer status = 56; // Integer | 
     try {
-      GetMerchantsResponse result = apiInstance.getMerchants(numberOfRowsInPage, pageNumber, name, legalName, status);
+      GetMerchantsResponse result = apiInstance.get(numberOfRowsInPage, pageNumber)
+            .name(name)
+            .legalName(legalName)
+            .status(status)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MerchantsApi#getMerchants");
+      System.err.println("Exception when calling MerchantsApi#get");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -199,6 +206,73 @@ public class Example {
 ### Return type
 
 [**GetMerchantsResponse**](GetMerchantsResponse.md)
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **400** |  |  -  |
+
+<a name="getDetails"></a>
+# **getDetails**
+> GetMerchantDetailsResponse getDetails(merchantTempId).execute();
+
+
+
+### Example
+```java
+import com.konfigthis.splitit.client.ApiClient;
+import com.konfigthis.splitit.client.ApiException;
+import com.konfigthis.splitit.client.Configuration;
+import com.konfigthis.splitit.client.auth.*;
+import com.konfigthis.splitit.client.model.*;
+import com.konfigthis.splitit.client.api.MerchantsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
+
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    MerchantsApi apiInstance = new MerchantsApi(apiClient);
+    String merchantTempId = "merchantTempId_example"; // String | 
+    try {
+      GetMerchantDetailsResponse result = apiInstance.getDetails(merchantTempId)
+            .execute();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MerchantsApi#getDetails");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **merchantTempId** | **String**|  | |
+
+### Return type
+
+[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
 
 ### Authorization
 

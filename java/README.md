@@ -12,8 +12,13 @@ Splitit's Onboarding API
 ## Requirements
 
 Building the API client library requires:
+
 1. Java 1.8+
 2. Maven (3.8.3+)/Gradle (7.2+)
+
+If you are adding this library to an Android Application or Library:
+
+3. Android 8.0+ (API Level 26+)
 
 ## Installation
 
@@ -39,24 +44,47 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.konfigthis</groupId>
   <artifactId>splitit-onboarding-java-sdk</artifactId>
-  <version>1.1.0</version>
+  <version>2.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
 
 ### Gradle users
 
-Add this dependency to your project's build file:
+Add this dependency to your `build.gradle`:
 
 ```groovy
-  repositories {
-    mavenCentral()     // Needed if the 'splitit-onboarding-java-sdk' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'splitit-onboarding-java-sdk' jar has been published to the local maven repo.
-  }
+// build.gradle
+repositories {
+  mavenCentral()
+}
 
-  dependencies {
-     implementation "com.konfigthis:splitit-onboarding-java-sdk:1.1.0"
-  }
+dependencies {
+   implementation "com.konfigthis:splitit-onboarding-java-sdk:2.0.0"
+}
+```
+
+### Android users
+
+Make sure your `build.gradle` file as a `minSdk` version of at least 26:
+```groovy
+// build.gradle
+android {
+    defaultConfig {
+        minSdk 26
+    }
+}
+```
+
+Also make sure your library or application has internet permissions in your `AndroidManifest.xml`:
+
+```xml
+<!--AndroidManifest.xml-->
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+</manifest>
 ```
 
 ### Others
@@ -69,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/splitit-onboarding-java-sdk-1.1.0.jar`
+* `target/splitit-onboarding-java-sdk-2.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -77,8 +105,6 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -98,7 +124,8 @@ public class Example {
 
     DataApi apiInstance = new DataApi(apiClient);
     try {
-      CountriesResponse result = apiInstance.getCountries();
+      CountriesResponse result = apiInstance.getCountries()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#getCountries");
@@ -109,7 +136,6 @@ public class Example {
     }
   }
 }
-
 ```
 
 ## Documentation for API Endpoints
@@ -123,20 +149,23 @@ Class | Method | HTTP request | Description
 *DataApi* | [**getProcessors**](docs/DataApi.md#getProcessors) | **GET** /api/data/get-processors | 
 *DataApi* | [**getVerticals**](docs/DataApi.md#getVerticals) | **GET** /api/data/get-verticals | 
 *DataApi* | [**statusLegend**](docs/DataApi.md#statusLegend) | **GET** /api/data/status-legend | 
-*MerchantsApi* | [**createMerchant**](docs/MerchantsApi.md#createMerchant) | **POST** /api/merchants/create | 
-*MerchantsApi* | [**getMerchantDetails**](docs/MerchantsApi.md#getMerchantDetails) | **GET** /api/merchants/get-details | 
-*MerchantsApi* | [**getMerchants**](docs/MerchantsApi.md#getMerchants) | **GET** /api/merchants/get | 
+*MerchantsApi* | [**create**](docs/MerchantsApi.md#create) | **POST** /api/merchants/create | 
+*MerchantsApi* | [**createDeveloper**](docs/MerchantsApi.md#createDeveloper) | **POST** /api/merchants/create/developer | 
+*MerchantsApi* | [**get**](docs/MerchantsApi.md#get) | **GET** /api/merchants/get | 
+*MerchantsApi* | [**getDetails**](docs/MerchantsApi.md#getDetails) | **GET** /api/merchants/get-details | 
 
 
 ## Documentation for Models
 
  - [CountriesResponse](docs/CountriesResponse.md)
  - [CountryResponse](docs/CountryResponse.md)
+ - [CreateDeveloperRequest](docs/CreateDeveloperRequest.md)
  - [CreateMerchantRequest](docs/CreateMerchantRequest.md)
  - [CreateMerchantResponse](docs/CreateMerchantResponse.md)
  - [CurrenciesResponse](docs/CurrenciesResponse.md)
  - [CurrencyResponse](docs/CurrencyResponse.md)
  - [EnumDTO](docs/EnumDTO.md)
+ - [Error](docs/Error.md)
  - [GetMerchantDetailsResponse](docs/GetMerchantDetailsResponse.md)
  - [GetMerchantResponse](docs/GetMerchantResponse.md)
  - [GetMerchantsResponse](docs/GetMerchantsResponse.md)
@@ -145,6 +174,8 @@ Class | Method | HTTP request | Description
  - [ProcessorAuthenticationParametersRequest](docs/ProcessorAuthenticationParametersRequest.md)
  - [ProcessorResponse](docs/ProcessorResponse.md)
  - [ProcessorsResponse](docs/ProcessorsResponse.md)
+ - [RequestHeaderSlim](docs/RequestHeaderSlim.md)
+ - [ResponseHeader](docs/ResponseHeader.md)
  - [SelfOnBoardingErrorResponse](docs/SelfOnBoardingErrorResponse.md)
 
 
@@ -163,8 +194,3 @@ Authentication schemes defined for the API:
 ## Recommendation
 
 It's recommended to create an instance of `ApiClient` per thread in a multithreaded environment to avoid any potential issues.
-
-## Author
-
-
-

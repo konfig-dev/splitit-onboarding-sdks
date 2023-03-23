@@ -13,14 +13,18 @@
 package com.konfigthis.splitit.client.api;
 
 import com.konfigthis.splitit.client.ApiException;
+import com.konfigthis.splitit.client.ApiClient;
+import com.konfigthis.splitit.client.ApiException;
+import com.konfigthis.splitit.client.Configuration;
 import com.konfigthis.splitit.client.model.CountriesResponse;
 import com.konfigthis.splitit.client.model.CurrenciesResponse;
 import com.konfigthis.splitit.client.model.EnumDTO;
 import com.konfigthis.splitit.client.model.MerchantVerticalsResponse;
 import com.konfigthis.splitit.client.model.ProcessorsResponse;
 import com.konfigthis.splitit.client.model.SelfOnBoardingErrorResponse;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.BeforeClass;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,17 +34,25 @@ import java.util.Map;
 /**
  * API tests for DataApi
  */
-@Disabled
+@Ignore
 public class DataApiTest {
 
-    private final DataApi api = new DataApi();
+    private static DataApi api;
+
+    
+    @BeforeClass
+    public static void beforeClass() {
+        ApiClient apiClient = Configuration.getDefaultApiClient();
+        api = new DataApi(apiClient);
+    }
 
     /**
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getCountriesTest() throws ApiException {
-        CountriesResponse response = api.getCountries();
+        CountriesResponse response = api.getCountries()
+                .execute();
         // TODO: test validations
     }
 
@@ -49,7 +61,8 @@ public class DataApiTest {
      */
     @Test
     public void getCurrenciesTest() throws ApiException {
-        CurrenciesResponse response = api.getCurrencies();
+        CurrenciesResponse response = api.getCurrencies()
+                .execute();
         // TODO: test validations
     }
 
@@ -58,7 +71,8 @@ public class DataApiTest {
      */
     @Test
     public void getProcessorsTest() throws ApiException {
-        ProcessorsResponse response = api.getProcessors();
+        ProcessorsResponse response = api.getProcessors()
+                .execute();
         // TODO: test validations
     }
 
@@ -67,7 +81,8 @@ public class DataApiTest {
      */
     @Test
     public void getVerticalsTest() throws ApiException {
-        MerchantVerticalsResponse response = api.getVerticals();
+        MerchantVerticalsResponse response = api.getVerticals()
+                .execute();
         // TODO: test validations
     }
 
@@ -76,7 +91,8 @@ public class DataApiTest {
      */
     @Test
     public void statusLegendTest() throws ApiException {
-        List<EnumDTO> response = api.statusLegend();
+        List<EnumDTO> response = api.statusLegend()
+                .execute();
         // TODO: test validations
     }
 

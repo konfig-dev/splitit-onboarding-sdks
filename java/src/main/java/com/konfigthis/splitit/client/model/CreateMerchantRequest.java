@@ -73,6 +73,10 @@ public class CreateMerchantRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
   private String currencyCode;
 
+  public static final String SERIALIZED_NAME_VERTICAL = "vertical";
+  @SerializedName(SERIALIZED_NAME_VERTICAL)
+  private String vertical;
+
   public static final String SERIALIZED_NAME_TIER = "tier";
   @SerializedName(SERIALIZED_NAME_TIER)
   private String tier;
@@ -96,10 +100,6 @@ public class CreateMerchantRequest {
   public static final String SERIALIZED_NAME_BUSINESS_STATE = "businessState";
   @SerializedName(SERIALIZED_NAME_BUSINESS_STATE)
   private String businessState;
-
-  public static final String SERIALIZED_NAME_VERTICAL = "vertical";
-  @SerializedName(SERIALIZED_NAME_VERTICAL)
-  private String vertical;
 
   public static final String SERIALIZED_NAME_SUB_VERTICAL = "subVertical";
   @SerializedName(SERIALIZED_NAME_SUB_VERTICAL)
@@ -274,6 +274,29 @@ public class CreateMerchantRequest {
   }
 
 
+  public CreateMerchantRequest vertical(String vertical) {
+    
+    this.vertical = vertical;
+    return this;
+  }
+
+   /**
+   * Get vertical
+   * @return vertical
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "")
+
+  public String getVertical() {
+    return vertical;
+  }
+
+
+  public void setVertical(String vertical) {
+    this.vertical = vertical;
+  }
+
+
   public CreateMerchantRequest tier(String tier) {
     
     this.tier = tier;
@@ -409,29 +432,6 @@ public class CreateMerchantRequest {
 
   public void setBusinessState(String businessState) {
     this.businessState = businessState;
-  }
-
-
-  public CreateMerchantRequest vertical(String vertical) {
-    
-    this.vertical = vertical;
-    return this;
-  }
-
-   /**
-   * Get vertical
-   * @return vertical
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getVertical() {
-    return vertical;
-  }
-
-
-  public void setVertical(String vertical) {
-    this.vertical = vertical;
   }
 
 
@@ -679,13 +679,13 @@ public class CreateMerchantRequest {
         Objects.equals(this.countryIso2, createMerchantRequest.countryIso2) &&
         Objects.equals(this.legalName, createMerchantRequest.legalName) &&
         Objects.equals(this.currencyCode, createMerchantRequest.currencyCode) &&
+        Objects.equals(this.vertical, createMerchantRequest.vertical) &&
         Objects.equals(this.tier, createMerchantRequest.tier) &&
         Objects.equals(this.businessStreetAddress, createMerchantRequest.businessStreetAddress) &&
         Objects.equals(this.businessCity, createMerchantRequest.businessCity) &&
         Objects.equals(this.businessPostalCode, createMerchantRequest.businessPostalCode) &&
         Objects.equals(this.businessCountry, createMerchantRequest.businessCountry) &&
         Objects.equals(this.businessState, createMerchantRequest.businessState) &&
-        Objects.equals(this.vertical, createMerchantRequest.vertical) &&
         Objects.equals(this.subVertical, createMerchantRequest.subVertical) &&
         Objects.equals(this.nameOnBankAccount, createMerchantRequest.nameOnBankAccount) &&
         Objects.equals(this.incorporationCountry, createMerchantRequest.incorporationCountry) &&
@@ -699,7 +699,7 @@ public class CreateMerchantRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(publicName, email, phoneNumber, countryIso2, legalName, currencyCode, tier, businessStreetAddress, businessCity, businessPostalCode, businessCountry, businessState, vertical, subVertical, nameOnBankAccount, incorporationCountry, accountNumber, routingNumber, taxIdNumber, totalAnnualSales, platformName, additionalProperties);
+    return Objects.hash(publicName, email, phoneNumber, countryIso2, legalName, currencyCode, vertical, tier, businessStreetAddress, businessCity, businessPostalCode, businessCountry, businessState, subVertical, nameOnBankAccount, incorporationCountry, accountNumber, routingNumber, taxIdNumber, totalAnnualSales, platformName, additionalProperties);
   }
 
   @Override
@@ -712,13 +712,13 @@ public class CreateMerchantRequest {
     sb.append("    countryIso2: ").append(toIndentedString(countryIso2)).append("\n");
     sb.append("    legalName: ").append(toIndentedString(legalName)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    vertical: ").append(toIndentedString(vertical)).append("\n");
     sb.append("    tier: ").append(toIndentedString(tier)).append("\n");
     sb.append("    businessStreetAddress: ").append(toIndentedString(businessStreetAddress)).append("\n");
     sb.append("    businessCity: ").append(toIndentedString(businessCity)).append("\n");
     sb.append("    businessPostalCode: ").append(toIndentedString(businessPostalCode)).append("\n");
     sb.append("    businessCountry: ").append(toIndentedString(businessCountry)).append("\n");
     sb.append("    businessState: ").append(toIndentedString(businessState)).append("\n");
-    sb.append("    vertical: ").append(toIndentedString(vertical)).append("\n");
     sb.append("    subVertical: ").append(toIndentedString(subVertical)).append("\n");
     sb.append("    nameOnBankAccount: ").append(toIndentedString(nameOnBankAccount)).append("\n");
     sb.append("    incorporationCountry: ").append(toIndentedString(incorporationCountry)).append("\n");
@@ -756,13 +756,13 @@ public class CreateMerchantRequest {
     openapiFields.add("countryIso2");
     openapiFields.add("legalName");
     openapiFields.add("currencyCode");
+    openapiFields.add("vertical");
     openapiFields.add("tier");
     openapiFields.add("businessStreetAddress");
     openapiFields.add("businessCity");
     openapiFields.add("businessPostalCode");
     openapiFields.add("businessCountry");
     openapiFields.add("businessState");
-    openapiFields.add("vertical");
     openapiFields.add("subVertical");
     openapiFields.add("nameOnBankAccount");
     openapiFields.add("incorporationCountry");
@@ -780,6 +780,7 @@ public class CreateMerchantRequest {
     openapiRequiredFields.add("countryIso2");
     openapiRequiredFields.add("legalName");
     openapiRequiredFields.add("currencyCode");
+    openapiRequiredFields.add("vertical");
   }
 
  /**
@@ -819,6 +820,9 @@ public class CreateMerchantRequest {
       if (!jsonObj.get("currencyCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currencyCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currencyCode").toString()));
       }
+      if (!jsonObj.get("vertical").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `vertical` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vertical").toString()));
+      }
       if ((jsonObj.get("tier") != null && !jsonObj.get("tier").isJsonNull()) && !jsonObj.get("tier").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tier").toString()));
       }
@@ -836,9 +840,6 @@ public class CreateMerchantRequest {
       }
       if ((jsonObj.get("businessState") != null && !jsonObj.get("businessState").isJsonNull()) && !jsonObj.get("businessState").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `businessState` to be a primitive type in the JSON string but got `%s`", jsonObj.get("businessState").toString()));
-      }
-      if ((jsonObj.get("vertical") != null && !jsonObj.get("vertical").isJsonNull()) && !jsonObj.get("vertical").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vertical` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vertical").toString()));
       }
       if ((jsonObj.get("subVertical") != null && !jsonObj.get("subVertical").isJsonNull()) && !jsonObj.get("subVertical").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subVertical` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subVertical").toString()));

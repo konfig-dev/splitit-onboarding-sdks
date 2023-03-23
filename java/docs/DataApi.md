@@ -13,13 +13,12 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 
 <a name="getCountries"></a>
 # **getCountries**
-> CountriesResponse getCountries()
+> CountriesResponse getCountries().execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -29,16 +28,18 @@ import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    DataApi apiInstance = new DataApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    DataApi apiInstance = new DataApi(apiClient);
     try {
-      CountriesResponse result = apiInstance.getCountries();
+      CountriesResponse result = apiInstance.getCountries()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#getCountries");
@@ -75,13 +76,12 @@ This endpoint does not need any parameter.
 
 <a name="getCurrencies"></a>
 # **getCurrencies**
-> CurrenciesResponse getCurrencies()
+> CurrenciesResponse getCurrencies().execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -91,16 +91,18 @@ import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    DataApi apiInstance = new DataApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    DataApi apiInstance = new DataApi(apiClient);
     try {
-      CurrenciesResponse result = apiInstance.getCurrencies();
+      CurrenciesResponse result = apiInstance.getCurrencies()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#getCurrencies");
@@ -137,13 +139,12 @@ This endpoint does not need any parameter.
 
 <a name="getProcessors"></a>
 # **getProcessors**
-> ProcessorsResponse getProcessors()
+> ProcessorsResponse getProcessors().execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -153,16 +154,18 @@ import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    DataApi apiInstance = new DataApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    DataApi apiInstance = new DataApi(apiClient);
     try {
-      ProcessorsResponse result = apiInstance.getProcessors();
+      ProcessorsResponse result = apiInstance.getProcessors()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#getProcessors");
@@ -199,13 +202,12 @@ This endpoint does not need any parameter.
 
 <a name="getVerticals"></a>
 # **getVerticals**
-> MerchantVerticalsResponse getVerticals()
+> MerchantVerticalsResponse getVerticals().execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -215,16 +217,18 @@ import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    DataApi apiInstance = new DataApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    DataApi apiInstance = new DataApi(apiClient);
     try {
-      MerchantVerticalsResponse result = apiInstance.getVerticals();
+      MerchantVerticalsResponse result = apiInstance.getVerticals()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#getVerticals");
@@ -261,13 +265,12 @@ This endpoint does not need any parameter.
 
 <a name="statusLegend"></a>
 # **statusLegend**
-> List&lt;EnumDTO&gt; statusLegend()
+> List&lt;EnumDTO&gt; statusLegend().execute();
 
 
 
 ### Example
 ```java
-// Import classes:
 import com.konfigthis.splitit.client.ApiClient;
 import com.konfigthis.splitit.client.ApiException;
 import com.konfigthis.splitit.client.Configuration;
@@ -277,16 +280,18 @@ import com.konfigthis.splitit.client.api.DataApi;
 
 public class Example {
   public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");
-    
-    // Configure OAuth2 access token for authorization: oauth2
-    OAuth oauth2 = (OAuth) defaultClient.getAuthentication("oauth2");
-    oauth2.setAccessToken("YOUR ACCESS TOKEN");
+    // Configure OAuth2 client credentials for "application" OAuth flow
+    String clientId = System.getenv("CLIENT_ID");
+    String secretId = System.getenv("CLIENT_SECRET");
+    ApiClient apiClient = new ApiClient(clientId, secretId, null);
 
-    DataApi apiInstance = new DataApi(defaultClient);
+    // Set custom base path if desired
+    // apiClient.setBasePath("https://onboarding-v2.sandbox.splitit.com");    
+
+    DataApi apiInstance = new DataApi(apiClient);
     try {
-      List<EnumDTO> result = apiInstance.statusLegend();
+      List<EnumDTO> result = apiInstance.statusLegend()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DataApi#statusLegend");

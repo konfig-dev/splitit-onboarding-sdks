@@ -77,19 +77,7 @@ public class DataApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for getCountries
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCountriesCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCountriesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -139,66 +127,94 @@ public class DataApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @return CountriesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public CountriesResponse getCountries() throws ApiException {
-        ApiResponse<CountriesResponse> localVarResp = getCountriesWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;CountriesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CountriesResponse> getCountriesWithHttpInfo() throws ApiException {
+    private ApiResponse<CountriesResponse> getCountriesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCountriesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<CountriesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCountriesAsync(final ApiCallback<CountriesResponse> _callback) throws ApiException {
+    private okhttp3.Call getCountriesAsync(final ApiCallback<CountriesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCountriesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<CountriesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetCountriesRequest {
+
+        private APIgetCountriesRequest() {
+        }
+
+        /**
+         * Build call for getCountries
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCountriesCall(_callback);
+        }
+
+        /**
+         * Execute getCountries request
+         * @return CountriesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public CountriesResponse execute() throws ApiException {
+            ApiResponse<CountriesResponse> localVarResp = getCountriesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCountries request with HTTP info returned
+         * @return ApiResponse&lt;CountriesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CountriesResponse> executeWithHttpInfo() throws ApiException {
+            return getCountriesWithHttpInfo();
+        }
+
+        /**
+         * Execute getCountries request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CountriesResponse> _callback) throws ApiException {
+            return getCountriesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getCurrencies
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * 
+     * 
+     * @return APIgetCountriesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -206,7 +222,10 @@ public class DataApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getCurrenciesCall(final ApiCallback _callback) throws ApiException {
+    public APIgetCountriesRequest getCountries() {
+        return new APIgetCountriesRequest();
+    }
+    private okhttp3.Call getCurrenciesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,66 +275,94 @@ public class DataApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @return CurrenciesResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public CurrenciesResponse getCurrencies() throws ApiException {
-        ApiResponse<CurrenciesResponse> localVarResp = getCurrenciesWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;CurrenciesResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CurrenciesResponse> getCurrenciesWithHttpInfo() throws ApiException {
+    private ApiResponse<CurrenciesResponse> getCurrenciesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getCurrenciesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<CurrenciesResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getCurrenciesAsync(final ApiCallback<CurrenciesResponse> _callback) throws ApiException {
+    private okhttp3.Call getCurrenciesAsync(final ApiCallback<CurrenciesResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCurrenciesValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<CurrenciesResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetCurrenciesRequest {
+
+        private APIgetCurrenciesRequest() {
+        }
+
+        /**
+         * Build call for getCurrencies
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCurrenciesCall(_callback);
+        }
+
+        /**
+         * Execute getCurrencies request
+         * @return CurrenciesResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public CurrenciesResponse execute() throws ApiException {
+            ApiResponse<CurrenciesResponse> localVarResp = getCurrenciesWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getCurrencies request with HTTP info returned
+         * @return ApiResponse&lt;CurrenciesResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CurrenciesResponse> executeWithHttpInfo() throws ApiException {
+            return getCurrenciesWithHttpInfo();
+        }
+
+        /**
+         * Execute getCurrencies request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CurrenciesResponse> _callback) throws ApiException {
+            return getCurrenciesAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getProcessors
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * 
+     * 
+     * @return APIgetCurrenciesRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -323,7 +370,10 @@ public class DataApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getProcessorsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetCurrenciesRequest getCurrencies() {
+        return new APIgetCurrenciesRequest();
+    }
+    private okhttp3.Call getProcessorsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -373,66 +423,94 @@ public class DataApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @return ProcessorsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ProcessorsResponse getProcessors() throws ApiException {
-        ApiResponse<ProcessorsResponse> localVarResp = getProcessorsWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;ProcessorsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ProcessorsResponse> getProcessorsWithHttpInfo() throws ApiException {
+    private ApiResponse<ProcessorsResponse> getProcessorsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getProcessorsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<ProcessorsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getProcessorsAsync(final ApiCallback<ProcessorsResponse> _callback) throws ApiException {
+    private okhttp3.Call getProcessorsAsync(final ApiCallback<ProcessorsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getProcessorsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<ProcessorsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetProcessorsRequest {
+
+        private APIgetProcessorsRequest() {
+        }
+
+        /**
+         * Build call for getProcessors
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getProcessorsCall(_callback);
+        }
+
+        /**
+         * Execute getProcessors request
+         * @return ProcessorsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ProcessorsResponse execute() throws ApiException {
+            ApiResponse<ProcessorsResponse> localVarResp = getProcessorsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getProcessors request with HTTP info returned
+         * @return ApiResponse&lt;ProcessorsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<ProcessorsResponse> executeWithHttpInfo() throws ApiException {
+            return getProcessorsWithHttpInfo();
+        }
+
+        /**
+         * Execute getProcessors request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<ProcessorsResponse> _callback) throws ApiException {
+            return getProcessorsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for getVerticals
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * 
+     * 
+     * @return APIgetProcessorsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -440,7 +518,10 @@ public class DataApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getVerticalsCall(final ApiCallback _callback) throws ApiException {
+    public APIgetProcessorsRequest getProcessors() {
+        return new APIgetProcessorsRequest();
+    }
+    private okhttp3.Call getVerticalsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -490,66 +571,94 @@ public class DataApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @return MerchantVerticalsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public MerchantVerticalsResponse getVerticals() throws ApiException {
-        ApiResponse<MerchantVerticalsResponse> localVarResp = getVerticalsWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;MerchantVerticalsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<MerchantVerticalsResponse> getVerticalsWithHttpInfo() throws ApiException {
+    private ApiResponse<MerchantVerticalsResponse> getVerticalsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getVerticalsValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<MerchantVerticalsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getVerticalsAsync(final ApiCallback<MerchantVerticalsResponse> _callback) throws ApiException {
+    private okhttp3.Call getVerticalsAsync(final ApiCallback<MerchantVerticalsResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getVerticalsValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<MerchantVerticalsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIgetVerticalsRequest {
+
+        private APIgetVerticalsRequest() {
+        }
+
+        /**
+         * Build call for getVerticals
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getVerticalsCall(_callback);
+        }
+
+        /**
+         * Execute getVerticals request
+         * @return MerchantVerticalsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public MerchantVerticalsResponse execute() throws ApiException {
+            ApiResponse<MerchantVerticalsResponse> localVarResp = getVerticalsWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getVerticals request with HTTP info returned
+         * @return ApiResponse&lt;MerchantVerticalsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<MerchantVerticalsResponse> executeWithHttpInfo() throws ApiException {
+            return getVerticalsWithHttpInfo();
+        }
+
+        /**
+         * Execute getVerticals request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<MerchantVerticalsResponse> _callback) throws ApiException {
+            return getVerticalsAsync(_callback);
+        }
+    }
+
     /**
-     * Build call for statusLegend
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * 
+     * 
+     * @return APIgetVerticalsRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -557,7 +666,10 @@ public class DataApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statusLegendCall(final ApiCallback _callback) throws ApiException {
+    public APIgetVerticalsRequest getVerticals() {
+        return new APIgetVerticalsRequest();
+    }
+    private okhttp3.Call statusLegendCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -607,47 +719,94 @@ public class DataApi {
 
     }
 
-    /**
-     * 
-     * 
-     * @return List&lt;EnumDTO&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public List<EnumDTO> statusLegend() throws ApiException {
-        ApiResponse<List<EnumDTO>> localVarResp = statusLegendWithHttpInfo();
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @return ApiResponse&lt;List&lt;EnumDTO&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<List<EnumDTO>> statusLegendWithHttpInfo() throws ApiException {
+    private ApiResponse<List<EnumDTO>> statusLegendWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = statusLegendValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<EnumDTO>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call statusLegendAsync(final ApiCallback<List<EnumDTO>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = statusLegendValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<EnumDTO>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIstatusLegendRequest {
+
+        private APIstatusLegendRequest() {
+        }
+
+        /**
+         * Build call for statusLegend
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return statusLegendCall(_callback);
+        }
+
+        /**
+         * Execute statusLegend request
+         * @return List&lt;EnumDTO&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public List<EnumDTO> execute() throws ApiException {
+            ApiResponse<List<EnumDTO>> localVarResp = statusLegendWithHttpInfo();
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute statusLegend request with HTTP info returned
+         * @return ApiResponse&lt;List&lt;EnumDTO&gt;&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<List<EnumDTO>> executeWithHttpInfo() throws ApiException {
+            return statusLegendWithHttpInfo();
+        }
+
+        /**
+         * Execute statusLegend request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<List<EnumDTO>> _callback) throws ApiException {
+            return statusLegendAsync(_callback);
+        }
+    }
+
     /**
-     *  (asynchronously)
      * 
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * 
+     * @return APIstatusLegendRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -655,11 +814,7 @@ public class DataApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call statusLegendAsync(final ApiCallback<List<EnumDTO>> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = statusLegendValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<EnumDTO>>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIstatusLegendRequest statusLegend() {
+        return new APIstatusLegendRequest();
     }
 }

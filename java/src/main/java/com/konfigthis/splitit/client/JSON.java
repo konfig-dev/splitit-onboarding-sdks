@@ -94,11 +94,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CountriesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CountryResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CreateDeveloperRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CreateMerchantRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CreateMerchantResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CurrenciesResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.CurrencyResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.EnumDTO.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.Error.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.GetMerchantDetailsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.GetMerchantResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.GetMerchantsResponse.CustomTypeAdapterFactory());
@@ -107,6 +109,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.ProcessorAuthenticationParametersRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.ProcessorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.ProcessorsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.RequestHeaderSlim.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.ResponseHeader.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.konfigthis.splitit.client.model.SelfOnBoardingErrorResponse.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }

@@ -13,13 +13,18 @@
 package com.konfigthis.splitit.client.api;
 
 import com.konfigthis.splitit.client.ApiException;
+import com.konfigthis.splitit.client.ApiClient;
+import com.konfigthis.splitit.client.ApiException;
+import com.konfigthis.splitit.client.Configuration;
+import com.konfigthis.splitit.client.model.CreateDeveloperRequest;
 import com.konfigthis.splitit.client.model.CreateMerchantRequest;
 import com.konfigthis.splitit.client.model.CreateMerchantResponse;
 import com.konfigthis.splitit.client.model.GetMerchantDetailsResponse;
 import com.konfigthis.splitit.client.model.GetMerchantsResponse;
 import com.konfigthis.splitit.client.model.SelfOnBoardingErrorResponse;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.BeforeClass;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,18 +34,26 @@ import java.util.Map;
 /**
  * API tests for MerchantsApi
  */
-@Disabled
+@Ignore
 public class MerchantsApiTest {
 
-    private final MerchantsApi api = new MerchantsApi();
+    private static MerchantsApi api;
+
+    
+    @BeforeClass
+    public static void beforeClass() {
+        ApiClient apiClient = Configuration.getDefaultApiClient();
+        api = new MerchantsApi(apiClient);
+    }
 
     /**
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void createMerchantTest() throws ApiException {
+    public void createTest() throws ApiException {
         CreateMerchantRequest createMerchantRequest = null;
-        CreateMerchantResponse response = api.createMerchant(createMerchantRequest);
+        CreateMerchantResponse response = api.create(createMerchantRequest)
+                .execute();
         // TODO: test validations
     }
 
@@ -48,9 +61,10 @@ public class MerchantsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getMerchantDetailsTest() throws ApiException {
-        String merchantTempId = null;
-        GetMerchantDetailsResponse response = api.getMerchantDetails(merchantTempId);
+    public void createDeveloperTest() throws ApiException {
+        CreateDeveloperRequest createDeveloperRequest = null;
+        CreateMerchantResponse response = api.createDeveloper(createDeveloperRequest)
+                .execute();
         // TODO: test validations
     }
 
@@ -58,13 +72,28 @@ public class MerchantsApiTest {
      * @throws ApiException if the Api call fails
      */
     @Test
-    public void getMerchantsTest() throws ApiException {
+    public void getTest() throws ApiException {
         Integer numberOfRowsInPage = null;
         Integer pageNumber = null;
         String name = null;
         String legalName = null;
         Integer status = null;
-        GetMerchantsResponse response = api.getMerchants(numberOfRowsInPage, pageNumber, name, legalName, status);
+        GetMerchantsResponse response = api.get(numberOfRowsInPage, pageNumber)
+                .name(name)
+                .legalName(legalName)
+                .status(status)
+                .execute();
+        // TODO: test validations
+    }
+
+    /**
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getDetailsTest() throws ApiException {
+        String merchantTempId = null;
+        GetMerchantDetailsResponse response = api.getDetails(merchantTempId)
+                .execute();
         // TODO: test validations
     }
 

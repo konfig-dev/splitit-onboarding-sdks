@@ -87,6 +87,14 @@ public class CreateMerchantRequestTest {
     }
 
     /**
+     * Test the property 'vertical'
+     */
+    @Test
+    public void verticalTest() {
+        // TODO: test vertical
+    }
+
+    /**
      * Test the property 'tier'
      */
     @Test
@@ -132,14 +140,6 @@ public class CreateMerchantRequestTest {
     @Test
     public void businessStateTest() {
         // TODO: test businessState
-    }
-
-    /**
-     * Test the property 'vertical'
-     */
-    @Test
-    public void verticalTest() {
-        // TODO: test vertical
     }
 
     /**

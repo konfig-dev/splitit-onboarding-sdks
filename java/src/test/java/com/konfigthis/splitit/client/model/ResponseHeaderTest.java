@@ -17,50 +17,52 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.konfigthis.splitit.client.model.ResponseHeader;
+import com.konfigthis.splitit.client.model.Error;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for CreateMerchantResponse
+ * Model tests for ResponseHeader
  */
-public class CreateMerchantResponseTest {
-    private final CreateMerchantResponse model = new CreateMerchantResponse();
+public class ResponseHeaderTest {
+    private final ResponseHeader model = new ResponseHeader();
 
     /**
-     * Model tests for CreateMerchantResponse
+     * Model tests for ResponseHeader
      */
     @Test
-    public void testCreateMerchantResponse() {
-        // TODO: test CreateMerchantResponse
+    public void testResponseHeader() {
+        // TODO: test ResponseHeader
     }
 
     /**
-     * Test the property 'merchantTempId'
+     * Test the property 'succeeded'
      */
     @Test
-    public void merchantTempIdTest() {
-        // TODO: test merchantTempId
+    public void succeededTest() {
+        // TODO: test succeeded
     }
 
     /**
-     * Test the property 'merchantStatus'
+     * Test the property 'errors'
      */
     @Test
-    public void merchantStatusTest() {
-        // TODO: test merchantStatus
+    public void errorsTest() {
+        // TODO: test errors
     }
 
     /**
-     * Test the property 'responseHeader'
+     * Test the property 'traceId'
      */
     @Test
-    public void responseHeaderTest() {
-        // TODO: test responseHeader
+    public void traceIdTest() {
+        // TODO: test traceId
     }
 
 }

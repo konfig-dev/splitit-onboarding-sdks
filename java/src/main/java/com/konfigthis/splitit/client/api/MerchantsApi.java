@@ -26,6 +26,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.konfigthis.splitit.client.model.CreateDeveloperRequest;
 import com.konfigthis.splitit.client.model.CreateMerchantRequest;
 import com.konfigthis.splitit.client.model.CreateMerchantResponse;
 import com.konfigthis.splitit.client.model.GetMerchantDetailsResponse;
@@ -76,20 +77,7 @@ public class MerchantsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    /**
-     * Build call for createMerchant
-     * @param createMerchantRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createMerchantCall(CreateMerchantRequest createMerchantRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createCall(CreateMerchantRequest createMerchantRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -135,60 +123,107 @@ public class MerchantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createMerchantValidateBeforeCall(CreateMerchantRequest createMerchantRequest, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createValidateBeforeCall(CreateMerchantRequest createMerchantRequest, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'createMerchantRequest' is set
         if (createMerchantRequest == null) {
-            throw new ApiException("Missing the required parameter 'createMerchantRequest' when calling createMerchant(Async)");
+            throw new ApiException("Missing the required parameter 'createMerchantRequest' when calling create(Async)");
         }
 
-        return createMerchantCall(createMerchantRequest, _callback);
+        return createCall(createMerchantRequest, _callback);
 
     }
 
-    /**
-     * 
-     * 
-     * @param createMerchantRequest  (required)
-     * @return CreateMerchantResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateMerchantResponse createMerchant(CreateMerchantRequest createMerchantRequest) throws ApiException {
-        ApiResponse<CreateMerchantResponse> localVarResp = createMerchantWithHttpInfo(createMerchantRequest);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param createMerchantRequest  (required)
-     * @return ApiResponse&lt;CreateMerchantResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateMerchantResponse> createMerchantWithHttpInfo(CreateMerchantRequest createMerchantRequest) throws ApiException {
-        okhttp3.Call localVarCall = createMerchantValidateBeforeCall(createMerchantRequest, null);
+    private ApiResponse<CreateMerchantResponse> createWithHttpInfo(CreateMerchantRequest createMerchantRequest) throws ApiException {
+        okhttp3.Call localVarCall = createValidateBeforeCall(createMerchantRequest, null);
         Type localVarReturnType = new TypeToken<CreateMerchantResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call createAsync(CreateMerchantRequest createMerchantRequest, final ApiCallback<CreateMerchantResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createValidateBeforeCall(createMerchantRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateMerchantResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIcreateRequest {
+        private final CreateMerchantRequest createMerchantRequest;
+
+        private APIcreateRequest(CreateMerchantRequest createMerchantRequest) {
+            this.createMerchantRequest = createMerchantRequest;
+        }
+
+        /**
+         * Build call for create
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createCall(createMerchantRequest, _callback);
+        }
+
+        /**
+         * Execute create request
+         * @return CreateMerchantResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public CreateMerchantResponse execute() throws ApiException {
+            ApiResponse<CreateMerchantResponse> localVarResp = createWithHttpInfo(createMerchantRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute create request with HTTP info returned
+         * @return ApiResponse&lt;CreateMerchantResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CreateMerchantResponse> executeWithHttpInfo() throws ApiException {
+            return createWithHttpInfo(createMerchantRequest);
+        }
+
+        /**
+         * Execute create request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateMerchantResponse> _callback) throws ApiException {
+            return createAsync(createMerchantRequest, _callback);
+        }
+    }
+
     /**
-     *  (asynchronously)
+     * 
      * 
      * @param createMerchantRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIcreateRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -196,27 +231,10 @@ public class MerchantsApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createMerchantAsync(CreateMerchantRequest createMerchantRequest, final ApiCallback<CreateMerchantResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createMerchantValidateBeforeCall(createMerchantRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateMerchantResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
+    public APIcreateRequest create(CreateMerchantRequest createMerchantRequest) {
+        return new APIcreateRequest(createMerchantRequest);
     }
-    /**
-     * Build call for getMerchantDetails
-     * @param merchantTempId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getMerchantDetailsCall(String merchantTempId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createDeveloperCall(CreateDeveloperRequest createDeveloperRequest, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -230,20 +248,16 @@ public class MerchantsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = createDeveloperRequest;
 
         // create path and map variables
-        String localVarPath = "/api/merchants/get-details";
+        String localVarPath = "/api/merchants/create/developer";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (merchantTempId != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchantTempId", merchantTempId));
-        }
 
         final String[] localVarAccepts = {
             "application/json"
@@ -254,6 +268,7 @@ public class MerchantsApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -261,96 +276,122 @@ public class MerchantsApi {
         }
 
         String[] localVarAuthNames = new String[] { "oauth2" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMerchantDetailsValidateBeforeCall(String merchantTempId, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'merchantTempId' is set
-        if (merchantTempId == null) {
-            throw new ApiException("Missing the required parameter 'merchantTempId' when calling getMerchantDetails(Async)");
+    private okhttp3.Call createDeveloperValidateBeforeCall(CreateDeveloperRequest createDeveloperRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createDeveloperRequest' is set
+        if (createDeveloperRequest == null) {
+            throw new ApiException("Missing the required parameter 'createDeveloperRequest' when calling createDeveloper(Async)");
         }
 
-        return getMerchantDetailsCall(merchantTempId, _callback);
+        return createDeveloperCall(createDeveloperRequest, _callback);
 
     }
 
-    /**
-     * 
-     * 
-     * @param merchantTempId  (required)
-     * @return GetMerchantDetailsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetMerchantDetailsResponse getMerchantDetails(String merchantTempId) throws ApiException {
-        ApiResponse<GetMerchantDetailsResponse> localVarResp = getMerchantDetailsWithHttpInfo(merchantTempId);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param merchantTempId  (required)
-     * @return ApiResponse&lt;GetMerchantDetailsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetMerchantDetailsResponse> getMerchantDetailsWithHttpInfo(String merchantTempId) throws ApiException {
-        okhttp3.Call localVarCall = getMerchantDetailsValidateBeforeCall(merchantTempId, null);
-        Type localVarReturnType = new TypeToken<GetMerchantDetailsResponse>(){}.getType();
+    private ApiResponse<CreateMerchantResponse> createDeveloperWithHttpInfo(CreateDeveloperRequest createDeveloperRequest) throws ApiException {
+        okhttp3.Call localVarCall = createDeveloperValidateBeforeCall(createDeveloperRequest, null);
+        Type localVarReturnType = new TypeToken<CreateMerchantResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    /**
-     *  (asynchronously)
-     * 
-     * @param merchantTempId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getMerchantDetailsAsync(String merchantTempId, final ApiCallback<GetMerchantDetailsResponse> _callback) throws ApiException {
+    private okhttp3.Call createDeveloperAsync(CreateDeveloperRequest createDeveloperRequest, final ApiCallback<CreateMerchantResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMerchantDetailsValidateBeforeCall(merchantTempId, _callback);
-        Type localVarReturnType = new TypeToken<GetMerchantDetailsResponse>(){}.getType();
+        okhttp3.Call localVarCall = createDeveloperValidateBeforeCall(createDeveloperRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateMerchantResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
+    public class APIcreateDeveloperRequest {
+        private final CreateDeveloperRequest createDeveloperRequest;
+
+        private APIcreateDeveloperRequest(CreateDeveloperRequest createDeveloperRequest) {
+            this.createDeveloperRequest = createDeveloperRequest;
+        }
+
+        /**
+         * Build call for createDeveloper
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return createDeveloperCall(createDeveloperRequest, _callback);
+        }
+
+        /**
+         * Execute createDeveloper request
+         * @return CreateMerchantResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public CreateMerchantResponse execute() throws ApiException {
+            ApiResponse<CreateMerchantResponse> localVarResp = createDeveloperWithHttpInfo(createDeveloperRequest);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute createDeveloper request with HTTP info returned
+         * @return ApiResponse&lt;CreateMerchantResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<CreateMerchantResponse> executeWithHttpInfo() throws ApiException {
+            return createDeveloperWithHttpInfo(createDeveloperRequest);
+        }
+
+        /**
+         * Execute createDeveloper request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<CreateMerchantResponse> _callback) throws ApiException {
+            return createDeveloperAsync(createDeveloperRequest, _callback);
+        }
+    }
+
     /**
-     * Build call for getMerchants
-     * @param numberOfRowsInPage  (required)
-     * @param pageNumber  (required)
-     * @param name  (optional)
-     * @param legalName  (optional)
-     * @param status  (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
+     * 
+     * 
+     * @param createDeveloperRequest  (required)
+     * @return APIcreateDeveloperRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsCall(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback _callback) throws ApiException {
+    public APIcreateDeveloperRequest createDeveloper(CreateDeveloperRequest createDeveloperRequest) {
+        return new APIcreateDeveloperRequest(createDeveloperRequest);
+    }
+    private okhttp3.Call getCall(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -415,77 +456,148 @@ public class MerchantsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMerchantsValidateBeforeCall(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getValidateBeforeCall(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'numberOfRowsInPage' is set
         if (numberOfRowsInPage == null) {
-            throw new ApiException("Missing the required parameter 'numberOfRowsInPage' when calling getMerchants(Async)");
+            throw new ApiException("Missing the required parameter 'numberOfRowsInPage' when calling get(Async)");
         }
 
         // verify the required parameter 'pageNumber' is set
         if (pageNumber == null) {
-            throw new ApiException("Missing the required parameter 'pageNumber' when calling getMerchants(Async)");
+            throw new ApiException("Missing the required parameter 'pageNumber' when calling get(Async)");
         }
 
-        return getMerchantsCall(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
+        return getCall(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
 
     }
 
-    /**
-     * 
-     * 
-     * @param numberOfRowsInPage  (required)
-     * @param pageNumber  (required)
-     * @param name  (optional)
-     * @param legalName  (optional)
-     * @param status  (optional)
-     * @return GetMerchantsResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public GetMerchantsResponse getMerchants(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status) throws ApiException {
-        ApiResponse<GetMerchantsResponse> localVarResp = getMerchantsWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
-        return localVarResp.getData();
-    }
 
-    /**
-     * 
-     * 
-     * @param numberOfRowsInPage  (required)
-     * @param pageNumber  (required)
-     * @param name  (optional)
-     * @param legalName  (optional)
-     * @param status  (optional)
-     * @return ApiResponse&lt;GetMerchantsResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<GetMerchantsResponse> getMerchantsWithHttpInfo(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status) throws ApiException {
-        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(numberOfRowsInPage, pageNumber, name, legalName, status, null);
+    private ApiResponse<GetMerchantsResponse> getWithHttpInfo(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status) throws ApiException {
+        okhttp3.Call localVarCall = getValidateBeforeCall(numberOfRowsInPage, pageNumber, name, legalName, status, null);
         Type localVarReturnType = new TypeToken<GetMerchantsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
+    private okhttp3.Call getAsync(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback<GetMerchantsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getValidateBeforeCall(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
+        Type localVarReturnType = new TypeToken<GetMerchantsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    public class APIgetRequest {
+        private final Integer numberOfRowsInPage;
+        private final Integer pageNumber;
+        private String name;
+        private String legalName;
+        private Integer status;
+
+        private APIgetRequest(Integer numberOfRowsInPage, Integer pageNumber) {
+            this.numberOfRowsInPage = numberOfRowsInPage;
+            this.pageNumber = pageNumber;
+        }
+
+        /**
+         * Set name
+         * @param name  (optional)
+         * @return APIgetRequest
+         */
+        public APIgetRequest name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        /**
+         * Set legalName
+         * @param legalName  (optional)
+         * @return APIgetRequest
+         */
+        public APIgetRequest legalName(String legalName) {
+            this.legalName = legalName;
+            return this;
+        }
+
+        /**
+         * Set status
+         * @param status  (optional)
+         * @return APIgetRequest
+         */
+        public APIgetRequest status(Integer status) {
+            this.status = status;
+            return this;
+        }
+
+        /**
+         * Build call for get
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getCall(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
+        }
+
+        /**
+         * Execute get request
+         * @return GetMerchantsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetMerchantsResponse execute() throws ApiException {
+            ApiResponse<GetMerchantsResponse> localVarResp = getWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute get request with HTTP info returned
+         * @return ApiResponse&lt;GetMerchantsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetMerchantsResponse> executeWithHttpInfo() throws ApiException {
+            return getWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
+        }
+
+        /**
+         * Execute get request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetMerchantsResponse> _callback) throws ApiException {
+            return getAsync(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
+        }
+    }
+
     /**
-     *  (asynchronously)
+     * 
      * 
      * @param numberOfRowsInPage  (required)
      * @param pageNumber  (required)
-     * @param name  (optional)
-     * @param legalName  (optional)
-     * @param status  (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @return APIgetRequest
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
@@ -493,11 +605,167 @@ public class MerchantsApi {
         <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMerchantsAsync(Integer numberOfRowsInPage, Integer pageNumber, String name, String legalName, Integer status, final ApiCallback<GetMerchantsResponse> _callback) throws ApiException {
+    public APIgetRequest get(Integer numberOfRowsInPage, Integer pageNumber) {
+        return new APIgetRequest(numberOfRowsInPage, pageNumber);
+    }
+    private okhttp3.Call getDetailsCall(String merchantTempId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
 
-        okhttp3.Call localVarCall = getMerchantsValidateBeforeCall(numberOfRowsInPage, pageNumber, name, legalName, status, _callback);
-        Type localVarReturnType = new TypeToken<GetMerchantsResponse>(){}.getType();
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/merchants/get-details";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (merchantTempId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("merchantTempId", merchantTempId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "oauth2" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDetailsValidateBeforeCall(String merchantTempId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'merchantTempId' is set
+        if (merchantTempId == null) {
+            throw new ApiException("Missing the required parameter 'merchantTempId' when calling getDetails(Async)");
+        }
+
+        return getDetailsCall(merchantTempId, _callback);
+
+    }
+
+
+    private ApiResponse<GetMerchantDetailsResponse> getDetailsWithHttpInfo(String merchantTempId) throws ApiException {
+        okhttp3.Call localVarCall = getDetailsValidateBeforeCall(merchantTempId, null);
+        Type localVarReturnType = new TypeToken<GetMerchantDetailsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    private okhttp3.Call getDetailsAsync(String merchantTempId, final ApiCallback<GetMerchantDetailsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getDetailsValidateBeforeCall(merchantTempId, _callback);
+        Type localVarReturnType = new TypeToken<GetMerchantDetailsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
+    }
+
+    public class APIgetDetailsRequest {
+        private final String merchantTempId;
+
+        private APIgetDetailsRequest(String merchantTempId) {
+            this.merchantTempId = merchantTempId;
+        }
+
+        /**
+         * Build call for getDetails
+         * @param _callback ApiCallback API callback
+         * @return Call to execute
+         * @throws ApiException If fail to serialize the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
+            return getDetailsCall(merchantTempId, _callback);
+        }
+
+        /**
+         * Execute getDetails request
+         * @return GetMerchantDetailsResponse
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public GetMerchantDetailsResponse execute() throws ApiException {
+            ApiResponse<GetMerchantDetailsResponse> localVarResp = getDetailsWithHttpInfo(merchantTempId);
+            return localVarResp.getData();
+        }
+
+        /**
+         * Execute getDetails request with HTTP info returned
+         * @return ApiResponse&lt;GetMerchantDetailsResponse&gt;
+         * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public ApiResponse<GetMerchantDetailsResponse> executeWithHttpInfo() throws ApiException {
+            return getDetailsWithHttpInfo(merchantTempId);
+        }
+
+        /**
+         * Execute getDetails request (asynchronously)
+         * @param _callback The callback to be executed when the API call finishes
+         * @return The request call
+         * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+         * @http.response.details
+         <table summary="Response Details" border="1">
+            <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+            <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+            <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+         </table>
+         */
+        public okhttp3.Call executeAsync(final ApiCallback<GetMerchantDetailsResponse> _callback) throws ApiException {
+            return getDetailsAsync(merchantTempId, _callback);
+        }
+    }
+
+    /**
+     * 
+     * 
+     * @param merchantTempId  (required)
+     * @return APIgetDetailsRequest
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td>  </td><td>  -  </td></tr>
+     </table>
+     */
+    public APIgetDetailsRequest getDetails(String merchantTempId) {
+        return new APIgetDetailsRequest(merchantTempId);
     }
 }

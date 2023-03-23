@@ -19,7 +19,7 @@ public class DataApiGetCountriesTest {
                 String secretId = System.getenv("ONBOARDING_SPLITIT_CLIENT_SECRET");
                 ApiClient client = new ApiClient(clientId, secretId, null);
                 DataApi api = new DataApi(client);
-                CountriesResponse countries = api.getCountries();
+                CountriesResponse countries = api.getCountries().execute();
                 assertNotNull("Received null response", countries);
         }
 }

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** |  |  |
+|**publicName** | **String** |  |  |
 |**legalName** | **String** |  |  |
 |**phone** | **String** |  |  |
 |**country** | **String** |  |  |

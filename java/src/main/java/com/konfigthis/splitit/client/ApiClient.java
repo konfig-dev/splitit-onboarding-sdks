@@ -181,6 +181,8 @@ public class ApiClient {
         authentications = Collections.unmodifiableMap(authentications);
     }
 
+
+
     private void initHttpClient() {
         initHttpClient(Collections.<Interceptor>emptyList());
     }
@@ -191,6 +193,7 @@ public class ApiClient {
         for (Interceptor interceptor: interceptors) {
             builder.addInterceptor(interceptor);
         }
+        builder.readTimeout(0, TimeUnit.MILLISECONDS);
 
         httpClient = builder.build();
     }
@@ -201,7 +204,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Konfig/1.1.0/java");
+        setUserAgent("OpenAPI-Generator/2.0.0/java");
 
         authentications = new HashMap<String, Authentication>();
     }

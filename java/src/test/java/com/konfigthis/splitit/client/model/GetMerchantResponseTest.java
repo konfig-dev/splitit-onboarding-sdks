@@ -39,11 +39,11 @@ public class GetMerchantResponseTest {
     }
 
     /**
-     * Test the property 'name'
+     * Test the property 'publicName'
      */
     @Test
-    public void nameTest() {
-        // TODO: test name
+    public void publicNameTest() {
+        // TODO: test publicName
     }
 
     /**
