@@ -343,6 +343,49 @@
           }
         }
       }
+    },
+    "/api/merchants/create/developer": {
+      "post": {
+        "tags": [
+          "Merchants"
+        ],
+        "operationId": "Merchants_createDeveloper",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDeveloperRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-nullable": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "x-nullable": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateMerchantResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "",
+            "x-nullable": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SelfOnBoardingErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -397,8 +440,7 @@
             "type": "string"
           },
           "isoNumber": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         }
       },
@@ -568,7 +610,7 @@
       "GetMerchantResponse": {
         "type": "object",
         "required": [
-          "name",
+          "publicName",
           "legalName",
           "phone",
           "country",
@@ -577,7 +619,7 @@
           "merchantTempId"
         ],
         "properties": {
-          "name": {
+          "publicName": {
             "type": "string"
           },
           "legalName": {
@@ -635,13 +677,51 @@
         "type": "object",
         "required": [
           "merchantTempId",
-          "merchantStatus"
+          "merchantStatus",
+          "responseHeader"
         ],
         "properties": {
           "merchantTempId": {
             "type": "string"
           },
           "merchantStatus": {
+            "type": "string"
+          },
+          "responseHeader": {
+            "$ref": "#/components/schemas/ResponseHeader"
+          }
+        }
+      },
+      "ResponseHeader": {
+        "type": "object",
+        "required": [
+          "succeeded"
+        ],
+        "properties": {
+          "succeeded": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "traceId": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "additionalInfo": {
             "type": "string"
           }
         }
@@ -654,7 +734,8 @@
           "phoneNumber",
           "countryIso2",
           "legalName",
-          "currencyCode"
+          "currencyCode",
+          "vertical"
         ],
         "properties": {
           "publicName": {
@@ -681,6 +762,10 @@
             "type": "string",
             "minLength": 1
           },
+          "vertical": {
+            "type": "string",
+            "minLength": 1
+          },
           "tier": {
             "type": "string"
           },
@@ -697,9 +782,6 @@
             "type": "string"
           },
           "businessState": {
-            "type": "string"
-          },
-          "vertical": {
             "type": "string"
           },
           "subVertical": {
@@ -724,6 +806,52 @@
             "type": "string"
           },
           "platformName": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateDeveloperRequest": {
+        "type": "object",
+        "required": [
+          "fullName",
+          "email",
+          "companyName",
+          "termsAndConditions",
+          "countryCode",
+          "fullCountryName",
+          "requestHeader"
+        ],
+        "properties": {
+          "fullName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "termsAndConditions": {
+            "type": "boolean"
+          },
+          "countryCode": {
+            "type": "string"
+          },
+          "fullCountryName": {
+            "type": "string"
+          },
+          "requestHeader": {
+            "$ref": "#/components/schemas/RequestHeaderSlim"
+          }
+        }
+      },
+      "RequestHeaderSlim": {
+        "type": "object",
+        "required": [
+          "sessionId"
+        ],
+        "properties": {
+          "sessionId": {
             "type": "string"
           }
         }

@@ -1,3 +1,4 @@
+description: Splitit's Onboarding API
 examples: {}
 examples_2: {}
 operationIds:
@@ -13,6 +14,8 @@ operationIds:
     get: Data_statusLegend
   /api/merchants/create:
     post: Merchants_create
+  /api/merchants/create/developer:
+    post: Merchants_createDeveloper
   /api/merchants/get:
     get: Merchants_get
   /api/merchants/get-details:

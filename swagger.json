@@ -3,17 +3,21 @@
   "swagger": "2.0",
   "info": {
     "title": "Splitit.OnBoarding.Api.V2",
-    "description": "Splitit's Onboarding API",
     "version": "1.0.0"
   },
   "host": "onboarding-v2.sandbox.splitit.com",
-  "schemes": ["https"],
-  "produces": ["application/json"],
-  "tags": [{ "name": "Data" }, { "name": "Merchants" }],
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
   "paths": {
     "/api/data/get-countries": {
       "get": {
-        "tags": ["Data"],
+        "tags": [
+          "Data"
+        ],
         "operationId": "GetCountries",
         "responses": {
           "200": {
@@ -30,12 +34,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/data/get-currencies": {
       "get": {
-        "tags": ["Data"],
+        "tags": [
+          "Data"
+        ],
         "operationId": "GetCurrencies",
         "responses": {
           "200": {
@@ -52,12 +63,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/data/get-processors": {
       "get": {
-        "tags": ["Data"],
+        "tags": [
+          "Data"
+        ],
         "operationId": "GetProcessors",
         "responses": {
           "200": {
@@ -74,12 +92,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/data/get-verticals": {
       "get": {
-        "tags": ["Data"],
+        "tags": [
+          "Data"
+        ],
         "operationId": "GetVerticals",
         "responses": {
           "200": {
@@ -96,12 +121,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/data/status-legend": {
       "get": {
-        "tags": ["Data"],
+        "tags": [
+          "Data"
+        ],
         "operationId": "StatusLegend",
         "responses": {
           "200": {
@@ -121,12 +153,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/merchants/get": {
       "get": {
-        "tags": ["Merchants"],
+        "tags": [
+          "Merchants"
+        ],
         "operationId": "GetMerchants",
         "parameters": [
           {
@@ -180,12 +219,19 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/merchants/get-details": {
       "get": {
-        "tags": ["Merchants"],
+        "tags": [
+          "Merchants"
+        ],
         "operationId": "GetMerchantDetails",
         "parameters": [
           {
@@ -211,14 +257,23 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
       }
     },
     "/api/merchants/create": {
       "post": {
-        "tags": ["Merchants"],
+        "tags": [
+          "Merchants"
+        ],
         "operationId": "CreateMerchant",
-        "consumes": ["application/json"],
+        "consumes": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "CreateMerchantRequest",
@@ -246,6 +301,50 @@
               "$ref": "#/definitions/SelfOnBoardingErrorResponse"
             }
           }
+        },
+        "security": [
+          {
+            "oauth2": []
+          }
+        ]
+      }
+    },
+    "/api/merchants/create/developer": {
+      "post": {
+        "tags": [
+          "Merchants"
+        ],
+        "operationId": "CreateDeveloper",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "CreateDeveloperRequest",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateDeveloperRequest"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "201": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CreateMerchantResponse"
+            }
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SelfOnBoardingErrorResponse"
+            }
+          }
         }
       }
     }
@@ -253,7 +352,9 @@
   "definitions": {
     "CountriesResponse": {
       "type": "object",
-      "required": ["countries"],
+      "required": [
+        "countries"
+      ],
       "properties": {
         "countries": {
           "type": "array",
@@ -265,7 +366,13 @@
     },
     "CountryResponse": {
       "type": "object",
-      "required": ["id", "name", "isoA2", "isoA3", "isoNumber"],
+      "required": [
+        "id",
+        "name",
+        "isoA2",
+        "isoA3",
+        "isoNumber"
+      ],
       "properties": {
         "id": {
           "type": "string"
@@ -280,8 +387,7 @@
           "type": "string"
         },
         "isoNumber": {
-          "type": "string",
-          "x-nullable": true
+          "type": "string"
         }
       }
     },
@@ -305,7 +411,9 @@
     },
     "CurrenciesResponse": {
       "type": "object",
-      "required": ["currencies"],
+      "required": [
+        "currencies"
+      ],
       "properties": {
         "currencies": {
           "type": "array",
@@ -334,7 +442,9 @@
     },
     "ProcessorsResponse": {
       "type": "object",
-      "required": ["processors"],
+      "required": [
+        "processors"
+      ],
       "properties": {
         "processors": {
           "type": "array",
@@ -346,7 +456,11 @@
     },
     "ProcessorResponse": {
       "type": "object",
-      "required": ["id", "name", "processorAuthenticationParametersRequest"],
+      "required": [
+        "id",
+        "name",
+        "processorAuthenticationParametersRequest"
+      ],
       "properties": {
         "id": {
           "type": "integer",
@@ -365,7 +479,9 @@
     },
     "ProcessorAuthenticationParametersRequest": {
       "type": "object",
-      "required": ["key"],
+      "required": [
+        "key"
+      ],
       "properties": {
         "key": {
           "type": "string"
@@ -374,7 +490,9 @@
     },
     "MerchantVerticalsResponse": {
       "type": "object",
-      "required": ["merchantVerticals"],
+      "required": [
+        "merchantVerticals"
+      ],
       "properties": {
         "merchantVerticals": {
           "type": "array",
@@ -408,7 +526,10 @@
     },
     "EnumDTO": {
       "type": "object",
-      "required": ["key", "name"],
+      "required": [
+        "key",
+        "name"
+      ],
       "properties": {
         "key": {
           "type": "integer",
@@ -421,7 +542,9 @@
     },
     "GetMerchantsResponse": {
       "type": "object",
-      "required": ["merchants"],
+      "required": [
+        "merchants"
+      ],
       "properties": {
         "merchants": {
           "type": "array",
@@ -434,7 +557,7 @@
     "GetMerchantResponse": {
       "type": "object",
       "required": [
-        "name",
+        "publicName",
         "legalName",
         "phone",
         "country",
@@ -443,7 +566,7 @@
         "merchantTempId"
       ],
       "properties": {
-        "name": {
+        "publicName": {
           "type": "string"
         },
         "legalName": {
@@ -499,12 +622,53 @@
     },
     "CreateMerchantResponse": {
       "type": "object",
-      "required": ["merchantTempId", "merchantStatus"],
+      "required": [
+        "merchantTempId",
+        "merchantStatus",
+        "responseHeader"
+      ],
       "properties": {
         "merchantTempId": {
           "type": "string"
         },
         "merchantStatus": {
+          "type": "string"
+        },
+        "responseHeader": {
+          "$ref": "#/definitions/ResponseHeader"
+        }
+      }
+    },
+    "ResponseHeader": {
+      "type": "object",
+      "required": [
+        "succeeded"
+      ],
+      "properties": {
+        "succeeded": {
+          "type": "boolean"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Error"
+          }
+        },
+        "traceId": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "errorCode": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "additionalInfo": {
           "type": "string"
         }
       }
@@ -517,7 +681,8 @@
         "phoneNumber",
         "countryIso2",
         "legalName",
-        "currencyCode"
+        "currencyCode",
+        "vertical"
       ],
       "properties": {
         "publicName": {
@@ -544,6 +709,10 @@
           "type": "string",
           "minLength": 1
         },
+        "vertical": {
+          "type": "string",
+          "minLength": 1
+        },
         "tier": {
           "type": "string"
         },
@@ -560,9 +729,6 @@
           "type": "string"
         },
         "businessState": {
-          "type": "string"
-        },
-        "vertical": {
           "type": "string"
         },
         "subVertical": {
@@ -587,6 +753,52 @@
           "type": "string"
         },
         "platformName": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateDeveloperRequest": {
+      "type": "object",
+      "required": [
+        "fullName",
+        "email",
+        "companyName",
+        "termsAndConditions",
+        "countryCode",
+        "fullCountryName",
+        "requestHeader"
+      ],
+      "properties": {
+        "fullName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "termsAndConditions": {
+          "type": "boolean"
+        },
+        "countryCode": {
+          "type": "string"
+        },
+        "fullCountryName": {
+          "type": "string"
+        },
+        "requestHeader": {
+          "$ref": "#/definitions/RequestHeaderSlim"
+        }
+      }
+    },
+    "RequestHeaderSlim": {
+      "type": "object",
+      "required": [
+        "sessionId"
+      ],
+      "properties": {
+        "sessionId": {
           "type": "string"
         }
       }
