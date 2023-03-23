@@ -4,13 +4,13 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateMerchant**](MerchantsApi.md#createmerchant) | **POST** /api/merchants/create |  |
-| [**GetMerchantDetails**](MerchantsApi.md#getmerchantdetails) | **GET** /api/merchants/get-details |  |
-| [**GetMerchants**](MerchantsApi.md#getmerchants) | **GET** /api/merchants/get |  |
+| [**Create**](MerchantsApi.md#create) | **POST** /api/merchants/create |  |
+| [**Get**](MerchantsApi.md#get) | **GET** /api/merchants/get |  |
+| [**GetDetails**](MerchantsApi.md#getdetails) | **GET** /api/merchants/get-details |  |
 
-<a name="createmerchant"></a>
-# **CreateMerchant**
-> CreateMerchantResponse CreateMerchant (CreateMerchantRequest createMerchantRequest)
+<a name="create"></a>
+# **Create**
+> CreateMerchantResponse Create (CreateMerchantRequest createMerchantRequest)
 
 
 
@@ -24,7 +24,7 @@ using Splitit.Onboarding.Net.Model;
 
 namespace Example
 {
-    public class CreateMerchantExample
+    public class CreateExample
     {
         public static void Main()
         {
@@ -38,12 +38,12 @@ namespace Example
 
             try
             {
-                CreateMerchantResponse result = apiInstance.CreateMerchant(createMerchantRequest);
+                CreateMerchantResponse result = apiInstance.Create(createMerchantRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MerchantsApi.CreateMerchant: " + e.Message);
+                Debug.Print("Exception when calling MerchantsApi.Create: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -52,20 +52,20 @@ namespace Example
 }
 ```
 
-#### Using the CreateMerchantWithHttpInfo variant
+#### Using the CreateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<CreateMerchantResponse> response = apiInstance.CreateMerchantWithHttpInfo(createMerchantRequest);
+    ApiResponse<CreateMerchantResponse> response = apiInstance.CreateWithHttpInfo(createMerchantRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MerchantsApi.CreateMerchantWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MerchantsApi.CreateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -99,9 +99,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmerchantdetails"></a>
-# **GetMerchantDetails**
-> GetMerchantDetailsResponse GetMerchantDetails (string merchantTempId)
+<a name="get"></a>
+# **Get**
+> GetMerchantsResponse Get (int numberOfRowsInPage, int pageNumber, string name = null, string legalName = null, int? status = null)
 
 
 
@@ -115,7 +115,7 @@ using Splitit.Onboarding.Net.Model;
 
 namespace Example
 {
-    public class GetMerchantDetailsExample
+    public class GetExample
     {
         public static void Main()
         {
@@ -125,16 +125,20 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MerchantsApi(config);
-            var merchantTempId = "merchantTempId_example";  // string | 
+            var numberOfRowsInPage = 56;  // int | 
+            var pageNumber = 56;  // int | 
+            var name = "name_example";  // string |  (optional) 
+            var legalName = "legalName_example";  // string |  (optional) 
+            var status = 56;  // int? |  (optional) 
 
             try
             {
-                GetMerchantDetailsResponse result = apiInstance.GetMerchantDetails(merchantTempId);
+                GetMerchantsResponse result = apiInstance.Get(numberOfRowsInPage, pageNumber, name, legalName, status);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MerchantsApi.GetMerchantDetails: " + e.Message);
+                Debug.Print("Exception when calling MerchantsApi.Get: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -143,20 +147,20 @@ namespace Example
 }
 ```
 
-#### Using the GetMerchantDetailsWithHttpInfo variant
+#### Using the GetWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<GetMerchantDetailsResponse> response = apiInstance.GetMerchantDetailsWithHttpInfo(merchantTempId);
+    ApiResponse<GetMerchantsResponse> response = apiInstance.GetWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MerchantsApi.GetMerchantDetailsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MerchantsApi.GetWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -166,11 +170,15 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **merchantTempId** | **string** |  |  |
+| **numberOfRowsInPage** | **int** |  |  |
+| **pageNumber** | **int** |  |  |
+| **name** | **string** |  | [optional]  |
+| **legalName** | **string** |  | [optional]  |
+| **status** | **int?** |  | [optional]  |
 
 ### Return type
 
-[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
+[**GetMerchantsResponse**](GetMerchantsResponse.md)
 
 ### Authorization
 
@@ -190,9 +198,9 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmerchants"></a>
-# **GetMerchants**
-> GetMerchantsResponse GetMerchants (int numberOfRowsInPage, int pageNumber, string name = null, string legalName = null, int? status = null)
+<a name="getdetails"></a>
+# **GetDetails**
+> GetMerchantDetailsResponse GetDetails (string merchantTempId)
 
 
 
@@ -206,7 +214,7 @@ using Splitit.Onboarding.Net.Model;
 
 namespace Example
 {
-    public class GetMerchantsExample
+    public class GetDetailsExample
     {
         public static void Main()
         {
@@ -216,20 +224,16 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new MerchantsApi(config);
-            var numberOfRowsInPage = 56;  // int | 
-            var pageNumber = 56;  // int | 
-            var name = "name_example";  // string |  (optional) 
-            var legalName = "legalName_example";  // string |  (optional) 
-            var status = 56;  // int? |  (optional) 
+            var merchantTempId = "merchantTempId_example";  // string | 
 
             try
             {
-                GetMerchantsResponse result = apiInstance.GetMerchants(numberOfRowsInPage, pageNumber, name, legalName, status);
+                GetMerchantDetailsResponse result = apiInstance.GetDetails(merchantTempId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling MerchantsApi.GetMerchants: " + e.Message);
+                Debug.Print("Exception when calling MerchantsApi.GetDetails: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -238,20 +242,20 @@ namespace Example
 }
 ```
 
-#### Using the GetMerchantsWithHttpInfo variant
+#### Using the GetDetailsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    ApiResponse<GetMerchantsResponse> response = apiInstance.GetMerchantsWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
+    ApiResponse<GetMerchantDetailsResponse> response = apiInstance.GetDetailsWithHttpInfo(merchantTempId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling MerchantsApi.GetMerchantsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MerchantsApi.GetDetailsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -261,15 +265,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **numberOfRowsInPage** | **int** |  |  |
-| **pageNumber** | **int** |  |  |
-| **name** | **string** |  | [optional]  |
-| **legalName** | **string** |  | [optional]  |
-| **status** | **int?** |  | [optional]  |
+| **merchantTempId** | **string** |  |  |
 
 ### Return type
 
-[**GetMerchantsResponse**](GetMerchantsResponse.md)
+[**GetMerchantDetailsResponse**](GetMerchantDetailsResponse.md)
 
 ### Authorization
 

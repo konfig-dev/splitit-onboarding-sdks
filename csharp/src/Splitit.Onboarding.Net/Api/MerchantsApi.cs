@@ -34,7 +34,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="createMerchantRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateMerchantResponse</returns>
-        CreateMerchantResponse CreateMerchant(CreateMerchantRequest createMerchantRequest, int operationIndex = 0);
+        CreateMerchantResponse Create(CreateMerchantRequest createMerchantRequest, int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -46,27 +46,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="createMerchantRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateMerchantResponse</returns>
-        ApiResponse<CreateMerchantResponse> CreateMerchantWithHttpInfo(CreateMerchantRequest createMerchantRequest, int operationIndex = 0);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMerchantDetailsResponse</returns>
-        GetMerchantDetailsResponse GetMerchantDetails(string merchantTempId, int operationIndex = 0);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMerchantDetailsResponse</returns>
-        ApiResponse<GetMerchantDetailsResponse> GetMerchantDetailsWithHttpInfo(string merchantTempId, int operationIndex = 0);
+        ApiResponse<CreateMerchantResponse> CreateWithHttpInfo(CreateMerchantRequest createMerchantRequest, int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
@@ -78,7 +58,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="status"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetMerchantsResponse</returns>
-        GetMerchantsResponse GetMerchants(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0);
+        GetMerchantsResponse Get(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -94,7 +74,27 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="status"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetMerchantsResponse</returns>
-        ApiResponse<GetMerchantsResponse> GetMerchantsWithHttpInfo(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0);
+        ApiResponse<GetMerchantsResponse> GetWithHttpInfo(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetMerchantDetailsResponse</returns>
+        GetMerchantDetailsResponse GetDetails(string merchantTempId, int operationIndex = 0);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetMerchantDetailsResponse</returns>
+        ApiResponse<GetMerchantDetailsResponse> GetDetailsWithHttpInfo(string merchantTempId, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -115,7 +115,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateMerchantResponse</returns>
-        System.Threading.Tasks.Task<CreateMerchantResponse> CreateMerchantAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CreateMerchantResponse> CreateAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -128,32 +128,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateMerchantResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CreateMerchantResponse>> CreateMerchantWithHttpInfoAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMerchantDetailsResponse</returns>
-        System.Threading.Tasks.Task<GetMerchantDetailsResponse> GetMerchantDetailsAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMerchantDetailsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMerchantDetailsResponse>> GetMerchantDetailsWithHttpInfoAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<CreateMerchantResponse>> CreateWithHttpInfoAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -169,7 +144,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMerchantsResponse</returns>
-        System.Threading.Tasks.Task<GetMerchantsResponse> GetMerchantsAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<GetMerchantsResponse> GetAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -186,7 +161,32 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMerchantsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetMerchantsResponse>> GetMerchantsWithHttpInfoAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<GetMerchantsResponse>> GetWithHttpInfoAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetMerchantDetailsResponse</returns>
+        System.Threading.Tasks.Task<GetMerchantDetailsResponse> GetDetailsAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetMerchantDetailsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetMerchantDetailsResponse>> GetDetailsWithHttpInfoAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -314,9 +314,9 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="createMerchantRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>CreateMerchantResponse</returns>
-        public CreateMerchantResponse CreateMerchant(CreateMerchantRequest createMerchantRequest, int operationIndex = 0)
+        public CreateMerchantResponse Create(CreateMerchantRequest createMerchantRequest, int operationIndex = 0)
         {
-            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = CreateMerchantWithHttpInfo(createMerchantRequest);
+            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = CreateWithHttpInfo(createMerchantRequest);
             return localVarResponse.Data;
         }
 
@@ -327,12 +327,12 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="createMerchantRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of CreateMerchantResponse</returns>
-        public Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> CreateMerchantWithHttpInfo(CreateMerchantRequest createMerchantRequest, int operationIndex = 0)
+        public Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> CreateWithHttpInfo(CreateMerchantRequest createMerchantRequest, int operationIndex = 0)
         {
             // verify the required parameter 'createMerchantRequest' is set
             if (createMerchantRequest == null)
             {
-                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createMerchantRequest' when calling MerchantsApi->CreateMerchant");
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createMerchantRequest' when calling MerchantsApi->Create");
             }
 
             Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
@@ -360,7 +360,7 @@ namespace Splitit.Onboarding.Net.Api
 
             localVarRequestOptions.Data = createMerchantRequest;
 
-            localVarRequestOptions.Operation = "MerchantsApi.CreateMerchant";
+            localVarRequestOptions.Operation = "MerchantsApi.Create";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -384,7 +384,7 @@ namespace Splitit.Onboarding.Net.Api
             var localVarResponse = this.Client.Post<CreateMerchantResponse>("/api/merchants/create", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateMerchant", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Create", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -402,9 +402,9 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CreateMerchantResponse</returns>
-        public async System.Threading.Tasks.Task<CreateMerchantResponse> CreateMerchantAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CreateMerchantResponse> CreateAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = await CreateMerchantWithHttpInfoAsync(createMerchantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse> localVarResponse = await CreateWithHttpInfoAsync(createMerchantRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -416,12 +416,12 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CreateMerchantResponse)</returns>
-        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse>> CreateMerchantWithHttpInfoAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<CreateMerchantResponse>> CreateWithHttpInfoAsync(CreateMerchantRequest createMerchantRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'createMerchantRequest' is set
             if (createMerchantRequest == null)
             {
-                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createMerchantRequest' when calling MerchantsApi->CreateMerchant");
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'createMerchantRequest' when calling MerchantsApi->Create");
             }
 
 
@@ -450,7 +450,7 @@ namespace Splitit.Onboarding.Net.Api
 
             localVarRequestOptions.Data = createMerchantRequest;
 
-            localVarRequestOptions.Operation = "MerchantsApi.CreateMerchant";
+            localVarRequestOptions.Operation = "MerchantsApi.Create";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -475,183 +475,7 @@ namespace Splitit.Onboarding.Net.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateMerchant", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetMerchantDetailsResponse</returns>
-        public GetMerchantDetailsResponse GetMerchantDetails(string merchantTempId, int operationIndex = 0)
-        {
-            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> localVarResponse = GetMerchantDetailsWithHttpInfo(merchantTempId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetMerchantDetailsResponse</returns>
-        public Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> GetMerchantDetailsWithHttpInfo(string merchantTempId, int operationIndex = 0)
-        {
-            // verify the required parameter 'merchantTempId' is set
-            if (merchantTempId == null)
-            {
-                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'merchantTempId' when calling MerchantsApi->GetMerchantDetails");
-            }
-
-            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "merchantTempId", merchantTempId));
-
-            localVarRequestOptions.Operation = "MerchantsApi.GetMerchantDetails";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<GetMerchantDetailsResponse>("/api/merchants/get-details", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMerchantDetails", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetMerchantDetailsResponse</returns>
-        public async System.Threading.Tasks.Task<GetMerchantDetailsResponse> GetMerchantDetailsAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> localVarResponse = await GetMerchantDetailsWithHttpInfoAsync(merchantTempId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="merchantTempId"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetMerchantDetailsResponse)</returns>
-        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse>> GetMerchantDetailsWithHttpInfoAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'merchantTempId' is set
-            if (merchantTempId == null)
-            {
-                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'merchantTempId' when calling MerchantsApi->GetMerchantDetails");
-            }
-
-
-            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "merchantTempId", merchantTempId));
-
-            localVarRequestOptions.Operation = "MerchantsApi.GetMerchantDetails";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMerchantDetailsResponse>("/api/merchants/get-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetMerchantDetails", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Create", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -672,9 +496,9 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="status"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>GetMerchantsResponse</returns>
-        public GetMerchantsResponse GetMerchants(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0)
+        public GetMerchantsResponse Get(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0)
         {
-            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> localVarResponse = GetMerchantsWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
+            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> localVarResponse = GetWithHttpInfo(numberOfRowsInPage, pageNumber, name, legalName, status);
             return localVarResponse.Data;
         }
 
@@ -689,7 +513,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="status"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of GetMerchantsResponse</returns>
-        public Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> GetMerchantsWithHttpInfo(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0)
+        public Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> GetWithHttpInfo(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0)
         {
             Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
 
@@ -728,7 +552,7 @@ namespace Splitit.Onboarding.Net.Api
                 localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "Status", status));
             }
 
-            localVarRequestOptions.Operation = "MerchantsApi.GetMerchants";
+            localVarRequestOptions.Operation = "MerchantsApi.Get";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -752,7 +576,7 @@ namespace Splitit.Onboarding.Net.Api
             var localVarResponse = this.Client.Get<GetMerchantsResponse>("/api/merchants/get", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMerchants", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Get", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -774,9 +598,9 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GetMerchantsResponse</returns>
-        public async System.Threading.Tasks.Task<GetMerchantsResponse> GetMerchantsAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<GetMerchantsResponse> GetAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> localVarResponse = await GetMerchantsWithHttpInfoAsync(numberOfRowsInPage, pageNumber, name, legalName, status, operationIndex, cancellationToken).ConfigureAwait(false);
+            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse> localVarResponse = await GetWithHttpInfoAsync(numberOfRowsInPage, pageNumber, name, legalName, status, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -792,7 +616,7 @@ namespace Splitit.Onboarding.Net.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GetMerchantsResponse)</returns>
-        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse>> GetMerchantsWithHttpInfoAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantsResponse>> GetWithHttpInfoAsync(int numberOfRowsInPage, int pageNumber, string name = default(string), string legalName = default(string), int? status = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
@@ -832,7 +656,7 @@ namespace Splitit.Onboarding.Net.Api
                 localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "Status", status));
             }
 
-            localVarRequestOptions.Operation = "MerchantsApi.GetMerchants";
+            localVarRequestOptions.Operation = "MerchantsApi.Get";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -857,7 +681,183 @@ namespace Splitit.Onboarding.Net.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetMerchants", localVarResponse);
+                Exception _exception = this.ExceptionFactory("Get", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>GetMerchantDetailsResponse</returns>
+        public GetMerchantDetailsResponse GetDetails(string merchantTempId, int operationIndex = 0)
+        {
+            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> localVarResponse = GetDetailsWithHttpInfo(merchantTempId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of GetMerchantDetailsResponse</returns>
+        public Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> GetDetailsWithHttpInfo(string merchantTempId, int operationIndex = 0)
+        {
+            // verify the required parameter 'merchantTempId' is set
+            if (merchantTempId == null)
+            {
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'merchantTempId' when calling MerchantsApi->GetDetails");
+            }
+
+            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "merchantTempId", merchantTempId));
+
+            localVarRequestOptions.Operation = "MerchantsApi.GetDetails";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GetMerchantDetailsResponse>("/api/merchants/get-details", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDetails", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GetMerchantDetailsResponse</returns>
+        public async System.Threading.Tasks.Task<GetMerchantDetailsResponse> GetDetailsAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse> localVarResponse = await GetDetailsWithHttpInfoAsync(merchantTempId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        ///  
+        /// </summary>
+        /// <exception cref="Splitit.Onboarding.Net.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="merchantTempId"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GetMerchantDetailsResponse)</returns>
+        public async System.Threading.Tasks.Task<Splitit.Onboarding.Net.Client.ApiResponse<GetMerchantDetailsResponse>> GetDetailsWithHttpInfoAsync(string merchantTempId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'merchantTempId' is set
+            if (merchantTempId == null)
+            {
+                throw new Splitit.Onboarding.Net.Client.ApiException(400, "Missing required parameter 'merchantTempId' when calling MerchantsApi->GetDetails");
+            }
+
+
+            Splitit.Onboarding.Net.Client.RequestOptions localVarRequestOptions = new Splitit.Onboarding.Net.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Splitit.Onboarding.Net.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Splitit.Onboarding.Net.Client.ClientUtils.ParameterToMultiMap("", "merchantTempId", merchantTempId));
+
+            localVarRequestOptions.Operation = "MerchantsApi.GetDetails";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetMerchantDetailsResponse>("/api/merchants/get-details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDetails", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

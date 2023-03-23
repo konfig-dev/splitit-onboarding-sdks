@@ -32,7 +32,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/typescript
   csharp:
-    version: 1.1.0
+    version: 2.0.0
     packageName: Splitit.Onboarding.Net
     outputDirectory: csharp
     logoPath: logo.png

@@ -55,34 +55,22 @@ namespace Splitit.Onboarding.Net.Test.Api
         }
 
         /// <summary>
-        /// Test CreateMerchant
+        /// Test Create
         /// </summary>
         [Fact]
-        public void CreateMerchantTest()
+        public void CreateTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //CreateMerchantRequest createMerchantRequest = null;
-            //var response = instance.CreateMerchant(createMerchantRequest);
+            //var response = instance.Create(createMerchantRequest);
             //Assert.IsType<CreateMerchantResponse>(response);
         }
 
         /// <summary>
-        /// Test GetMerchantDetails
+        /// Test Get
         /// </summary>
         [Fact]
-        public void GetMerchantDetailsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string merchantTempId = null;
-            //var response = instance.GetMerchantDetails(merchantTempId);
-            //Assert.IsType<GetMerchantDetailsResponse>(response);
-        }
-
-        /// <summary>
-        /// Test GetMerchants
-        /// </summary>
-        [Fact]
-        public void GetMerchantsTest()
+        public void GetTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int numberOfRowsInPage = null;
@@ -90,8 +78,20 @@ namespace Splitit.Onboarding.Net.Test.Api
             //string name = null;
             //string legalName = null;
             //int? status = null;
-            //var response = instance.GetMerchants(numberOfRowsInPage, pageNumber, name, legalName, status);
+            //var response = instance.Get(numberOfRowsInPage, pageNumber, name, legalName, status);
             //Assert.IsType<GetMerchantsResponse>(response);
+        }
+
+        /// <summary>
+        /// Test GetDetails
+        /// </summary>
+        [Fact]
+        public void GetDetailsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string merchantTempId = null;
+            //var response = instance.GetDetails(merchantTempId);
+            //Assert.IsType<GetMerchantDetailsResponse>(response);
         }
     }
 }
