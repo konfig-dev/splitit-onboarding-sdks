@@ -440,7 +440,8 @@
             "type": "string"
           },
           "isoNumber": {
-            "type": "string"
+            "type": "string",
+            "x-nullable": true
           }
         }
       },

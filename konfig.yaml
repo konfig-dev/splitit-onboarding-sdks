@@ -4,6 +4,11 @@ specPath: api.json
 requiredEnvironmentVariables:
   - ONBOARDING_SPLITIT_CLIENT_ID
   - ONBOARDING_SPLITIT_CLIENT_SECRET
+fixConfig:
+  modify:
+    $.components.schemas.CountryResponse.properties.isoNumber:
+      type: string
+      x-nullable: true
 generators:
   java:
     version: 1.1.0
