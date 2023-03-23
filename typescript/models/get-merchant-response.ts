@@ -24,7 +24,7 @@ export interface GetMerchantResponse {
      * @type {string}
      * @memberof GetMerchantResponse
      */
-    'name': string;
+    'publicName': string;
     /**
      * 
      * @type {string}

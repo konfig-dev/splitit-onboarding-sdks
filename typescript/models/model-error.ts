@@ -12,33 +12,30 @@
  * Do not edit the class manually.
  */
 
-// May contain unused imports in some cases
-// @ts-ignore
-import { ResponseHeader } from './response-header';
 
 /**
  * 
  * @export
- * @interface CreateMerchantResponse
+ * @interface ModelError
  */
-export interface CreateMerchantResponse {
+export interface ModelError {
     /**
      * 
      * @type {string}
-     * @memberof CreateMerchantResponse
+     * @memberof ModelError
      */
-    'merchantTempId': string;
+    'errorCode'?: string;
     /**
      * 
      * @type {string}
-     * @memberof CreateMerchantResponse
+     * @memberof ModelError
      */
-    'merchantStatus': string;
+    'message'?: string;
     /**
      * 
-     * @type {ResponseHeader}
-     * @memberof CreateMerchantResponse
+     * @type {string}
+     * @memberof ModelError
      */
-    'responseHeader': ResponseHeader;
+    'additionalInfo'?: string;
 }
 

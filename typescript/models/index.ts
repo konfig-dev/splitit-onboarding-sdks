@@ -1,5 +1,6 @@
 export * from './countries-response';
 export * from './country-response';
+export * from './create-developer-request';
 export * from './create-merchant-request';
 export * from './create-merchant-response';
 export * from './currencies-response';
@@ -10,7 +11,10 @@ export * from './get-merchant-response';
 export * from './get-merchants-response';
 export * from './merchant-vertical-response';
 export * from './merchant-verticals-response';
+export * from './model-error';
 export * from './processor-authentication-parameters-request';
 export * from './processor-response';
 export * from './processors-response';
+export * from './request-header-slim';
+export * from './response-header';
 export * from './self-on-boarding-error-response';

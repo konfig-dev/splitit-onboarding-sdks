@@ -32,7 +32,7 @@ generators:
       userId: konfig-dev
       repoId: splitit-onboarding-sdks/tree/main/python
   typescript:
-    version: 2.0.0
+    version: 3.0.0
     npmName: splitit-onboarding-typescript-sdk
     outputDirectory: typescript
     clientName: Splitit

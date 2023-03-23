@@ -1,4 +1,4 @@
-## splitit-onboarding-typescript-sdk@2.0.0
+## splitit-onboarding-typescript-sdk@3.0.0
 
 This library that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
@@ -28,7 +28,7 @@ npm run build
 navigate to the folder of your consuming project and run the following command.
 
 ```
-npm install splitit-onboarding-typescript-sdk@2.0.0 --save
+npm install splitit-onboarding-typescript-sdk@3.0.0 --save
 ```
 
 ### Getting Started
@@ -61,6 +61,7 @@ Class | Method | HTTP request | Description
 *DataApi* | [**getVerticals**](docs/DataApi.md#getVerticals) | **GET** /api/data/get-verticals | 
 *DataApi* | [**statusLegend**](docs/DataApi.md#statusLegend) | **GET** /api/data/status-legend | 
 *MerchantsApi* | [**create**](docs/MerchantsApi.md#create) | **POST** /api/merchants/create | 
+*MerchantsApi* | [**createDeveloper**](docs/MerchantsApi.md#createDeveloper) | **POST** /api/merchants/create/developer | 
 *MerchantsApi* | [**get**](docs/MerchantsApi.md#get) | **GET** /api/merchants/get | 
 *MerchantsApi* | [**getDetails**](docs/MerchantsApi.md#getDetails) | **GET** /api/merchants/get-details | 
 

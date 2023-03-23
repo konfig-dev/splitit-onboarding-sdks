@@ -20,6 +20,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 // @ts-ignore
+import { CreateDeveloperRequest } from '../models';
+// @ts-ignore
 import { CreateMerchantRequest } from '../models';
 // @ts-ignore
 import { CreateMerchantResponse } from '../models';
@@ -69,6 +71,52 @@ export const MerchantsApiAxiosParamCreator = function (configuration?: Configura
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(createMerchantRequest, localVarRequestOptions, configuration)
+
+            requestBeforeHook({
+              queryParameters: localVarQueryParameter,
+              requestConfig: localVarRequestOptions,
+              path: localVarPath,
+              configuration
+            });
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {CreateDeveloperRequest} createDeveloperRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDeveloper: async (createDeveloperRequest: CreateDeveloperRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createDeveloperRequest' is not null or undefined
+            assertParamExists('createDeveloper', 'createDeveloperRequest', createDeveloperRequest)
+            const localVarPath = `/api/merchants/create/developer`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions: AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = configuration ? { "User-Agent": configuration.userAgent } : {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createDeveloperRequest, localVarRequestOptions, configuration)
 
             requestBeforeHook({
               queryParameters: localVarQueryParameter,
@@ -221,6 +269,16 @@ export const MerchantsApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
+         * @param {MerchantsApiCreateDeveloperRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createDeveloper(requestParameters: MerchantsApiCreateDeveloperRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateMerchantResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDeveloper(requestParameters, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @param {MerchantsApiGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -260,6 +318,15 @@ export const MerchantsApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
+         * @param {MerchantsApiCreateDeveloperRequest} requestParameters Request parameters.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDeveloper(requestParameters: MerchantsApiCreateDeveloperRequest, options?: AxiosRequestConfig): AxiosPromise<CreateMerchantResponse> {
+            return localVarFp.createDeveloper(requestParameters, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @param {MerchantsApiGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -287,6 +354,15 @@ export const MerchantsApiFactory = function (configuration?: Configuration, base
 export type MerchantsApiCreateRequest = {
     
 } & CreateMerchantRequest
+
+/**
+ * Request parameters for createDeveloper operation in MerchantsApi.
+ * @export
+ * @interface MerchantsApiCreateDeveloperRequest
+ */
+export type MerchantsApiCreateDeveloperRequest = {
+    
+} & CreateDeveloperRequest
 
 /**
  * Request parameters for get operation in MerchantsApi.
@@ -364,6 +440,17 @@ export class MerchantsApi extends BaseAPI {
      */
     public create(requestParameters: MerchantsApiCreateRequest, options?: AxiosRequestConfig) {
         return MerchantsApiFp(this.configuration).create(requestParameters, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {MerchantsApiCreateDeveloperRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MerchantsApi
+     */
+    public createDeveloper(requestParameters: MerchantsApiCreateDeveloperRequest, options?: AxiosRequestConfig) {
+        return MerchantsApiFp(this.configuration).createDeveloper(requestParameters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

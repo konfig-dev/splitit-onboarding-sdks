@@ -60,6 +60,12 @@ export interface CreateMerchantRequest {
      * @type {string}
      * @memberof CreateMerchantRequest
      */
+    'vertical': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateMerchantRequest
+     */
     'tier'?: string;
     /**
      * 
@@ -91,12 +97,6 @@ export interface CreateMerchantRequest {
      * @memberof CreateMerchantRequest
      */
     'businessState'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateMerchantRequest
-     */
-    'vertical'?: string;
     /**
      * 
      * @type {string}
