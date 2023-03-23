@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # flake8: noqa
 
 # import all models into this package
@@ -25,3 +27,4 @@ from splitit_client.model.processor_authentication_parameters_request import Pro
 from splitit_client.model.processor_response import ProcessorResponse
 from splitit_client.model.processors_response import ProcessorsResponse
 from splitit_client.model.self_on_boarding_error_response import SelfOnBoardingErrorResponse
+from splitit_client.model.status_legend_response import StatusLegendResponse

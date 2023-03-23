@@ -11,9 +11,7 @@
 import unittest
 
 import os
-from splitit_client.api_client import ApiClient
-from splitit_client.api.data_api import DataApi  # noqa: E501
-from splitit_client import Configuration
+from splitit_client import Splitit
 
 
 class TestDataApi(unittest.TestCase):
@@ -22,9 +20,7 @@ class TestDataApi(unittest.TestCase):
     def setUp(self):
         client_id = os.environ["ONBOARDING_SPLITIT_CLIENT_ID"]
         client_secret = os.environ["ONBOARDING_SPLITIT_CLIENT_SECRET"]
-        configuration = Configuration(client_id=client_id, client_secret=client_secret)
-        api_client = ApiClient(configuration)
-        self.api = DataApi(api_client)  # noqa: E501
+        self.splitit = Splitit(client_id=client_id, client_secret=client_secret)
 
     def tearDown(self):
         pass
@@ -33,7 +29,7 @@ class TestDataApi(unittest.TestCase):
         """Test case for get_countries
 
         """
-        response = self.api.get_countries()
+        response = self.splitit.data.get_countries()
         assert response is not None, "Received null response"
 
 if __name__ == '__main__':
