@@ -8,7 +8,7 @@ fixConfig:
   modify:
     $.components.schemas.CountryResponse.properties.isoNumber:
       type: string
-      x-nullable: true
+      nullable: true
 generators:
   java:
     version: 1.1.0

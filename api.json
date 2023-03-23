@@ -441,7 +441,7 @@
           },
           "isoNumber": {
             "type": "string",
-            "x-nullable": true
+            "nullable": true
           }
         }
       },
