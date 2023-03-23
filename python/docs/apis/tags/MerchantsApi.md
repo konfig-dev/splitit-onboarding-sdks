@@ -6,6 +6,7 @@ All URIs are relative to *https://onboarding-v2.sandbox.splitit.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create**](#create) | **post** /api/merchants/create | 
+[**create_developer**](#create_developer) | **post** /api/merchants/create/developer | 
 [**get**](#get) | **get** /api/merchants/get | 
 [**get_details**](#get_details) | **get** /api/merchants/get-details | 
 
@@ -38,11 +39,13 @@ create_response = splitit.merchants.create(
         "country_iso2": "country_iso2_example",
         "legal_name": "legal_name_example",
         "currency_code": "currency_code_example",
+        "vertical": "vertical_example",
     },
 )
 try:
     pprint(create_response.body["merchant_temp_id"])
     pprint(create_response.body["merchant_status"])
+    pprint(create_response.body["response_header"])
     pprint(create_response.headers)
     pprint(create_response.status)
 except ApiException as e:
@@ -93,6 +96,112 @@ Type | Description  | Notes
 
 
 #### create.ApiResponseFor400
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor400ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor400ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**SelfOnBoardingErrorResponse**](../../models/SelfOnBoardingErrorResponse.md) |  | 
+
+
+### Authorization
+
+[oauth2](../../../README.md#oauth2)
+
+[[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
+
+# **create_developer**
+<a name="create_developer"></a>
+> CreateMerchantResponse create_developer(create_developer_request)
+
+
+
+### Example
+
+```python
+from pprint import pprint
+from splitit_client import Splitit
+
+splitit = Splitit(
+    # Defining the host is optional and defaults to https://onboarding-v2.sandbox.splitit.com
+    # See configuration.py for a list of all supported configuration parameters.
+    host = "https://onboarding-v2.sandbox.splitit.com",
+
+    # Configure OAuth2 access token for authorization: oauth2
+    access_token = 'YOUR_ACCESS_TOKEN'
+)
+
+create_developer_response = splitit.merchants.create_developer(
+    body = {
+        "full_name": "full_name_example",
+        "email": "email_example",
+        "company_name": "company_name_example",
+        "terms_and_conditions": True,
+        "country_code": "country_code_example",
+        "full_country_name": "full_country_name_example",
+        "request_header": {
+            "session_id": "session_id_example",
+        },
+    },
+)
+try:
+    pprint(create_developer_response.body["merchant_temp_id"])
+    pprint(create_developer_response.body["merchant_status"])
+    pprint(create_developer_response.body["response_header"])
+    pprint(create_developer_response.headers)
+    pprint(create_developer_response.status)
+except ApiException as e:
+    print("Exception when calling CreateMerchantResponse.create_developer: %s\n" % e)
+    pprint(e.body)
+    pprint(e.headers)
+    pprint(e.status)
+    pprint(e.reason)
+```
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+body | typing.Union[SchemaForRequestBodyApplicationJson] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
+stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
+timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
+skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### body
+
+# SchemaForRequestBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateDeveloperRequest**](../../models/CreateDeveloperRequest.md) |  | 
+
+
+### Return Types, Responses
+
+Code | Class | Description
+------------- | ------------- | -------------
+n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
+201 | [ApiResponseFor201](#create_developer.ApiResponseFor201) | 
+400 | [ApiResponseFor400](#create_developer.ApiResponseFor400) | 
+
+#### create_developer.ApiResponseFor201
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+response | urllib3.HTTPResponse | Raw response |
+body | typing.Union[SchemaFor201ResponseBodyApplicationJson, ] |  |
+headers | Unset | headers were not defined |
+
+# SchemaFor201ResponseBodyApplicationJson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**CreateMerchantResponse**](../../models/CreateMerchantResponse.md) |  | 
+
+
+#### create_developer.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

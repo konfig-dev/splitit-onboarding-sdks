@@ -9,6 +9,7 @@ from splitit_client.apis.paths.api_data_status_legend import ApiDataStatusLegend
 from splitit_client.apis.paths.api_merchants_get import ApiMerchantsGet
 from splitit_client.apis.paths.api_merchants_get_details import ApiMerchantsGetDetails
 from splitit_client.apis.paths.api_merchants_create import ApiMerchantsCreate
+from splitit_client.apis.paths.api_merchants_create_developer import ApiMerchantsCreateDeveloper
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
@@ -21,6 +22,7 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.API_MERCHANTS_GET: ApiMerchantsGet,
         PathValues.API_MERCHANTS_GETDETAILS: ApiMerchantsGetDetails,
         PathValues.API_MERCHANTS_CREATE: ApiMerchantsCreate,
+        PathValues.API_MERCHANTS_CREATE_DEVELOPER: ApiMerchantsCreateDeveloper,
     }
 )
 
@@ -34,5 +36,6 @@ path_to_api = PathToApi(
         PathValues.API_MERCHANTS_GET: ApiMerchantsGet,
         PathValues.API_MERCHANTS_GETDETAILS: ApiMerchantsGetDetails,
         PathValues.API_MERCHANTS_CREATE: ApiMerchantsCreate,
+        PathValues.API_MERCHANTS_CREATE_DEVELOPER: ApiMerchantsCreateDeveloper,
     }
 )

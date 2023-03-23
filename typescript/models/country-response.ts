@@ -48,6 +48,6 @@ export interface CountryResponse {
      * @type {string}
      * @memberof CountryResponse
      */
-    'isoNumber': string;
+    'isoNumber': string | null;
 }
 

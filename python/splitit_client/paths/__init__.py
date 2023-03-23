@@ -14,3 +14,4 @@ class PathValues(str, enum.Enum):
     API_MERCHANTS_GET = "/api/merchants/get"
     API_MERCHANTS_GETDETAILS = "/api/merchants/get-details"
     API_MERCHANTS_CREATE = "/api/merchants/create"
+    API_MERCHANTS_CREATE_DEVELOPER = "/api/merchants/create/developer"

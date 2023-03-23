@@ -39,13 +39,13 @@ class GetMerchantResponse(
             "country",
             "annualSales",
             "phone",
-            "name",
+            "publicName",
             "merchantTempId",
             "status",
         }
         
         class properties:
-            name = schemas.StrSchema
+            publicName = schemas.StrSchema
             legalName = schemas.StrSchema
             phone = schemas.StrSchema
             country = schemas.StrSchema
@@ -53,7 +53,7 @@ class GetMerchantResponse(
             status = schemas.StrSchema
             merchantTempId = schemas.StrSchema
             __annotations__ = {
-                "name": name,
+                "publicName": publicName,
                 "legalName": legalName,
                 "phone": phone,
                 "country": country,
@@ -66,12 +66,12 @@ class GetMerchantResponse(
     country: MetaOapg.properties.country
     annualSales: MetaOapg.properties.annualSales
     phone: MetaOapg.properties.phone
-    name: MetaOapg.properties.name
+    publicName: MetaOapg.properties.publicName
     merchantTempId: MetaOapg.properties.merchantTempId
     status: MetaOapg.properties.status
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def __getitem__(self, name: typing_extensions.Literal["publicName"]) -> MetaOapg.properties.publicName: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["legalName"]) -> MetaOapg.properties.legalName: ...
@@ -94,13 +94,13 @@ class GetMerchantResponse(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["name", "legalName", "phone", "country", "annualSales", "status", "merchantTempId", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["publicName", "legalName", "phone", "country", "annualSales", "status", "merchantTempId", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["name"]) -> MetaOapg.properties.name: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["publicName"]) -> MetaOapg.properties.publicName: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["legalName"]) -> MetaOapg.properties.legalName: ...
@@ -123,7 +123,7 @@ class GetMerchantResponse(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["name", "legalName", "phone", "country", "annualSales", "status", "merchantTempId", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["publicName", "legalName", "phone", "country", "annualSales", "status", "merchantTempId", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -134,7 +134,7 @@ class GetMerchantResponse(
         country: typing.Union[MetaOapg.properties.country, str, ],
         annualSales: typing.Union[MetaOapg.properties.annualSales, str, ],
         phone: typing.Union[MetaOapg.properties.phone, str, ],
-        name: typing.Union[MetaOapg.properties.name, str, ],
+        publicName: typing.Union[MetaOapg.properties.publicName, str, ],
         merchantTempId: typing.Union[MetaOapg.properties.merchantTempId, str, ],
         status: typing.Union[MetaOapg.properties.status, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
@@ -147,7 +147,7 @@ class GetMerchantResponse(
             country=country,
             annualSales=annualSales,
             phone=phone,
-            name=name,
+            publicName=publicName,
             merchantTempId=merchantTempId,
             status=status,
             _configuration=_configuration,

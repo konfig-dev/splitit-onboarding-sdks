@@ -13,11 +13,13 @@
 
 from splitit_client.model.countries_response import CountriesResponse
 from splitit_client.model.country_response import CountryResponse
+from splitit_client.model.create_developer_request import CreateDeveloperRequest
 from splitit_client.model.create_merchant_request import CreateMerchantRequest
 from splitit_client.model.create_merchant_response import CreateMerchantResponse
 from splitit_client.model.currencies_response import CurrenciesResponse
 from splitit_client.model.currency_response import CurrencyResponse
 from splitit_client.model.enum_dto import EnumDTO
+from splitit_client.model.error import Error
 from splitit_client.model.get_merchant_details_response import GetMerchantDetailsResponse
 from splitit_client.model.get_merchant_response import GetMerchantResponse
 from splitit_client.model.get_merchants_response import GetMerchantsResponse
@@ -26,5 +28,7 @@ from splitit_client.model.merchant_verticals_response import MerchantVerticalsRe
 from splitit_client.model.processor_authentication_parameters_request import ProcessorAuthenticationParametersRequest
 from splitit_client.model.processor_response import ProcessorResponse
 from splitit_client.model.processors_response import ProcessorsResponse
+from splitit_client.model.request_header_slim import RequestHeaderSlim
+from splitit_client.model.response_header import ResponseHeader
 from splitit_client.model.self_on_boarding_error_response import SelfOnBoardingErrorResponse
 from splitit_client.model.status_legend_response import StatusLegendResponse

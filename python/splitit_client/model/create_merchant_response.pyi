@@ -36,18 +36,25 @@ class CreateMerchantResponse(
     class MetaOapg:
         required = {
             "merchantStatus",
+            "responseHeader",
             "merchantTempId",
         }
         
         class properties:
             merchantTempId = schemas.StrSchema
             merchantStatus = schemas.StrSchema
+        
+            @staticmethod
+            def responseHeader() -> typing.Type['ResponseHeader']:
+                return ResponseHeader
             __annotations__ = {
                 "merchantTempId": merchantTempId,
                 "merchantStatus": merchantStatus,
+                "responseHeader": responseHeader,
             }
     
     merchantStatus: MetaOapg.properties.merchantStatus
+    responseHeader: 'ResponseHeader'
     merchantTempId: MetaOapg.properties.merchantTempId
     
     @typing.overload
@@ -57,9 +64,12 @@ class CreateMerchantResponse(
     def __getitem__(self, name: typing_extensions.Literal["merchantStatus"]) -> MetaOapg.properties.merchantStatus: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["responseHeader"]) -> 'ResponseHeader': ...
+    
+    @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["merchantTempId", "merchantStatus", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["merchantTempId", "merchantStatus", "responseHeader", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -71,9 +81,12 @@ class CreateMerchantResponse(
     def get_item_oapg(self, name: typing_extensions.Literal["merchantStatus"]) -> MetaOapg.properties.merchantStatus: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["responseHeader"]) -> 'ResponseHeader': ...
+    
+    @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["merchantTempId", "merchantStatus", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["merchantTempId", "merchantStatus", "responseHeader", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -81,6 +94,7 @@ class CreateMerchantResponse(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
         merchantStatus: typing.Union[MetaOapg.properties.merchantStatus, str, ],
+        responseHeader: 'ResponseHeader',
         merchantTempId: typing.Union[MetaOapg.properties.merchantTempId, str, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
@@ -89,7 +103,10 @@ class CreateMerchantResponse(
             cls,
             *args,
             merchantStatus=merchantStatus,
+            responseHeader=responseHeader,
             merchantTempId=merchantTempId,
             _configuration=_configuration,
             **kwargs,
         )
+
+from splitit_client.model.response_header import ResponseHeader

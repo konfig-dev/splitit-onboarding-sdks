@@ -11,6 +11,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **legalName** | str,  | str,  |  | 
 **phoneNumber** | str,  | str,  |  | 
 **publicName** | str,  | str,  |  | 
+**vertical** | str,  | str,  |  | 
 **countryIso2** | str,  | str,  |  | 
 **currencyCode** | str,  | str,  |  | 
 **email** | str,  | str,  |  | 
@@ -20,7 +21,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **businessPostalCode** | str,  | str,  |  | [optional] 
 **businessCountry** | str,  | str,  |  | [optional] 
 **businessState** | str,  | str,  |  | [optional] 
-**vertical** | str,  | str,  |  | [optional] 
 **subVertical** | str,  | str,  |  | [optional] 
 **nameOnBankAccount** | str,  | str,  |  | [optional] 
 **incorporationCountry** | str,  | str,  |  | [optional] 

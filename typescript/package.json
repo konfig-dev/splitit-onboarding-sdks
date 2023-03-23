@@ -1,6 +1,6 @@
 {
   "name": "splitit-onboarding-typescript-sdk",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Client for Splitit.OnBoarding.Api.V2",
   "author": "Konfig",
   "repository": {

@@ -316,6 +316,7 @@ components:
         isoA3:
           type: string
         isoNumber:
+          nullable: true
           type: string
       required:
       - id

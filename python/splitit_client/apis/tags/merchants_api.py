@@ -10,12 +10,14 @@
 """
 
 from splitit_client.paths.api_merchants_create.post import Create
+from splitit_client.paths.api_merchants_create_developer.post import CreateDeveloper
 from splitit_client.paths.api_merchants_get.get import Get
 from splitit_client.paths.api_merchants_get_details.get import GetDetails
 
 
 class MerchantsApi(
     Create,
+    CreateDeveloper,
     Get,
     GetDetails,
 ):

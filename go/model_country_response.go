@@ -20,14 +20,14 @@ type CountryResponse struct {
 	Name string `json:"name"`
 	IsoA2 string `json:"isoA2"`
 	IsoA3 string `json:"isoA3"`
-	IsoNumber string `json:"isoNumber"`
+	IsoNumber NullableString `json:"isoNumber"`
 }
 
 // NewCountryResponse instantiates a new CountryResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCountryResponse(id string, name string, isoA2 string, isoA3 string, isoNumber string) *CountryResponse {
+func NewCountryResponse(id string, name string, isoA2 string, isoA3 string, isoNumber NullableString) *CountryResponse {
 	this := CountryResponse{}
 	this.Id = id
 	this.Name = name
@@ -142,27 +142,29 @@ func (o *CountryResponse) SetIsoA3(v string) {
 }
 
 // GetIsoNumber returns the IsoNumber field value
+// If the value is explicit nil, the zero value for string will be returned
 func (o *CountryResponse) GetIsoNumber() string {
-	if o == nil {
+	if o == nil || o.IsoNumber.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.IsoNumber
+	return *o.IsoNumber.Get()
 }
 
 // GetIsoNumberOk returns a tuple with the IsoNumber field value
 // and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CountryResponse) GetIsoNumberOk() (*string, bool) {
 	if o == nil {
     return nil, false
 	}
-	return &o.IsoNumber, true
+	return o.IsoNumber.Get(), o.IsoNumber.IsSet()
 }
 
 // SetIsoNumber sets field value
 func (o *CountryResponse) SetIsoNumber(v string) {
-	o.IsoNumber = v
+	o.IsoNumber.Set(&v)
 }
 
 func (o CountryResponse) MarshalJSON() ([]byte, error) {
@@ -180,7 +182,7 @@ func (o CountryResponse) MarshalJSON() ([]byte, error) {
 		toSerialize["isoA3"] = o.IsoA3
 	}
 	if true {
-		toSerialize["isoNumber"] = o.IsoNumber
+		toSerialize["isoNumber"] = o.IsoNumber.Get()
 	}
 	return json.Marshal(toSerialize)
 }

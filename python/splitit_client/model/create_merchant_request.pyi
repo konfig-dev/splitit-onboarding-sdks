@@ -38,6 +38,7 @@ class CreateMerchantRequest(
             "legalName",
             "phoneNumber",
             "publicName",
+            "vertical",
             "countryIso2",
             "currencyCode",
             "email",
@@ -80,13 +81,18 @@ class CreateMerchantRequest(
                 schemas.StrSchema
             ):
                 pass
+            
+            
+            class vertical(
+                schemas.StrSchema
+            ):
+                pass
             tier = schemas.StrSchema
             businessStreetAddress = schemas.StrSchema
             businessCity = schemas.StrSchema
             businessPostalCode = schemas.StrSchema
             businessCountry = schemas.StrSchema
             businessState = schemas.StrSchema
-            vertical = schemas.StrSchema
             subVertical = schemas.StrSchema
             nameOnBankAccount = schemas.StrSchema
             incorporationCountry = schemas.StrSchema
@@ -102,13 +108,13 @@ class CreateMerchantRequest(
                 "countryIso2": countryIso2,
                 "legalName": legalName,
                 "currencyCode": currencyCode,
+                "vertical": vertical,
                 "tier": tier,
                 "businessStreetAddress": businessStreetAddress,
                 "businessCity": businessCity,
                 "businessPostalCode": businessPostalCode,
                 "businessCountry": businessCountry,
                 "businessState": businessState,
-                "vertical": vertical,
                 "subVertical": subVertical,
                 "nameOnBankAccount": nameOnBankAccount,
                 "incorporationCountry": incorporationCountry,
@@ -122,6 +128,7 @@ class CreateMerchantRequest(
     legalName: MetaOapg.properties.legalName
     phoneNumber: MetaOapg.properties.phoneNumber
     publicName: MetaOapg.properties.publicName
+    vertical: MetaOapg.properties.vertical
     countryIso2: MetaOapg.properties.countryIso2
     currencyCode: MetaOapg.properties.currencyCode
     email: MetaOapg.properties.email
@@ -145,6 +152,9 @@ class CreateMerchantRequest(
     def __getitem__(self, name: typing_extensions.Literal["currencyCode"]) -> MetaOapg.properties.currencyCode: ...
     
     @typing.overload
+    def __getitem__(self, name: typing_extensions.Literal["vertical"]) -> MetaOapg.properties.vertical: ...
+    
+    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["tier"]) -> MetaOapg.properties.tier: ...
     
     @typing.overload
@@ -161,9 +171,6 @@ class CreateMerchantRequest(
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["businessState"]) -> MetaOapg.properties.businessState: ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["vertical"]) -> MetaOapg.properties.vertical: ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["subVertical"]) -> MetaOapg.properties.subVertical: ...
@@ -192,7 +199,7 @@ class CreateMerchantRequest(
     @typing.overload
     def __getitem__(self, name: str) -> schemas.UnsetAnyTypeSchema: ...
     
-    def __getitem__(self, name: typing.Union[typing_extensions.Literal["publicName", "email", "phoneNumber", "countryIso2", "legalName", "currencyCode", "tier", "businessStreetAddress", "businessCity", "businessPostalCode", "businessCountry", "businessState", "vertical", "subVertical", "nameOnBankAccount", "incorporationCountry", "accountNumber", "routingNumber", "taxIdNumber", "totalAnnualSales", "platformName", ], str]):
+    def __getitem__(self, name: typing.Union[typing_extensions.Literal["publicName", "email", "phoneNumber", "countryIso2", "legalName", "currencyCode", "vertical", "tier", "businessStreetAddress", "businessCity", "businessPostalCode", "businessCountry", "businessState", "subVertical", "nameOnBankAccount", "incorporationCountry", "accountNumber", "routingNumber", "taxIdNumber", "totalAnnualSales", "platformName", ], str]):
         # dict_instance[name] accessor
         return super().__getitem__(name)
     
@@ -216,6 +223,9 @@ class CreateMerchantRequest(
     def get_item_oapg(self, name: typing_extensions.Literal["currencyCode"]) -> MetaOapg.properties.currencyCode: ...
     
     @typing.overload
+    def get_item_oapg(self, name: typing_extensions.Literal["vertical"]) -> MetaOapg.properties.vertical: ...
+    
+    @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["tier"]) -> typing.Union[MetaOapg.properties.tier, schemas.Unset]: ...
     
     @typing.overload
@@ -232,9 +242,6 @@ class CreateMerchantRequest(
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["businessState"]) -> typing.Union[MetaOapg.properties.businessState, schemas.Unset]: ...
-    
-    @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["vertical"]) -> typing.Union[MetaOapg.properties.vertical, schemas.Unset]: ...
     
     @typing.overload
     def get_item_oapg(self, name: typing_extensions.Literal["subVertical"]) -> typing.Union[MetaOapg.properties.subVertical, schemas.Unset]: ...
@@ -263,7 +270,7 @@ class CreateMerchantRequest(
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
     
-    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["publicName", "email", "phoneNumber", "countryIso2", "legalName", "currencyCode", "tier", "businessStreetAddress", "businessCity", "businessPostalCode", "businessCountry", "businessState", "vertical", "subVertical", "nameOnBankAccount", "incorporationCountry", "accountNumber", "routingNumber", "taxIdNumber", "totalAnnualSales", "platformName", ], str]):
+    def get_item_oapg(self, name: typing.Union[typing_extensions.Literal["publicName", "email", "phoneNumber", "countryIso2", "legalName", "currencyCode", "vertical", "tier", "businessStreetAddress", "businessCity", "businessPostalCode", "businessCountry", "businessState", "subVertical", "nameOnBankAccount", "incorporationCountry", "accountNumber", "routingNumber", "taxIdNumber", "totalAnnualSales", "platformName", ], str]):
         return super().get_item_oapg(name)
     
 
@@ -273,6 +280,7 @@ class CreateMerchantRequest(
         legalName: typing.Union[MetaOapg.properties.legalName, str, ],
         phoneNumber: typing.Union[MetaOapg.properties.phoneNumber, str, ],
         publicName: typing.Union[MetaOapg.properties.publicName, str, ],
+        vertical: typing.Union[MetaOapg.properties.vertical, str, ],
         countryIso2: typing.Union[MetaOapg.properties.countryIso2, str, ],
         currencyCode: typing.Union[MetaOapg.properties.currencyCode, str, ],
         email: typing.Union[MetaOapg.properties.email, str, ],
@@ -282,7 +290,6 @@ class CreateMerchantRequest(
         businessPostalCode: typing.Union[MetaOapg.properties.businessPostalCode, str, schemas.Unset] = schemas.unset,
         businessCountry: typing.Union[MetaOapg.properties.businessCountry, str, schemas.Unset] = schemas.unset,
         businessState: typing.Union[MetaOapg.properties.businessState, str, schemas.Unset] = schemas.unset,
-        vertical: typing.Union[MetaOapg.properties.vertical, str, schemas.Unset] = schemas.unset,
         subVertical: typing.Union[MetaOapg.properties.subVertical, str, schemas.Unset] = schemas.unset,
         nameOnBankAccount: typing.Union[MetaOapg.properties.nameOnBankAccount, str, schemas.Unset] = schemas.unset,
         incorporationCountry: typing.Union[MetaOapg.properties.incorporationCountry, str, schemas.Unset] = schemas.unset,
@@ -300,6 +307,7 @@ class CreateMerchantRequest(
             legalName=legalName,
             phoneNumber=phoneNumber,
             publicName=publicName,
+            vertical=vertical,
             countryIso2=countryIso2,
             currencyCode=currencyCode,
             email=email,
@@ -309,7 +317,6 @@ class CreateMerchantRequest(
             businessPostalCode=businessPostalCode,
             businessCountry=businessCountry,
             businessState=businessState,
-            vertical=vertical,
             subVertical=subVertical,
             nameOnBankAccount=nameOnBankAccount,
             incorporationCountry=incorporationCountry,

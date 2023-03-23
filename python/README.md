@@ -2,7 +2,7 @@
 Splitit's Onboarding API
 
 - API version: 1.0.0
-- Package version: 2.0.0
+- Package version: 3.0.0
 
 ## Requirements.
 
@@ -14,9 +14,9 @@ Python >=3.7
 If the python package is hosted on a repository, you can install directly using:
 
 ```sh
-pip install splitit-onboarding-python-sdk==2.0.0
+pip install splitit-onboarding-python-sdk==3.0.0
 ```
-(you may need to run `pip` with root permission: `sudo pip install splitit-onboarding-python-sdk==2.0.0`)
+(you may need to run `pip` with root permission: `sudo pip install splitit-onboarding-python-sdk==3.0.0`)
 
 Then import the package:
 ```python
@@ -64,6 +64,7 @@ Class | Method | HTTP request | Description
 *DataApi* | [**get_verticals**](docs/apis/tags/DataApi.md#get_verticals) | **get** /api/data/get-verticals | 
 *DataApi* | [**status_legend**](docs/apis/tags/DataApi.md#status_legend) | **get** /api/data/status-legend | 
 *MerchantsApi* | [**create**](docs/apis/tags/MerchantsApi.md#create) | **post** /api/merchants/create | 
+*MerchantsApi* | [**create_developer**](docs/apis/tags/MerchantsApi.md#create_developer) | **post** /api/merchants/create/developer | 
 *MerchantsApi* | [**get**](docs/apis/tags/MerchantsApi.md#get) | **get** /api/merchants/get | 
 *MerchantsApi* | [**get_details**](docs/apis/tags/MerchantsApi.md#get_details) | **get** /api/merchants/get-details | 
 
@@ -71,11 +72,13 @@ Class | Method | HTTP request | Description
 
  - [CountriesResponse](docs/models/CountriesResponse.md)
  - [CountryResponse](docs/models/CountryResponse.md)
+ - [CreateDeveloperRequest](docs/models/CreateDeveloperRequest.md)
  - [CreateMerchantRequest](docs/models/CreateMerchantRequest.md)
  - [CreateMerchantResponse](docs/models/CreateMerchantResponse.md)
  - [CurrenciesResponse](docs/models/CurrenciesResponse.md)
  - [CurrencyResponse](docs/models/CurrencyResponse.md)
  - [EnumDTO](docs/models/EnumDTO.md)
+ - [Error](docs/models/Error.md)
  - [GetMerchantDetailsResponse](docs/models/GetMerchantDetailsResponse.md)
  - [GetMerchantResponse](docs/models/GetMerchantResponse.md)
  - [GetMerchantsResponse](docs/models/GetMerchantsResponse.md)
@@ -84,6 +87,8 @@ Class | Method | HTTP request | Description
  - [ProcessorAuthenticationParametersRequest](docs/models/ProcessorAuthenticationParametersRequest.md)
  - [ProcessorResponse](docs/models/ProcessorResponse.md)
  - [ProcessorsResponse](docs/models/ProcessorsResponse.md)
+ - [RequestHeaderSlim](docs/models/RequestHeaderSlim.md)
+ - [ResponseHeader](docs/models/ResponseHeader.md)
  - [SelfOnBoardingErrorResponse](docs/models/SelfOnBoardingErrorResponse.md)
  - [StatusLegendResponse](docs/models/StatusLegendResponse.md)
 

@@ -930,7 +930,7 @@ class OpenApiResponse(JSONDetector):
         Finds the correct SchemaObject for a particular content type. Handles
         the asterisk "*" character that is used to group media types into ranges
         (https://www.rfc-editor.org/rfc/rfc7231#section-5.3.2). Also handles
-        parameters in teh form of name=value pairs.
+        parameters in the form of name=value pairs.
         """
         media_types = self.content.keys()
         matched_media_type = OpenApiResponse.match_content_type(
@@ -1071,7 +1071,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'Konfig/2.0.0/python'
+        self.user_agent = 'Konfig/3.0.0/python'
 
     def __enter__(self):
         return self
