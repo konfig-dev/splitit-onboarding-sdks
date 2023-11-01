@@ -29,7 +29,7 @@ generators:
       repoId: splitit-onboarding-php-sdk
   python:
     version: 3.0.0
-    responseTypeVersion: 1
+    responseTypeVersion: '1'
     packageName: splitit_client
     projectName: splitit-onboarding-python-sdk
     outputDirectory: python
